@@ -1,0 +1,9 @@
+# Debug and comparison screenshots in root directory
+/*.png
+/*.jpg
+/*.jpeg
+!assets/**
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
