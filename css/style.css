@@ -7789,3 +7789,157 @@ body {
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.18)) !important;
   pointer-events: none !important;
 }
+
+/* --------------------------------------------------------------------------
+   REMOVE ALL DEMO FLOW NAV BARS ACROSS THE ENTIRE WEBSITE
+   -------------------------------------------------------------------------- */
+.journey-stage-selector-bar,
+.quiz-stage-selector-bar,
+.flow-stage-strip {
+  display: none !important;
+}
+
+/* --------------------------------------------------------------------------
+   MY LEARNING: SQUARE-PROPORTIONED SUBJECT SELECTION LAYOUT
+   -------------------------------------------------------------------------- */
+#view-learning-subjects .view-header-card {
+  max-width: 860px !important;
+  margin: 0 auto 18px auto !important;
+  width: 100% !important;
+}
+
+.learning-subjects-layout {
+  display: flex !important;
+  gap: 24px !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}
+
+.learning-subjects-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 230px) !important;
+  gap: 20px !important;
+  justify-content: center !important;
+  flex: none !important;
+}
+
+.subject-card-clay {
+  border-radius: 26px !important;
+  padding: 24px 16px !important;
+  min-height: 185px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  border: 2px solid rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 
+    0 12px 26px rgba(0, 0, 0, 0.06),
+    inset 0 2px 3px rgba(255, 255, 255, 0.95),
+    inset 0 -3px 4px rgba(0, 0, 0, 0.04) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.subject-card-clay:hover {
+  transform: translateY(-5px) scale(1.03) !important;
+  box-shadow: 
+    0 18px 34px rgba(0, 0, 0, 0.1),
+    inset 0 2px 3px rgba(255, 255, 255, 1) !important;
+}
+
+.subject-tile-3d-img {
+  width: 78px !important;
+  height: 78px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.16)) !important;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.subject-card-clay:hover .subject-tile-3d-img {
+  transform: scale(1.12) translateY(-3px) !important;
+}
+
+.subject-tile-name {
+  font-family: var(--font-display) !important;
+  font-size: 1.25rem !important;
+  font-weight: 900 !important;
+  color: #1e144a !important;
+}
+
+/* --------------------------------------------------------------------------
+   CHAPTER COMPLETION REWARD CARD: SQUARE-PROPORTIONED CELEBRATORY CARD
+   -------------------------------------------------------------------------- */
+.chapter-reward-congrats-card {
+  max-width: 680px !important;
+  margin: 24px auto 0 auto !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  padding: 28px 36px !important;
+  gap: 20px !important;
+  border-radius: 28px !important;
+  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%) !important;
+  border: 3px solid #fde68a !important;
+  box-shadow: 
+    0 18px 38px rgba(245, 158, 11, 0.22),
+    inset 0 2px 4px rgba(255, 255, 255, 1),
+    inset 0 -3px 5px rgba(245, 158, 11, 0.15) !important;
+  animation: bannerBounceIn 0.5s ease !important;
+}
+
+.chapter-reward-congrats-card .reward-card-left {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-align: center !important;
+  gap: 10px !important;
+}
+
+.chapter-reward-congrats-card .gift-box-icon {
+  font-size: 3.4rem !important;
+  filter: drop-shadow(0 6px 12px rgba(245, 158, 11, 0.35)) !important;
+  animation: gentleFloat 2.5s ease-in-out infinite !important;
+}
+
+.chapter-reward-congrats-card .reward-title {
+  font-family: var(--font-display) !important;
+  font-size: 1.45rem !important;
+  font-weight: 900 !important;
+  color: #92400e !important;
+  margin: 0 !important;
+}
+
+.chapter-reward-congrats-card .reward-sub {
+  font-size: 1.05rem !important;
+  font-weight: 700 !important;
+  color: #b45309 !important;
+  margin: 4px 0 0 0 !important;
+}
+
+.chapter-reward-congrats-card .reward-card-badges {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  gap: 14px !important;
+}
+
+/* --------------------------------------------------------------------------
+   SYLLABUS & WOODEN LADDER SIGNBOARD CONSISTENCY
+   -------------------------------------------------------------------------- */
+.syllabus-header-bar {
+  max-width: 860px !important;
+  margin: 0 auto 20px auto !important;
+  width: 100% !important;
+}
+
+.wooden-ladder-signboard-wrapper {
+  max-width: 860px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+}

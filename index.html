@@ -570,25 +570,6 @@
           <span class="bc-curr">Addition</span>
         </div>
 
-        <!-- Stage Navigation Strip: Fast-jump & test any of the 9 steps -->
-        <div class="journey-stage-selector-bar">
-          <div class="stage-selector-title">
-            <span class="stage-icon">🗺️</span>
-            <span>Chapter Journey Flow:</span>
-          </div>
-          <div class="stage-pills-row">
-            <button class="stage-nav-pill active-stage" data-set-stage="1" title="1. Start Chapter">1. Start</button>
-            <button class="stage-nav-pill" data-set-stage="2" title="2. Theory Lesson">2. Theory</button>
-            <button class="stage-nav-pill" data-set-stage="3" title="3. Video Unlocked">3. Video Unlocked</button>
-            <button class="stage-nav-pill" data-set-stage="4" title="4. Watch Video">4. Video Lesson</button>
-            <button class="stage-nav-pill" data-set-stage="5" title="5. Game Practice Unlocked">5. Game Unlocked</button>
-            <button class="stage-nav-pill" data-set-stage="6" title="6. Practice Game">6. Practice Game</button>
-            <button class="stage-nav-pill" data-set-stage="7" title="7. Challenge Unlocked">7. Challenge Unlocked</button>
-            <button class="stage-nav-pill" data-set-stage="8" title="8. Challenge Quiz">8. Challenge Quiz</button>
-            <button class="stage-nav-pill" data-set-stage="9" title="9. Chapter Completed">9. Treasure Unlocked</button>
-            <button class="stage-reset-btn" id="btnResetJourney" title="Reset Progression to Step 1">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- Chapter Header Intro Card -->
         <div class="journey-top-intro-card">
@@ -964,25 +945,6 @@
            STANDALONE QUIZZES VIEW (Sidebar Navigation Item)
            ==================================================================== -->
       <section class="app-view" id="view-quiz">
-        <!-- Quizzes Flow Fast-Jump Strip (Allows 1-Click Preview of all 9 screens) -->
-        <div class="quiz-stage-selector-bar">
-          <div class="stage-selector-title">
-            <span class="stage-icon">🎯</span>
-            <span>Quizzes Flow:</span>
-          </div>
-          <div class="stage-pills-row">
-            <button class="quiz-nav-pill active-quiz-stage" data-quiz-step="1" title="1. Quizzes Dashboard">1. Dashboard</button>
-            <button class="quiz-nav-pill" data-quiz-step="2" title="2. Choose Subject">2. Choose Subject</button>
-            <button class="quiz-nav-pill" data-quiz-step="3" title="3. Select Chapter">3. Select Chapter</button>
-            <button class="quiz-nav-pill" data-quiz-step="4" title="4. Quiz Instructions">4. Instructions</button>
-            <button class="quiz-nav-pill" data-quiz-step="5" title="5. Answer Question">5. Question</button>
-            <button class="quiz-nav-pill" data-quiz-step="6" title="6. Correct Feedback">6. Correct Feedback</button>
-            <button class="quiz-nav-pill" data-quiz-step="7" title="7. Incorrect Feedback">7. Incorrect Feedback</button>
-            <button class="quiz-nav-pill" data-quiz-step="8" title="8. Quiz Result">8. Quiz Result</button>
-            <button class="quiz-nav-pill" data-quiz-step="9" title="9. My Results History">9. My Results</button>
-            <button class="stage-reset-btn" id="btnResetQuizFlow" title="Reset Flow to Screen 1">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- SCREEN 1: QUIZZES DASHBOARD -->
         <div class="quiz-screen-panel active-quiz-screen" id="quizScreen1" data-quiz-screen="1">
@@ -1104,63 +1066,105 @@
             <span class="quiz-bc-curr">Maths</span>
           </div>
 
-          <div class="quiz-select-chapter-card">
-            <!-- Header Badge -->
-            <div class="quiz-class-badge-pill">
-              <span class="badge-star-icon">⭐</span>
-              <span class="badge-title-text">Maths – Class 3</span>
+          <!-- Syllabus Header Bar: Dropdown Pill & Progress Bar -->
+          <div class="syllabus-header-bar quiz-syllabus-header">
+            <div class="class-dropdown-pill">
+              <span>Maths - Class 3</span>
+              <span class="dropdown-arrow">▼</span>
             </div>
 
-            <!-- Chapters List -->
-            <div class="quiz-chapters-vertical-list">
-              <!-- Chapter 1 -->
-              <div class="quiz-chapter-row ch-completed">
-                <div class="ch-left-info">
-                  <div class="ch-play-circle green-play">▶</div>
-                  <span class="ch-title">Chapter 1 – Numbers and Place Value</span>
-                </div>
-                <span class="ch-status-pill pill-completed">Completed</span>
-              </div>
-
-              <!-- Chapter 2 -->
-              <div class="quiz-chapter-row ch-active">
-                <div class="ch-left-info">
-                  <div class="ch-play-circle orange-play">▶</div>
-                  <span class="ch-title">Chapter 2 – Addition</span>
-                </div>
-                <button class="btn-start-quiz-orange" data-quiz-nav="4">Start Quiz ▶</button>
-              </div>
-
-              <!-- Chapter 3 -->
-              <div class="quiz-chapter-row ch-locked">
-                <div class="ch-left-info">
-                  <div class="ch-play-circle grey-play">🔒</div>
-                  <span class="ch-title">Chapter 3 – Subtraction</span>
-                </div>
-                <span class="ch-status-pill pill-locked">🔒 Locked</span>
-              </div>
-
-              <!-- Chapter 4 -->
-              <div class="quiz-chapter-row ch-locked">
-                <div class="ch-left-info">
-                  <div class="ch-play-circle grey-play">🔒</div>
-                  <span class="ch-title">Chapter 4 – Multiplication</span>
-                </div>
-                <span class="ch-status-pill pill-locked">🔒 Locked</span>
-              </div>
-
-              <!-- Chapter 5 -->
-              <div class="quiz-chapter-row ch-locked">
-                <div class="ch-left-info">
-                  <div class="ch-play-circle grey-play">🔒</div>
-                  <span class="ch-title">Chapter 5 – Division</span>
-                </div>
-                <span class="ch-status-pill pill-locked">🔒 Locked</span>
+            <div class="chapter-overall-progress">
+              <span class="progress-lbl">Overall Progress:</span>
+              <span class="progress-pct">80%</span>
+              <div class="chapter-progress-track">
+                <div class="chapter-progress-fill" style="width: 80%;"></div>
               </div>
             </div>
+          </div>
 
-            <!-- Bottom Right Cheering Fox Mascot -->
-            <img src="assets/characters/fox_cheer_right.png" alt="Cheering Fox" class="quiz-fox-cheer-corner">
+          <!-- Center Hanging Wooden Ladder Signboard (Matching Reference Image 5) -->
+          <div class="wooden-ladder-signboard-wrapper">
+            <!-- Left and Right Vertical Hanging Ropes -->
+            <div class="ladder-hanging-rope ladder-rope-left"></div>
+            <div class="ladder-hanging-rope ladder-rope-right"></div>
+
+            <div class="wooden-ladder-planks-stack">
+              <!-- Plank 1: Numbers and Place Value (Completed) -->
+              <div class="wooden-plank-row plank-completed" data-quiz-nav="4" title="Chapter 1: Numbers and Place Value (Completed)">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_green.png" alt="Completed" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 1</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Numbers and Place Value</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-completed">✓ Completed</span>
+                </div>
+              </div>
+
+              <!-- Plank 2: Addition (Start Quiz - Active) -->
+              <div class="wooden-plank-row plank-active" data-quiz-nav="4" title="Chapter 2: Addition (Click to Start Quiz)">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_orange.png" alt="Active" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 2</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Addition</span>
+                </div>
+                <div class="plank-right-group">
+                  <button class="plank-btn-continue" data-quiz-nav="4">
+                    Start Quiz ▶
+                  </button>
+                </div>
+              </div>
+
+              <!-- Plank 3: Subtraction (Locked) -->
+              <div class="wooden-plank-row plank-locked" title="Chapter 3: Subtraction (Locked)">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 3</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Subtraction</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-locked">
+                    <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                    <span>Locked</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Plank 4: Multiplication (Locked) -->
+              <div class="wooden-plank-row plank-locked" title="Chapter 4: Multiplication (Locked)">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 4</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Multiplication</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-locked">
+                    <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                    <span>Locked</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Plank 5: Division (Locked) -->
+              <div class="wooden-plank-row plank-locked" title="Chapter 5: Division (Locked)">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 5</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Division</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-locked">
+                    <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                    <span>Locked</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1421,22 +1425,6 @@
            VIEW 7: ASSIGNMENTS (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-assignments">
-        <!-- Stage Fast-Jump Strip -->
-        <div class="flow-stage-strip">
-          <div class="strip-label"><span class="strip-icon">📝</span><span>Assignments Flow:</span></div>
-          <div class="strip-pills">
-            <button class="stage-pill active-pill" data-asg-step="1">1. Dashboard</button>
-            <button class="stage-pill" data-asg-step="2">2. Subject</button>
-            <button class="stage-pill" data-asg-step="3">3. Chapter List</button>
-            <button class="stage-pill" data-asg-step="4">4. Instructions</button>
-            <button class="stage-pill" data-asg-step="5">5. Do Assignment</button>
-            <button class="stage-pill" data-asg-step="6">6. Submit</button>
-            <button class="stage-pill" data-asg-step="7">7. Under Review</button>
-            <button class="stage-pill" data-asg-step="8">8. Graded Result</button>
-            <button class="stage-pill" data-asg-step="9">9. History</button>
-            <button class="stage-reset-btn" id="btnResetAsgFlow">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- SCREEN 1: ASSIGNMENTS DASHBOARD -->
         <div class="flow-screen-panel active-screen" id="asgScreen1" data-asg-screen="1">
@@ -1494,31 +1482,102 @@
           <div class="flow-breadcrumbs-bar">
             <span class="bc-link" data-asg-nav="1">Assignments</span><span class="bc-sep">></span><span class="bc-curr">Maths</span>
           </div>
-          <div class="view-dashboard-card">
-            <div class="quiz-class-badge-pill"><span class="badge-star-icon">⭐</span><span class="badge-title-text">Maths – Class 3</span></div>
-            <div class="quiz-chapters-vertical-list">
-              <div class="quiz-chapter-row ch-completed">
-                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 1 – Numbers and Place Value</span></div>
-                <span class="ch-status-pill pill-completed">Completed</span>
-              </div>
-              <div class="quiz-chapter-row ch-active">
-                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 2 – Addition</span></div>
-                <button class="btn-start-quiz-orange" data-asg-nav="4">New ▶</button>
-              </div>
-              <div class="quiz-chapter-row">
-                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 3 – Subtraction</span></div>
-                <span class="ch-status-pill pill-locked">Not Started</span>
-              </div>
-              <div class="quiz-chapter-row">
-                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 4 – Multiplication</span></div>
-                <span class="ch-status-pill pill-locked">Not Started</span>
-              </div>
-              <div class="quiz-chapter-row ch-locked">
-                <div class="ch-left-info"><span class="asg-doc-icon">🔒</span><span class="ch-title">Chapter 5 – Division</span></div>
-                <span class="ch-status-pill pill-locked">Locked</span>
+
+          <!-- Syllabus Header Bar: Dropdown Pill & Progress Bar -->
+          <div class="syllabus-header-bar">
+            <div class="class-dropdown-pill">
+              <span>Maths - Class 3</span>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+            <div class="chapter-overall-progress">
+              <span class="progress-lbl">Overall Progress:</span>
+              <span class="progress-pct">80%</span>
+              <div class="chapter-progress-track">
+                <div class="chapter-progress-fill" style="width: 80%;"></div>
               </div>
             </div>
-            <img src="assets/characters/fox_cheer_right.png" alt="Cheering Fox" class="quiz-fox-cheer-corner">
+          </div>
+
+          <!-- Center Hanging Wooden Ladder Signboard -->
+          <div class="wooden-ladder-signboard-wrapper">
+            <div class="ladder-hanging-rope ladder-rope-left"></div>
+            <div class="ladder-hanging-rope ladder-rope-right"></div>
+
+            <div class="wooden-ladder-planks-stack">
+              <!-- Plank 1: Numbers and Place Value (Completed) -->
+              <div class="wooden-plank-row plank-completed" data-asg-nav="4" title="Chapter 1: Numbers and Place Value">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_green.png" alt="Completed" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 1</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Numbers and Place Value</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-completed">✓ Completed</span>
+                </div>
+              </div>
+
+              <!-- Plank 2: Addition (New Assignment - Active) -->
+              <div class="wooden-plank-row plank-active" data-asg-nav="4" title="Chapter 2: Addition (Click to Start Assignment)">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_orange.png" alt="Active" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 2</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Addition</span>
+                </div>
+                <div class="plank-right-group">
+                  <button class="plank-btn-continue" data-asg-nav="4">
+                    New ▶
+                  </button>
+                </div>
+              </div>
+
+              <!-- Plank 3: Subtraction (Not Started) -->
+              <div class="wooden-plank-row plank-locked" title="Chapter 3: Subtraction">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Not Started" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 3</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Subtraction</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-locked">
+                    <span>Not Started</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Plank 4: Multiplication (Not Started) -->
+              <div class="wooden-plank-row plank-locked" title="Chapter 4: Multiplication">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Not Started" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 4</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Multiplication</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-locked">
+                    <span>Not Started</span>
+                  </span>
+                </div>
+              </div>
+
+              <!-- Plank 5: Division (Locked) -->
+              <div class="wooden-plank-row plank-locked" title="Chapter 5: Division">
+                <div class="plank-left-group">
+                  <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                  <span class="plank-chapter-num">Chapter 5</span>
+                  <span class="plank-divider-bar">|</span>
+                  <span class="plank-chapter-name">Division</span>
+                </div>
+                <div class="plank-right-group">
+                  <span class="plank-status-pill pill-locked">
+                    <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                    <span>Locked</span>
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1650,22 +1709,6 @@
            VIEW 8: LIVE CLASSES (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-live-classes">
-        <!-- Stage Fast-Jump Strip -->
-        <div class="flow-stage-strip">
-          <div class="strip-label"><span class="strip-icon">📹</span><span>Live Classes Flow:</span></div>
-          <div class="strip-pills">
-            <button class="stage-pill active-pill" data-live-step="1">1. Dashboard</button>
-            <button class="stage-pill" data-live-step="2">2. Upcoming</button>
-            <button class="stage-pill" data-live-step="3">3. Class Details</button>
-            <button class="stage-pill" data-live-step="4">4. Preparation</button>
-            <button class="stage-pill" data-live-step="5">5. In Progress</button>
-            <button class="stage-pill" data-live-step="6">6. Interaction</button>
-            <button class="stage-pill" data-live-step="7">7. Completed</button>
-            <button class="stage-pill" data-live-step="8">8. Resources</button>
-            <button class="stage-pill" data-live-step="9">9. History</button>
-            <button class="stage-reset-btn" id="btnResetLiveFlow">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- SCREEN 1: DASHBOARD -->
         <div class="flow-screen-panel active-screen" id="liveScreen1" data-live-screen="1">
@@ -1948,22 +1991,6 @@
            VIEW 9: PROGRESS (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-progress">
-        <!-- Stage Fast-Jump Strip -->
-        <div class="flow-stage-strip">
-          <div class="strip-label"><span class="strip-icon">📊</span><span>Progress Flow:</span></div>
-          <div class="strip-pills">
-            <button class="stage-pill active-pill" data-prog-step="1">1. Overview</button>
-            <button class="stage-pill" data-prog-step="2">2. Summary</button>
-            <button class="stage-pill" data-prog-step="3">3. Subjects</button>
-            <button class="stage-pill" data-prog-step="4">4. Detail (Maths)</button>
-            <button class="stage-pill" data-prog-step="5">5. Performance</button>
-            <button class="stage-pill" data-prog-step="6">6. Streak</button>
-            <button class="stage-pill" data-prog-step="7">7. Activity</button>
-            <button class="stage-pill" data-prog-step="8">8. Insights</button>
-            <button class="stage-pill" data-prog-step="9">9. Milestone</button>
-            <button class="stage-reset-btn" id="btnResetProgFlow">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- SCREEN 1: PROGRESS DASHBOARD -->
         <div class="flow-screen-panel active-screen" id="progScreen1" data-prog-screen="1">
@@ -2225,22 +2252,6 @@
            VIEW 10: ACHIEVEMENTS (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-achievements">
-        <!-- Stage Fast-Jump Strip -->
-        <div class="flow-stage-strip">
-          <div class="strip-label"><span class="strip-icon">🏆</span><span>Achievements Flow:</span></div>
-          <div class="strip-pills">
-            <button class="stage-pill active-pill" data-ach-step="1">1. Dashboard</button>
-            <button class="stage-pill" data-ach-step="2">2. Categories</button>
-            <button class="stage-pill" data-ach-step="3">3. Badges Collection</button>
-            <button class="stage-pill" data-ach-step="4">4. Badge Details</button>
-            <button class="stage-pill" data-ach-step="5">5. Points & Level</button>
-            <button class="stage-pill" data-ach-step="6">6. Certificates</button>
-            <button class="stage-pill" data-ach-step="7">7. Leaderboard</button>
-            <button class="stage-pill" data-ach-step="8">8. Milestones</button>
-            <button class="stage-pill" data-ach-step="9">9. Summary</button>
-            <button class="stage-reset-btn" id="btnResetAchFlow">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- SCREEN 1: ACHIEVEMENTS DASHBOARD -->
         <div class="flow-screen-panel active-screen" id="achScreen1" data-ach-screen="1">
@@ -2516,22 +2527,6 @@
            VIEW 11: AI STUDY BUDDY (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-ai-buddy">
-        <!-- Stage Fast-Jump Strip -->
-        <div class="flow-stage-strip">
-          <div class="strip-label"><span class="strip-icon">🤖</span><span>AI Study Buddy Flow:</span></div>
-          <div class="strip-pills">
-            <button class="stage-pill active-pill" data-ai-step="1">1. Home</button>
-            <button class="stage-pill" data-ai-step="2">2. Help Options</button>
-            <button class="stage-pill" data-ai-step="3">3. Ask Doubt</button>
-            <button class="stage-pill" data-ai-step="4">4. Concept Visual</button>
-            <button class="stage-pill" data-ai-step="5">5. Practice Qs</button>
-            <button class="stage-pill" data-ai-step="6">6. Quick Notes</button>
-            <button class="stage-pill" data-ai-step="7">7. Study Plan</button>
-            <button class="stage-pill" data-ai-step="8">8. Chat History</button>
-            <button class="stage-pill" data-ai-step="9">9. Insights</button>
-            <button class="stage-reset-btn" id="btnResetAiFlow">↺ Reset</button>
-          </div>
-        </div>
 
         <!-- SCREEN 1: AI BUDDY HOME -->
         <div class="flow-screen-panel active-screen" id="aiScreen1" data-ai-screen="1">
