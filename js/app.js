@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveClass();
   initFlowFeatures();
   initChapterJourneyFlow();
+  switchView('home');
 });
 
 // ==========================================================================
@@ -167,14 +168,15 @@ function switchView(targetViewId) {
   allViews.forEach(v => v.classList.remove('active'));
   targetEl.classList.add('active');
 
-  // Handle right sidebar visibility & 2-column grid expansion
-  if (viewport) {
+  // Handle right sidebar visibility & 2-column grid expansion (Right panel ONLY on Home Dashboard)
+  const viewports = document.querySelectorAll('.lms-screen-container, .dashboard-viewport');
+  viewports.forEach(vp => {
     if (normalizedId === 'view-home') {
-      viewport.classList.remove('subview-active');
+      vp.classList.remove('subview-active');
     } else {
-      viewport.classList.add('subview-active');
+      vp.classList.add('subview-active');
     }
-  }
+  });
 
   // Update Left Sidebar active nav item (adds green pill .active to the selected nav item)
   navItems.forEach(item => {

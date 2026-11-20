@@ -54,11 +54,19 @@ body {
   height: 100vh;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 240px 1fr 440px;
+  grid-template-columns: 240px minmax(0, 1fr) 390px;
   gap: 16px;
   padding: 16px 20px;
   position: relative;
   z-index: 1;
+}
+
+@media (max-width: 1480px) {
+  .lms-screen-container {
+    grid-template-columns: 220px minmax(0, 1fr) 350px;
+    gap: 12px;
+    padding: 12px 14px;
+  }
 }
 
 /* ==========================================================================
@@ -1632,15 +1640,28 @@ body {
   height: 100%;
 }
 
-/* Subview Expansion Canvas: Hide right sidebar and expand main content */
+/* Subview Expansion Canvas: Hide right sidebar and expand main content ONLY in subviews */
 .lms-screen-container.subview-active,
 .dashboard-viewport.subview-active {
-  grid-template-columns: 240px 1fr !important;
+  grid-template-columns: 240px minmax(0, 1fr) !important;
+}
+
+@media (max-width: 1480px) {
+  .lms-screen-container.subview-active,
+  .dashboard-viewport.subview-active {
+    grid-template-columns: 220px minmax(0, 1fr) !important;
+  }
 }
 
 .lms-screen-container.subview-active .right-stats-panel,
 .dashboard-viewport.subview-active .right-stats-panel {
   display: none !important;
+}
+
+/* Home Dashboard (when subview is NOT active): ALWAYS show right-stats-panel with full widgets */
+.lms-screen-container:not(.subview-active) .right-stats-panel,
+.dashboard-viewport:not(.subview-active) .right-stats-panel {
+  display: flex !important;
 }
 
 .lms-screen-container.subview-active .main-dashboard-panel,
