@@ -89,6 +89,11 @@
          ==================================================================== -->
     <main class="main-dashboard-panel">
 
+      <!-- ====================================================================
+           VIEW 1: HOME DASHBOARD (Exact Original Preserved)
+           ==================================================================== -->
+      <div class="app-view active" id="view-home">
+
       <!-- Treehouse & "My Learning World" Wooden Sign perched on upper-right branch -->
       <div class="treehouse-anchor" title="My Learning World Treehouse">
         <div class="treehouse-composition">
@@ -349,6 +354,772 @@
         </div>
       </section>
 
+
+      </div>
+
+      <!-- ====================================================================
+           VIEW 2: MY LEARNING - SUBJECTS
+           ==================================================================== -->
+      <section class="app-view" id="view-learning-subjects">
+        <div class="view-header-card">
+          <div class="view-header-title-group">
+            <img src="assets/icons/nav_learning_3d.png" alt="My Learning" class="view-header-icon">
+            <div>
+              <h1 class="view-heading">My Learning</h1>
+              <p class="view-subheading">Choose a subject to start learning</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="learning-subjects-layout">
+          <div class="learning-subjects-grid">
+            <div class="subject-card-clay maths-tile" data-action="go-maths" title="Open Maths">
+              <div class="subject-tile-icon-box">
+                <img src="assets/subjects/maths.png" alt="Maths" class="subject-tile-3d-img">
+              </div>
+              <span class="subject-tile-name">Maths</span>
+            </div>
+
+            <div class="subject-card-clay english-tile" data-action="go-english" title="Open English">
+              <div class="subject-tile-icon-box">
+                <img src="assets/subjects/english.png" alt="English" class="subject-tile-3d-img">
+              </div>
+              <span class="subject-tile-name">English</span>
+            </div>
+
+            <div class="subject-card-clay evs-tile" data-action="go-evs" title="Open EVS">
+              <div class="subject-tile-icon-box">
+                <img src="assets/subjects/evs.png" alt="EVS" class="subject-tile-3d-img">
+              </div>
+              <span class="subject-tile-name">EVS</span>
+            </div>
+
+            <div class="subject-card-clay science-tile" data-action="go-science" title="Open Science">
+              <div class="subject-tile-icon-box">
+                <img src="assets/subjects/science.png" alt="Science" class="subject-tile-3d-img">
+              </div>
+              <span class="subject-tile-name">Science</span>
+            </div>
+
+            <div class="subject-card-clay tamil-tile" data-action="go-tamil" title="Open Tamil">
+              <div class="subject-tile-icon-box">
+                <img src="assets/subjects/tamil.png" alt="Tamil" class="subject-tile-3d-img">
+              </div>
+              <span class="subject-tile-name">தமிழ்</span>
+            </div>
+
+            <div class="subject-card-clay art-tile" data-action="go-art" title="Open Art & Craft">
+              <div class="subject-tile-icon-box">
+                <img src="assets/subjects/art_and_craft.png" alt="Art & Craft" class="subject-tile-3d-img">
+              </div>
+              <span class="subject-tile-name">Art & Craft</span>
+            </div>
+          </div>
+
+          <div class="learning-mascot-anchor">
+            <img src="assets/characters/fox_waving.png" alt="Mascot" class="learning-mascot-img">
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 3: SUBJECT - CHAPTER LIST (MATHS)
+           ==================================================================== -->
+      <section class="app-view" id="view-chapter-list">
+        <div class="breadcrumbs-bar">
+          <a href="#learning" class="breadcrumb-link" data-route="learning-subjects">My Learning</a>
+          <span class="bc-sep">></span>
+          <span class="bc-curr">Maths</span>
+        </div>
+
+        <div class="chapter-list-card">
+          <div class="chapter-list-header-row">
+            <div class="class-dropdown-pill">
+              <span>Maths - Class 3</span>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+
+            <div class="chapter-overall-progress">
+              <span class="progress-lbl">Overall Progress:</span>
+              <span class="progress-pct">80%</span>
+              <div class="chapter-progress-track">
+                <div class="chapter-progress-fill" style="width: 80%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="chapters-table-list">
+            <div class="chapter-row completed-row">
+              <div class="chapter-row-left">
+                <span class="ch-play-circle green-play">▶</span>
+                <span class="ch-num">Chapter 1</span>
+                <span class="ch-title">Numbers and Place Value</span>
+              </div>
+              <div class="chapter-row-right">
+                <span class="status-badge-completed">✓ Completed</span>
+              </div>
+            </div>
+
+            <div class="chapter-row active-row">
+              <div class="chapter-row-left">
+                <span class="ch-play-circle orange-play">▶</span>
+                <span class="ch-num">Chapter 2</span>
+                <span class="ch-title">Addition</span>
+              </div>
+              <div class="chapter-row-right">
+                <button class="btn-chapter-continue" data-route="chapter-journey">
+                  Continue ▶
+                </button>
+              </div>
+            </div>
+
+            <div class="chapter-row locked-row">
+              <div class="chapter-row-left">
+                <span class="ch-play-circle grey-play">▶</span>
+                <span class="ch-num">Chapter 3</span>
+                <span class="ch-title">Subtraction</span>
+              </div>
+              <div class="chapter-row-right">
+                <span class="status-badge-locked">🔒 Locked</span>
+              </div>
+            </div>
+
+            <div class="chapter-row locked-row">
+              <div class="chapter-row-left">
+                <span class="ch-play-circle grey-play">▶</span>
+                <span class="ch-num">Chapter 4</span>
+                <span class="ch-title">Multiplication</span>
+              </div>
+              <div class="chapter-row-right">
+                <span class="status-badge-locked">🔒 Locked</span>
+              </div>
+            </div>
+
+            <div class="chapter-row locked-row">
+              <div class="chapter-row-left">
+                <span class="ch-play-circle grey-play">▶</span>
+                <span class="ch-num">Chapter 5</span>
+                <span class="ch-title">Division</span>
+              </div>
+              <div class="chapter-row-right">
+                <span class="status-badge-locked">🔒 Locked</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 4: CHAPTER JOURNEY (ADDITION)
+           ==================================================================== -->
+      <section class="app-view" id="view-chapter-journey">
+        <div class="breadcrumbs-bar">
+          <a href="#learning" class="breadcrumb-link" data-route="learning-subjects">My Learning</a>
+          <span class="bc-sep">></span>
+          <a href="#maths" class="breadcrumb-link" data-route="chapter-list">Maths</a>
+          <span class="bc-sep">></span>
+          <span class="bc-curr">Addition</span>
+        </div>
+
+        <div class="journey-main-card">
+          <div class="journey-header-intro">
+            <h1 class="journey-heading">Addition</h1>
+            <p class="journey-subheading">Learn, Practice, Play and Win Rewards!</p>
+          </div>
+
+          <div class="journey-stage-canvas">
+            <div class="journey-fox-guide">
+              <img src="assets/characters/fox_waving.png" alt="Fox Guide" class="journey-fox-img">
+            </div>
+
+            <div class="journey-stepping-stones">
+              <!-- Node 1: Theory (Completed) -->
+              <div class="journey-node completed-node" data-route="theory-lesson" title="Click to view Theory Lesson">
+                <div class="node-badge-status green-check">✓</div>
+                <div class="node-icon-wrapper">
+                  <img src="assets/learning_plan/icon_book.png" alt="Theory" class="node-icon-img">
+                </div>
+                <div class="node-stone-base green-stone">
+                  <span>Theory</span>
+                </div>
+              </div>
+
+              <div class="journey-connector active-connector"></div>
+
+              <!-- Node 2: Video (Completed) -->
+              <div class="journey-node completed-node" title="Video Lesson Completed">
+                <div class="node-badge-status green-check">✓</div>
+                <div class="node-icon-wrapper">
+                  <img src="assets/learning_plan/icon_video.png" alt="Video" class="node-icon-img">
+                </div>
+                <div class="node-stone-base green-stone">
+                  <span>Video</span>
+                </div>
+              </div>
+
+              <div class="journey-connector active-connector"></div>
+
+              <!-- Node 3: Game Practice (Active) -->
+              <div class="journey-node current-node" data-route="quiz" title="Practice Game Challenge">
+                <div class="node-badge-status blue-unlock">🎮</div>
+                <div class="node-icon-wrapper">
+                  <img src="assets/learning_plan/icon_gamepad.png" alt="Game Practice" class="node-icon-img">
+                </div>
+                <div class="node-stone-base blue-stone">
+                  <span>Game Practice</span>
+                </div>
+              </div>
+
+              <div class="journey-connector locked-connector"></div>
+
+              <!-- Node 4: Class Challenge (Locked) -->
+              <div class="journey-node locked-node">
+                <div class="node-badge-status lock-badge">🔒</div>
+                <div class="node-icon-wrapper">
+                  <img src="assets/learning_plan/icon_trophy.png" alt="Class Challenge" class="node-icon-img">
+                </div>
+                <div class="node-stone-base grey-stone">
+                  <span>Class Challenge</span>
+                </div>
+              </div>
+
+              <div class="journey-connector locked-connector"></div>
+
+              <!-- Node 5: Treasure Reward (Locked) -->
+              <div class="journey-node locked-node">
+                <div class="node-badge-status lock-badge">🔒</div>
+                <div class="node-icon-wrapper">
+                  <img src="assets/learning_plan/icon_chest.png" alt="Treasure Reward" class="node-icon-img">
+                </div>
+                <div class="node-stone-base purple-stone">
+                  <span>Treasure Reward</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 5: THEORY / LESSON PAGE
+           ==================================================================== -->
+      <section class="app-view" id="view-theory-lesson">
+        <div class="lesson-page-header">
+          <div class="lesson-header-left">
+            <span class="lesson-star-badge">⭐</span>
+            <h1 class="lesson-page-title">Addition - Theory</h1>
+          </div>
+          <button class="btn-back-journey" data-route="chapter-journey">
+            ← Back to Journey
+          </button>
+        </div>
+
+        <div class="lesson-page-body">
+          <!-- Left Mini Stepper -->
+          <div class="lesson-stepper-panel">
+            <div class="stepper-item active-step">
+              <span class="step-icon">📖</span>
+              <span class="step-label">Theory</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">📹</span>
+              <span class="step-label">Video</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🎮</span>
+              <span class="step-label">Game Practice</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🏆</span>
+              <span class="step-label">Challenge</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🎁</span>
+              <span class="step-label">Treasure</span>
+            </div>
+          </div>
+
+          <!-- Main Lesson Content Card -->
+          <div class="lesson-content-card">
+            <div class="lesson-text-block">
+              <h2 class="lesson-subheading">What is Addition?</h2>
+              <p class="lesson-desc">Addition means putting two or more numbers together.</p>
+            </div>
+
+            <div class="lesson-interactive-formula">
+              <div class="apple-group">
+                <span class="apple-emoji">🍎</span>
+                <span class="apple-emoji">🍎</span>
+              </div>
+              <span class="math-op-sign">+</span>
+              <div class="apple-group">
+                <span class="apple-emoji">🍎</span>
+              </div>
+              <span class="math-op-sign">=</span>
+              <div class="apple-group">
+                <span class="apple-emoji">🍎</span>
+                <span class="apple-emoji">🍎</span>
+                <span class="apple-emoji">🍎</span>
+              </div>
+            </div>
+
+            <div class="lesson-math-digits">
+              <span class="math-digit">2</span>
+              <span class="math-op">+</span>
+              <span class="math-digit">1</span>
+              <span class="math-op">=</span>
+              <span class="math-digit-sum">3</span>
+            </div>
+
+            <div class="lesson-fox-presenter">
+              <img src="assets/characters/fox_reading.png" alt="Teacher Fox" class="fox-presenter-img">
+            </div>
+
+            <div class="lesson-footer-nav">
+              <button class="btn-lesson-prev" data-route="chapter-journey">
+                &lt; Previous
+              </button>
+              <button class="btn-lesson-next" data-route="quiz">
+                Next &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 6: QUIZ - PRACTICE / CHALLENGE
+           ==================================================================== -->
+      <section class="app-view" id="view-quiz">
+        <div class="quiz-top-bar">
+          <div class="quiz-breadcrumbs">
+            <span class="quiz-bc-root">Quizzes</span>
+            <span class="bc-sep">></span>
+            <span class="quiz-bc-sub">Maths - Addition</span>
+          </div>
+
+          <div class="quiz-hud-controls">
+            <span class="quiz-q-counter">Q1 of 10</span>
+            <div class="quiz-timer-pill">
+              <span class="timer-clock-icon">⏱</span>
+              <span class="timer-countdown" id="quizTimerText">04:56</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quiz-stage-card">
+          <div class="quiz-question-box">
+            <h2 class="quiz-question-text">What is 5 + 3 ?</h2>
+          </div>
+
+          <div class="quiz-stage-body">
+            <div class="quiz-fox-thinking">
+              <div class="quiz-q-mark-bubble">?</div>
+              <img src="assets/characters/fox_waving.png" alt="Thinking Fox" class="quiz-fox-img">
+            </div>
+
+            <div class="quiz-options-grid">
+              <button class="quiz-opt-btn opt-cyan" data-value="6">
+                <span class="opt-num">6</span>
+              </button>
+
+              <button class="quiz-opt-btn opt-orange" data-value="7">
+                <span class="opt-num">7</span>
+              </button>
+
+              <button class="quiz-opt-btn opt-green correct-answer-btn" data-value="8">
+                <span class="opt-num">8</span>
+                <span class="quiz-check-indicator">✓</span>
+              </button>
+
+              <button class="quiz-opt-btn opt-pink" data-value="9">
+                <span class="opt-num">9</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="quiz-feedback-banner" id="quizFeedbackBanner" style="display: none;">
+            <span class="feedback-icon">🎉</span>
+            <span class="feedback-text">Correct! Outstanding job, Aarav! 🌟 (+20 Points)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 7: ASSIGNMENTS
+           ==================================================================== -->
+      <section class="app-view" id="view-assignments">
+        <div class="assignments-header-card">
+          <div class="assignments-title-group">
+            <span class="assignments-star-badge">⭐</span>
+            <h1 class="view-heading">Assignments</h1>
+          </div>
+
+          <div class="assignments-filter-tabs">
+            <button class="asg-tab-btn active-tab" data-filter="todo">To Do (3)</button>
+            <button class="asg-tab-btn" data-filter="submitted">Submitted (2)</button>
+            <button class="asg-tab-btn" data-filter="reviewed">Reviewed (4)</button>
+          </div>
+        </div>
+
+        <div class="assignments-stage-layout">
+          <div class="assignments-cards-list">
+            <!-- Assignment 1 -->
+            <div class="assignment-item-card">
+              <div class="asg-card-left">
+                <div class="asg-icon-pill">
+                  <img src="assets/icons/nav_assignments_3d.png" alt="Clipboard" class="asg-icon-img">
+                </div>
+                <div class="asg-meta-info">
+                  <h3 class="asg-name">Maths - Addition Worksheet</h3>
+                  <span class="asg-due-date">Due: 20 Nov</span>
+                </div>
+              </div>
+              <button class="btn-asg-start" data-assignment="Maths - Addition Worksheet">
+                Start
+              </button>
+            </div>
+
+            <!-- Assignment 2 -->
+            <div class="assignment-item-card">
+              <div class="asg-card-left">
+                <div class="asg-icon-pill">
+                  <img src="assets/icons/nav_assignments_3d.png" alt="Clipboard" class="asg-icon-img">
+                </div>
+                <div class="asg-meta-info">
+                  <h3 class="asg-name">English - Reading Practice</h3>
+                  <span class="asg-due-date">Due: 21 Nov</span>
+                </div>
+              </div>
+              <button class="btn-asg-start" data-assignment="English - Reading Practice">
+                Start
+              </button>
+            </div>
+
+            <!-- Assignment 3 -->
+            <div class="assignment-item-card">
+              <div class="asg-card-left">
+                <div class="asg-icon-pill">
+                  <img src="assets/icons/nav_assignments_3d.png" alt="Clipboard" class="asg-icon-img">
+                </div>
+                <div class="asg-meta-info">
+                  <h3 class="asg-name">EVS - My Family (Write 5 Lines)</h3>
+                  <span class="asg-due-date">Due: 22 Nov</span>
+                </div>
+              </div>
+              <button class="btn-asg-start" data-assignment="EVS - My Family">
+                Start
+              </button>
+            </div>
+          </div>
+
+          <div class="assignments-fox-guide">
+            <img src="assets/characters/fox_waving.png" alt="Fox Cheering" class="asg-fox-img">
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 8: LIVE CLASSES
+           ==================================================================== -->
+      <section class="app-view" id="view-live-classes">
+        <div class="live-classes-header-card">
+          <div class="live-title-group">
+            <img src="assets/icons/nav_live_classes_3d.png" alt="Live Classes" class="live-head-icon">
+            <h1 class="view-heading">Live Classes</h1>
+          </div>
+
+          <div class="live-filter-tabs">
+            <button class="live-tab-btn" data-live-filter="upcoming">Upcoming</button>
+            <button class="live-tab-btn active-live-tab" data-live-filter="live">Live Now (1)</button>
+            <button class="live-tab-btn" data-live-filter="recordings">Recordings</button>
+          </div>
+        </div>
+
+        <div class="live-feature-card">
+          <div class="live-video-preview-box">
+            <img src="assets/characters/teacher.png" alt="Ms. Nandhini" class="live-teacher-portrait">
+            <div class="live-blackboard-overlay">
+              <span class="blackboard-title">Addition</span>
+              <span class="blackboard-math">5 + 3 = ?</span>
+            </div>
+            <div class="live-pulse-badge">
+              <span class="live-pulse-dot"></span>
+              <span>LIVE</span>
+            </div>
+          </div>
+
+          <div class="live-details-box">
+            <h2 class="live-class-subject-title">Maths - Addition</h2>
+            <span class="live-class-grade">Class 3</span>
+            <span class="live-class-teacher-name">By Ms. Nandhini</span>
+
+            <button class="btn-join-live-class" id="btnJoinLiveClass">
+              Join Now
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 9: PROGRESS
+           ==================================================================== -->
+      <section class="app-view" id="view-progress">
+        <div class="view-header-card">
+          <div class="view-header-title-group">
+            <img src="assets/icons/nav_progress_3d.png" alt="Progress" class="view-header-icon">
+            <h1 class="view-heading">My Progress</h1>
+          </div>
+        </div>
+
+        <div class="progress-view-content">
+          <!-- Top Analytics Card -->
+          <div class="progress-summary-card">
+            <div class="progress-gauge-side">
+              <div class="donut-chart-box-large">
+                <svg class="donut-svg-graphic" viewBox="0 0 100 100">
+                  <circle class="donut-track-ring" cx="50" cy="50" r="38"/>
+                  <circle class="donut-value-ring" cx="50" cy="50" r="38" stroke="url(#donutProgressGreen)" stroke-dasharray="238.76" stroke-dashoffset="83.56"/>
+                </svg>
+                <div class="donut-center-metric">
+                  <span class="donut-pct-large">65%</span>
+                  <span class="donut-lbl">Overall</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="progress-subject-bars-side">
+              <div class="prog-subj-row">
+                <span class="subj-bullet bullet-maths">●</span>
+                <span class="subj-name">Maths</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-maths" style="width: 80%;"></div>
+                </div>
+                <span class="prog-subj-pct">80%</span>
+              </div>
+
+              <div class="prog-subj-row">
+                <span class="subj-bullet bullet-english">●</span>
+                <span class="subj-name">English</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-english" style="width: 60%;"></div>
+                </div>
+                <span class="prog-subj-pct">60%</span>
+              </div>
+
+              <div class="prog-subj-row">
+                <span class="subj-bullet bullet-evs">●</span>
+                <span class="subj-name">EVS</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-evs" style="width: 70%;"></div>
+                </div>
+                <span class="prog-subj-pct">70%</span>
+              </div>
+
+              <div class="prog-subj-row">
+                <span class="subj-bullet bullet-science">●</span>
+                <span class="subj-name">Science</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-science" style="width: 50%;"></div>
+                </div>
+                <span class="prog-subj-pct">50%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Chapters Progress Breakdown Card -->
+          <div class="chapter-progress-card">
+            <h3 class="chapter-progress-title">Chapter Progress - Maths</h3>
+
+            <div class="chapter-prog-list">
+              <div class="ch-prog-row">
+                <span class="ch-bullet green-bullet">●</span>
+                <span class="ch-name">Addition</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-evs" style="width: 100%;"></div>
+                </div>
+                <span class="prog-subj-pct">100%</span>
+              </div>
+
+              <div class="ch-prog-row">
+                <span class="ch-bullet orange-bullet">●</span>
+                <span class="ch-name">Subtraction</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-english" style="width: 60%;"></div>
+                </div>
+                <span class="prog-subj-pct">60%</span>
+              </div>
+
+              <div class="ch-prog-row">
+                <span class="ch-bullet blue-bullet">●</span>
+                <span class="ch-name">Multiplication</span>
+                <div class="prog-bar-trough">
+                  <div class="prog-bar-fill bar-science" style="width: 40%;"></div>
+                </div>
+                <span class="prog-subj-pct">40%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 10 & 11: ACHIEVEMENTS & BADGES
+           ==================================================================== -->
+      <section class="app-view" id="view-achievements">
+        <div class="achievements-header-card">
+          <div class="achievements-title-group">
+            <span class="achievements-star-badge">⭐</span>
+            <h1 class="view-heading" id="achievementsMainTitle">Achievements</h1>
+          </div>
+
+          <div class="achievements-filter-tabs">
+            <button class="ach-tab-btn active-ach-tab" data-ach-view="map">My Adventure Map</button>
+            <button class="ach-tab-btn" data-ach-view="badges">My Badges</button>
+            <button class="ach-tab-btn" data-ach-view="rewards">Rewards</button>
+          </div>
+        </div>
+
+        <!-- Tab 1: Adventure Map View (Screen 10) -->
+        <div class="ach-content-tab active-tab-content" id="tabContentMap">
+          <div class="adventure-map-container">
+            <div class="adventure-fox-explorer">
+              <img src="assets/characters/fox_waving.png" alt="Explorer Fox" class="fox-explorer-img">
+            </div>
+
+            <div class="adventure-stepping-path">
+              <div class="stage-stone stone-gold active-stage">
+                <span class="stage-star">⭐</span>
+                <span class="stage-num">1</span>
+              </div>
+
+              <div class="path-curve-dash"></div>
+
+              <div class="stage-stone stone-gold active-stage">
+                <span class="stage-star">⭐</span>
+                <span class="stage-num">2</span>
+              </div>
+
+              <div class="path-curve-dash"></div>
+
+              <div class="stage-stone stone-gold current-stage-pulse">
+                <span class="stage-star">⭐</span>
+                <span class="stage-num">3</span>
+              </div>
+
+              <div class="path-curve-dash"></div>
+
+              <div class="stage-stone stone-locked">
+                <span class="stage-lock-icon">🔒</span>
+                <span class="stage-num">4</span>
+              </div>
+
+              <div class="path-curve-dash"></div>
+
+              <div class="stage-stone stone-chest-reward">
+                <img src="assets/learning_plan/icon_chest.png" alt="Treasure" class="stage-chest-img">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2: My Badges Grid View (Screen 11) -->
+        <div class="ach-content-tab" id="tabContentBadges" style="display: none;">
+          <div class="badges-gallery-grid">
+            <div class="badge-gallery-card">
+              <img src="assets/icons/stat_star_3d.png" alt="Quick Learner" class="badge-sticker-img">
+              <h4 class="badge-title">Quick Learner</h4>
+              <p class="badge-desc">Completed 5 lessons</p>
+            </div>
+
+            <div class="badge-gallery-card">
+              <img src="assets/icons/stat_crown_3d.png" alt="Maths Star" class="badge-sticker-img">
+              <h4 class="badge-title">Maths Star</h4>
+              <p class="badge-desc">Top in Maths Quiz</p>
+            </div>
+
+            <div class="badge-gallery-card">
+              <img src="assets/icons/badge_quiz_champ_3d.png" alt="Quiz Champ" class="badge-sticker-img">
+              <h4 class="badge-title">Quiz Champ</h4>
+              <p class="badge-desc">Completed 10 quizzes</p>
+            </div>
+
+            <div class="badge-gallery-card">
+              <img src="assets/icons/stat_flame_3d.png" alt="Streak Master" class="badge-sticker-img">
+              <h4 class="badge-title">Streak Master</h4>
+              <p class="badge-desc">5 Days Streak</p>
+            </div>
+
+            <div class="badge-gallery-card">
+              <img src="assets/icons/badge_explorer_3d.png" alt="Explorer" class="badge-sticker-img">
+              <h4 class="badge-title">Explorer</h4>
+              <p class="badge-desc">Tried all subjects</p>
+            </div>
+
+            <div class="badge-gallery-card">
+              <img src="assets/icons/badge_creative_star_3d.png" alt="Creative Star" class="badge-sticker-img">
+              <h4 class="badge-title">Creative Star</h4>
+              <p class="badge-desc">Completed Art & Craft</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           VIEW 12: AI STUDY BUDDY
+           ==================================================================== -->
+      <section class="app-view" id="view-ai-buddy">
+        <div class="view-header-card">
+          <div class="view-header-title-group">
+            <img src="assets/icons/nav_ai_buddy_3d.png" alt="AI Study Buddy" class="view-header-icon">
+            <h1 class="view-heading">AI Study Buddy</h1>
+          </div>
+        </div>
+
+        <div class="ai-buddy-chat-container">
+          <div class="chat-messages-scroll" id="aiChatMessages">
+            <!-- Message 1: AI Greeting -->
+            <div class="chat-msg ai-msg">
+              <img src="assets/icons/nav_ai_buddy_3d.png" alt="Bot Avatar" class="chat-avatar bot-avatar">
+              <div class="chat-bubble ai-bubble">
+                <p>Hi Aarav! 👋</p>
+                <p>Ask me anything about your subjects. I can explain, give hints or practice questions!</p>
+              </div>
+            </div>
+
+            <!-- Message 2: User Prompt -->
+            <div class="chat-msg user-msg">
+              <div class="chat-bubble user-bubble">
+                <p>What is addition?</p>
+              </div>
+              <img src="assets/characters/aarav_avatar.png" alt="Aarav" class="chat-avatar user-avatar">
+            </div>
+
+            <!-- Message 3: AI Explanation -->
+            <div class="chat-msg ai-msg">
+              <img src="assets/icons/nav_ai_buddy_3d.png" alt="Bot Avatar" class="chat-avatar bot-avatar">
+              <div class="chat-bubble ai-bubble">
+                <p>Addition means putting numbers together. 😊</p>
+                <p class="chat-math-example">Example:<br>🍎 + 🍎 = 3 apples</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Action Bar & Input -->
+          <div class="ai-chat-bottom-bar">
+            <div class="chat-action-pills">
+              <button class="chat-quick-pill" data-prompt="Explain Again">Explain Again</button>
+              <button class="chat-quick-pill" data-prompt="Give a Hint">Give a Hint</button>
+              <button class="chat-quick-pill" data-prompt="Try a Question">Try a Question</button>
+            </div>
+
+            <form class="chat-input-row" id="chatInputForm">
+              <input type="text" id="chatInputField" placeholder="Ask your AI Study Buddy anything..." class="chat-input-box" autocomplete="off">
+              <button type="submit" class="btn-chat-send">Send 🚀</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <!-- ====================================================================

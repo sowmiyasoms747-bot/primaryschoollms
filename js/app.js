@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFoxInteractions();
   initModals();
   initLiveClass();
+  initFlowFeatures();
 });
 
 // ==========================================================================
@@ -144,20 +145,287 @@ function triggerConfetti(originX, originY) {
   }
 }
 
+
 // ==========================================================================
-// 3. NAVIGATION INTERACTIONS
+// 3. NAVIGATION & VIEW ROUTING CONTROLLER (12-SCREEN MASTER FLOW)
 // ==========================================================================
+function switchView(targetViewId) {
+  const viewport = document.querySelector('.dashboard-viewport');
+  const allViews = document.querySelectorAll('.app-view');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  let normalizedId = targetViewId;
+  if (!normalizedId.startsWith('view-')) {
+    normalizedId = 'view-' + normalizedId;
+  }
+
+  const targetEl = document.getElementById(normalizedId);
+  if (!targetEl) return;
+
+  // Toggle active view
+  allViews.forEach(v => v.classList.remove('active'));
+  targetEl.classList.add('active');
+
+  // Handle right sidebar visibility
+  if (normalizedId === 'view-home') {
+    viewport.classList.remove('subview-active');
+  } else {
+    viewport.classList.add('subview-active');
+  }
+
+  // Update Left Sidebar active nav item
+  navItems.forEach(item => {
+    const link = item.querySelector('a');
+    if (!link) return;
+    const href = link.getAttribute('href') || '';
+
+    const isHome = (href === '#home' && normalizedId === 'view-home');
+    const isLearning = (href === '#learning' && ['view-learning-subjects', 'view-chapter-list', 'view-chapter-journey', 'view-theory-lesson'].includes(normalizedId));
+    const isQuizzes = (href === '#quizzes' && normalizedId === 'view-quiz');
+    const isAssignments = (href === '#assignments' && normalizedId === 'view-assignments');
+    const isLive = (href === '#live' && normalizedId === 'view-live-classes');
+    const isProgress = (href === '#progress' && normalizedId === 'view-progress');
+    const isAchievements = (href === '#achievements' && normalizedId === 'view-achievements');
+    const isAiBuddy = (href === '#ai-buddy' && normalizedId === 'view-ai-buddy');
+
+    if (isHome || isLearning || isQuizzes || isAssignments || isLive || isProgress || isAchievements || isAiBuddy) {
+      item.classList.add('active');
+    } else {
+      item.classList.remove('active');
+    }
+  });
+
+  const panel = document.querySelector('.main-dashboard-panel');
+  if (panel) panel.scrollTop = 0;
+}
+
 function initNav() {
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(item => {
-    item.addEventListener('click', (e) => {
+    const link = item.querySelector('a');
+    if (!link) return;
+    link.addEventListener('click', (e) => {
       e.preventDefault();
-      navItems.forEach(i => i.classList.remove('active'));
-      item.classList.add('active');
+      const href = link.getAttribute('href');
       playSound('pop');
+
+      if (href === '#home') switchView('home');
+      else if (href === '#learning') switchView('learning-subjects');
+      else if (href === '#quizzes') switchView('quiz');
+      else if (href === '#assignments') switchView('assignments');
+      else if (href === '#live') switchView('live-classes');
+      else if (href === '#progress') switchView('progress');
+      else if (href === '#achievements') switchView('achievements');
+      else if (href === '#ai-buddy') switchView('ai-buddy');
+    });
+  });
+
+  // Support elements with data-route attributes
+  document.addEventListener('click', (e) => {
+    const routeTrigger = e.target.closest('[data-route]');
+    if (routeTrigger) {
+      e.preventDefault();
+      const route = routeTrigger.getAttribute('data-route');
+      playSound('pop');
+      switchView(route);
+    }
+  });
+
+  // Home Dashboard subject tiles navigate to Chapter List (Screen 3)
+  const homeSubjectCards = document.querySelectorAll('.subject-card-box');
+  homeSubjectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      playSound('chime');
+      switchView('chapter-list');
+    });
+  });
+
+  // My Learning screen subject cards navigate to Chapter List (Screen 3)
+  const learningSubjectCards = document.querySelectorAll('.subject-card-clay');
+  learningSubjectCards.forEach(card => {
+    card.addEventListener('click', () => {
+      playSound('chime');
+      switchView('chapter-list');
     });
   });
 }
+
+// ==========================================================================
+// 9. MULTI-SCREEN INTERACTIVE FLOW FEATURES
+// ==========================================================================
+function initFlowFeatures() {
+  // 1. Interactive Quiz (Screen 6)
+  const quizTimer = document.getElementById('quizTimerText');
+  let secondsRemaining = 296; // 04:56
+  setInterval(() => {
+    if (secondsRemaining > 0) {
+      secondsRemaining--;
+      const mins = Math.floor(secondsRemaining / 60);
+      const secs = secondsRemaining % 60;
+      if (quizTimer) {
+        quizTimer.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+    }
+  }, 1000);
+
+  const quizBtns = document.querySelectorAll('.quiz-opt-btn');
+  const quizFeedback = document.getElementById('quizFeedbackBanner');
+  quizBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const val = btn.getAttribute('data-value');
+      if (val === '8') {
+        playSound('celebration');
+        const rect = btn.getBoundingClientRect();
+        triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        btn.classList.add('opt-correct-glow');
+        if (quizFeedback) {
+          quizFeedback.style.display = 'block';
+        }
+      } else {
+        playSound('pop');
+        btn.classList.add('opt-shake');
+        setTimeout(() => btn.classList.remove('opt-shake'), 400);
+      }
+    });
+  });
+
+  // 2. Achievements Tab Switcher (Screen 10 & 11)
+  const achTabs = document.querySelectorAll('.ach-tab-btn');
+  const tabContentMap = document.getElementById('tabContentMap');
+  const tabContentBadges = document.getElementById('tabContentBadges');
+  const achMainTitle = document.getElementById('achievementsMainTitle');
+
+  achTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      achTabs.forEach(t => t.classList.remove('active-ach-tab'));
+      tab.classList.add('active-ach-tab');
+      playSound('pop');
+
+      const viewMode = tab.getAttribute('data-ach-view');
+      if (viewMode === 'map') {
+        if (tabContentMap) tabContentMap.style.display = 'block';
+        if (tabContentBadges) tabContentBadges.style.display = 'none';
+        if (achMainTitle) achMainTitle.innerText = 'Achievements';
+      } else if (viewMode === 'badges') {
+        if (tabContentMap) tabContentMap.style.display = 'none';
+        if (tabContentBadges) tabContentBadges.style.display = 'block';
+        if (achMainTitle) achMainTitle.innerText = 'My Badges';
+      } else if (viewMode === 'rewards') {
+        playSound('celebration');
+        showModal('🎁 Milestone Rewards', 'Aarav, you are 3 lessons away from unlocking the Diamond Star Trophy! 💎🏆');
+      }
+    });
+  });
+
+  // 3. Assignments Tab Switcher (Screen 7)
+  const asgTabs = document.querySelectorAll('.asg-tab-btn');
+  asgTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      asgTabs.forEach(t => t.classList.remove('active-tab'));
+      tab.classList.add('active-tab');
+      playSound('pop');
+    });
+  });
+
+  const asgStartBtns = document.querySelectorAll('.btn-asg-start');
+  asgStartBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const asgName = btn.getAttribute('data-assignment') || 'Assignment';
+      playSound('chime');
+      showModal(`📝 Starting: ${asgName}`, 'Your worksheet is loading... Remember to show your work step-by-step for full star bonus! ⭐');
+    });
+  });
+
+  // 4. Live Classes Join Button (Screen 8)
+  const liveJoinBtn = document.getElementById('btnJoinLiveClass');
+  if (liveJoinBtn) {
+    liveJoinBtn.addEventListener('click', () => {
+      playSound('celebration');
+      const rect = liveJoinBtn.getBoundingClientRect();
+      triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      showModal('🔴 Connecting to Live Stream', 'Welcome to Maths - Addition with Ms. Nandhini! Your camera and microphone are connected. 👩‍🏫📐');
+    });
+  }
+
+  const liveTabs = document.querySelectorAll('.live-tab-btn');
+  liveTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      liveTabs.forEach(t => t.classList.remove('active-live-tab'));
+      tab.classList.add('active-live-tab');
+      playSound('pop');
+    });
+  });
+
+  // 5. AI Study Buddy Chat (Screen 12)
+  const chatForm = document.getElementById('chatInputForm');
+  const chatInput = document.getElementById('chatInputField');
+  const chatScroll = document.getElementById('aiChatMessages');
+  const quickPills = document.querySelectorAll('.chat-quick-pill');
+
+  function appendChat(role, text, isMath) {
+    if (!chatScroll) return;
+    const msgDiv = document.createElement('div');
+    msgDiv.className = `chat-msg ${role}-msg`;
+
+    if (role === 'user') {
+      msgDiv.innerHTML = `
+        <div class="chat-bubble user-bubble"><p>${escapeHtml(text)}</p></div>
+        <img src="assets/characters/aarav_avatar.png" alt="Aarav" class="chat-avatar user-avatar">
+      `;
+    } else {
+      let mathContent = isMath ? `<p class="chat-math-example">${isMath}</p>` : '';
+      msgDiv.innerHTML = `
+        <img src="assets/icons/nav_ai_buddy_3d.png" alt="Bot Avatar" class="chat-avatar bot-avatar">
+        <div class="chat-bubble ai-bubble">
+          <p>${escapeHtml(text)}</p>
+          ${mathContent}
+        </div>
+      `;
+    }
+    chatScroll.appendChild(msgDiv);
+    chatScroll.scrollTop = chatScroll.scrollHeight;
+  }
+
+  function escapeHtml(str) {
+    return str.replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[m]);
+  }
+
+  if (chatForm && chatInput) {
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = chatInput.value.trim();
+      if (!val) return;
+      playSound('pop');
+      appendChat('user', val);
+      chatInput.value = '';
+
+      setTimeout(() => {
+        playSound('chime');
+        appendChat('ai', `Great question about "${val}"! Remember, practice makes you a Maths Star! 🌟`, '3 + 4 = 7');
+      }, 700);
+    });
+  }
+
+  quickPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const prompt = pill.getAttribute('data-prompt');
+      playSound('pop');
+      appendChat('user', prompt);
+
+      setTimeout(() => {
+        playSound('chime');
+        if (prompt === 'Explain Again') {
+          appendChat('ai', 'Sure! Addition is simply counting items from two sets into one big group. 🍎', '1 + 2 = 3');
+        } else if (prompt === 'Give a Hint') {
+          appendChat('ai', '💡 Hint: Count forward from the largest number! For 5 + 3, start at 5 and count 3 more: 6, 7, 8!', '');
+        } else {
+          appendChat('ai', 'Here is a quick practice question for you: What is 4 + 4 ? Can you solve it?', '4 + 4 = ?');
+        }
+      }, 700);
+    });
+  });
+}
+
 
 // ==========================================================================
 // 4. JOURNEY STEPPING PATH
