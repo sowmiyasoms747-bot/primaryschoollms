@@ -404,11 +404,11 @@ body {
 .scroll-banner-wrapper {
   position: relative;
   width: 100%;
-  height: 245px;
+  height: 330px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 2px 0;
+  margin: 6px 0 16px 0;
 }
 
 .parchment-bg-image {
@@ -498,10 +498,10 @@ body {
 
 .stepping-path-graphic {
   position: absolute;
-  top: 52%;
-  left: 1%;
-  width: 98%;
-  height: 36px;
+  top: 55%;
+  left: 2%;
+  width: 96%;
+  height: 48px;
   object-fit: fill;
   transform: translateY(-50%);
   pointer-events: none;
@@ -513,8 +513,8 @@ body {
   z-index: 2;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  width: 172px;
-  height: 154px;
+  width: 215px;
+  height: 190px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -539,8 +539,8 @@ body {
 .stepping-island[data-step="treasure"] { 
   --base-y: 4px; 
   animation-delay: 2.0s;
-  width: 178px;
-  height: 160px;
+  width: 225px;
+  height: 200px;
 }
 
 .island-halo-pulse {
@@ -548,8 +548,8 @@ body {
   top: 15%;
   left: 50%;
   transform: translateX(-50%);
-  width: 95px;
-  height: 95px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   pointer-events: none;
   z-index: 1;
@@ -7229,4 +7229,325 @@ body {
   object-fit: contain;
   filter: drop-shadow(0 14px 26px rgba(0, 0, 0, 0.16));
   animation: gentleFloat 3.4s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   SQUARE SLATE PROPORTIONS & ENLARGED VIDEO LESSON (USER FEEDBACK FIXES)
+   ========================================================================== */
+
+/* 1. Centered, Balanced "Square-Like" Proportions for Lesson Cards */
+.lesson-page-body {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 100% !important;
+  padding: 6px 0 20px 0 !important;
+}
+
+.lesson-content-card,
+.lesson-card-fullwidth {
+  width: 100% !important;
+  max-width: 880px !important;
+  min-height: 540px !important;
+  margin: 0 auto !important;
+  background: rgba(255, 255, 255, 0.96) !important;
+  border: 2px solid #ffffff !important;
+  border-radius: 32px !important;
+  padding: 30px 40px !important;
+  box-shadow: 
+    0 20px 44px rgba(0, 0, 0, 0.08),
+    inset 0 2px 4px rgba(255, 255, 255, 1),
+    inset 0 -3px 6px rgba(0, 0, 0, 0.04) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  align-items: stretch !important;
+}
+
+.lesson-breadcrumbs-header {
+  max-width: 880px !important;
+  width: 100% !important;
+  margin: 0 auto 16px auto !important;
+}
+
+/* 2. Much Bigger, Immersive Video Player (Fills the Square Slate) */
+.video-lesson-card {
+  align-items: center !important;
+}
+
+.video-lesson-title-bar {
+  width: 100% !important;
+  text-align: left !important;
+  margin-bottom: 14px !important;
+}
+
+.video-lesson-heading {
+  font-family: var(--font-display) !important;
+  font-size: 2.1rem !important;
+  font-weight: 900 !important;
+  color: #1e144a !important;
+  margin: 0 !important;
+}
+
+.video-player-frame {
+  width: 100% !important;
+  max-width: 100% !important;
+  background: #0f172a !important;
+  border-radius: 26px !important;
+  overflow: hidden !important;
+  box-shadow: 
+    0 16px 36px rgba(15, 23, 42, 0.35),
+    inset 0 4px 10px rgba(0, 0, 0, 0.45),
+    inset 0 -2px 4px rgba(255, 255, 255, 0.08) !important;
+  border: 3.5px solid #1e293b !important;
+  margin: 6px 0 20px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.video-screen-canvas {
+  height: 380px !important; /* Raised from 230px to 380px */
+  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e1b4b 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 24px 44px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.video-apples-graphic {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+.video-apples-row img {
+  height: 84px !important;
+  width: auto !important;
+  filter: drop-shadow(0 8px 16px rgba(220, 38, 38, 0.35)) !important;
+}
+
+.video-equation-text {
+  font-family: var(--font-display) !important;
+  font-size: 2.6rem !important;
+  font-weight: 900 !important;
+  color: #ffffff !important;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.6) !important;
+}
+
+.video-center-play-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 3 !important;
+}
+
+.play-btn-circle {
+  width: 92px !important;
+  height: 92px !important;
+  border-radius: 50% !important;
+  background: linear-gradient(135deg, #a855f7, #7c3aed) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 
+    0 10px 28px rgba(124, 58, 237, 0.6),
+    inset 0 2px 5px rgba(255, 255, 255, 0.85),
+    inset 0 -3px 5px rgba(0, 0, 0, 0.3) !important;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.play-btn-circle:hover {
+  transform: scale(1.12) !important;
+}
+
+.play-icon-triangle {
+  font-size: 2.2rem !important;
+  color: #ffffff !important;
+  margin-left: 5px !important;
+}
+
+.video-teacher-fox .video-fox-img {
+  width: 175px !important;
+  height: auto !important;
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.45)) !important;
+  animation: gentleFloat 3.2s ease-in-out infinite !important;
+}
+
+.video-player-controls-bar {
+  background: #1e293b !important;
+  padding: 14px 24px !important;
+}
+
+.video-scrubber-track {
+  width: 100% !important;
+  height: 10px !important;
+  background: #334155 !important;
+  border-radius: 999px !important;
+  overflow: hidden !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.4) !important;
+  cursor: pointer !important;
+  margin-bottom: 10px !important;
+}
+
+.video-footer-actions {
+  display: flex !important;
+  justify-content: center !important;
+  width: 100% !important;
+  margin-top: 6px !important;
+}
+
+.video-footer-actions .btn-complete-continue {
+  padding: 13px 44px !important;
+  font-size: 1.12rem !important;
+}
+
+/* 3. Game Practice (Big Friendly Question & Option Cards) */
+.game-practice-card {
+  padding: 36px 44px !important;
+}
+
+.game-top-hud {
+  display: flex !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+
+.game-question-area {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  width: 100% !important;
+  margin: auto 0 !important;
+}
+
+.game-question-title {
+  font-family: var(--font-display) !important;
+  font-size: 3.2rem !important;
+  font-weight: 900 !important;
+  color: #1e144a !important;
+  margin-bottom: 30px !important;
+  text-align: center !important;
+}
+
+.game-interactive-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 48px !important;
+  width: 100% !important;
+}
+
+.game-fox-thinking {
+  width: 160px !important;
+  flex-shrink: 0 !important;
+}
+
+.game-fox-img {
+  width: 155px !important;
+  height: auto !important;
+  filter: drop-shadow(0 12px 22px rgba(0, 0, 0, 0.18)) !important;
+  animation: gentleFloat 3.2s ease-in-out infinite !important;
+}
+
+.game-options-trio {
+  display: flex !important;
+  align-items: center !important;
+  gap: 22px !important;
+}
+
+.game-opt-card {
+  width: 110px !important;
+  height: 100px !important;
+  border-radius: 26px !important;
+  background: #ffffff !important;
+  border: 2.5px solid #e2e8f0 !important;
+  font-family: var(--font-display) !important;
+  font-size: 2.9rem !important;
+  font-weight: 900 !important;
+  color: #1e144a !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  cursor: pointer !important;
+  box-shadow: 
+    0 12px 26px rgba(0, 0, 0, 0.08),
+    inset 0 3px 5px rgba(255, 255, 255, 1),
+    inset 0 -4px 6px rgba(0, 0, 0, 0.1) !important;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.game-opt-card:hover {
+  transform: translateY(-6px) scale(1.08) !important;
+  border-color: #cbd5e1 !important;
+}
+
+.game-practice-footer {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  margin-top: 20px !important;
+}
+
+/* 4. Class Challenge */
+.challenge-quiz-card {
+  padding: 36px 44px !important;
+}
+
+.challenge-question-text {
+  font-family: var(--font-display) !important;
+  font-size: 3rem !important;
+  font-weight: 900 !important;
+  color: #1e144a !important;
+  margin-bottom: 28px !important;
+  text-align: center !important;
+}
+
+.challenge-body-grid {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 40px !important;
+  width: 100% !important;
+}
+
+.challenge-options-row {
+  display: flex !important;
+  gap: 16px !important;
+}
+
+.challenge-opt-btn {
+  width: 95px !important;
+  height: 90px !important;
+  font-size: 2.5rem !important;
+  border-radius: 24px !important;
+}
+
+.challenge-fox-img {
+  width: 160px !important;
+  height: auto !important;
+}
+
+/* 5. All Flow Dashboard Cards (Progress, Live Classes, Assignments, Achievements, AI Buddy) */
+.view-dashboard-card {
+  max-width: 880px !important;
+  width: 100% !important;
+  margin: 0 auto 20px auto !important;
+  min-height: 520px !important;
+}
+
+.flow-breadcrumbs-bar,
+.flow-stage-strip {
+  max-width: 880px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
 }
