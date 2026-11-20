@@ -515,15 +515,36 @@ body {
   animation: islandBob 3.6s ease-in-out infinite alternate;
 }
 
+.stepping-island[data-station="theory"],
 .stepping-island[data-step="theory"] { --base-y: 4px; animation-delay: 0s; }
+
+.stepping-island[data-station="video"],
 .stepping-island[data-step="video"] { --base-y: -5px; animation-delay: 0.5s; }
+
+.stepping-island[data-station="game"],
 .stepping-island[data-step="game"] { --base-y: 5px; animation-delay: 1.0s; }
+
+.stepping-island[data-station="challenge"],
 .stepping-island[data-step="challenge"] { --base-y: -4px; animation-delay: 1.5s; }
+
+.stepping-island[data-station="treasure"],
 .stepping-island[data-step="treasure"] { 
   --base-y: 4px; 
   animation-delay: 2.0s;
   width: 178px;
   height: 160px;
+}
+
+.island-halo-pulse {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes islandBob {

@@ -574,78 +574,61 @@
             </div>
           </div>
 
-          <div class="journey-stage-canvas">
-            <div class="journey-fox-guide">
-              <img src="assets/characters/fox_waving.png" alt="Fox Guide" class="journey-fox-img" id="journeyFoxGuideImg">
-            </div>
+          <!-- Today's Learning Plan / Addition Chapter Journey: Rolled Parchment Scroll with 3D Floating Islands -->
+          <div class="scroll-banner-wrapper journey-scroll-banner">
+            <!-- Exact Rolled Parchment Scroll Background -->
+            <img src="assets/illustrations/parchment_scroll.png" alt="Scroll Banner" class="parchment-bg-image">
 
-            <div class="journey-stepping-stones" id="journeySteppingStonesContainer">
-              <!-- Station 1: Theory -->
-              <div class="journey-node active-pulse-node" id="nodeTheory" data-station="theory" title="Theory Lesson">
-                <div class="node-badge-status status-active" id="badgeTheory">📖</div>
-                <div class="node-pulse-halo pulse-halo-green" id="haloTheory"></div>
-                <div class="node-icon-wrapper">
-                  <img src="assets/learning_plan/icon_book.png" alt="Theory" class="node-icon-img">
+            <div class="scroll-inner-content">
+              <!-- Scroll Header -->
+              <div class="scroll-header-bar">
+                <div class="scroll-title-badge">
+                  <img src="assets/icons/target_dart.png" alt="Target Dart" class="target-dart-icon">
+                  <h2>Addition Chapter Journey</h2>
                 </div>
-                <div class="node-stone-base green-stone">
-                  <span>Theory</span>
-                </div>
-              </div>
 
-              <div class="journey-connector locked-connector" id="conn1"></div>
-
-              <!-- Station 2: Video -->
-              <div class="journey-node locked-node" id="nodeVideo" data-station="video" title="Video Lesson">
-                <div class="node-badge-status lock-badge" id="badgeVideo">🔒</div>
-                <div class="node-pulse-halo pulse-halo-purple" id="haloVideo" style="display: none;"></div>
-                <div class="node-icon-wrapper">
-                  <img src="assets/learning_plan/icon_video.png" alt="Video" class="node-icon-img">
-                </div>
-                <div class="node-stone-base purple-stone">
-                  <span>Video</span>
+                <div class="scroll-meter-block">
+                  <div class="custom-progress-bar-wrap">
+                    <img src="assets/illustrations/progress_bar.png" alt="Progress Bar" class="progress-bar-graphic">
+                  </div>
+                  <span class="meter-label" id="journeyProgressLabel">0 of 4 Completed</span>
                 </div>
               </div>
 
-              <div class="journey-connector locked-connector" id="conn2"></div>
+              <!-- Stepping Islands Path with Dotted Trail & Floating Bob Animation -->
+              <div class="islands-stepping-row" id="journeySteppingStonesContainer">
+                <!-- User's Dotted Stepping Wave Path -->
+                <img src="assets/illustrations/dotted_path.png" alt="Stepping Path" class="stepping-path-graphic">
 
-              <!-- Station 3: Game Practice -->
-              <div class="journey-node locked-node" id="nodeGame" data-station="game" title="Game Practice">
-                <div class="node-badge-status lock-badge" id="badgeGame">🔒</div>
-                <div class="node-pulse-halo pulse-halo-yellow" id="haloGame" style="display: none;"></div>
-                <div class="node-icon-wrapper">
-                  <img src="assets/learning_plan/icon_gamepad.png" alt="Game Practice" class="node-icon-img">
+                <!-- Island 1: Theory -->
+                <div class="stepping-island" data-station="theory" id="nodeTheory" title="Theory Lesson (Click to Start)">
+                  <img src="assets/illustrations/island_theory_active.png" alt="Theory Island" class="island-img" id="imgIslandTheory">
+                  <div class="island-halo-pulse pulse-halo-green" id="haloTheory"></div>
                 </div>
-                <div class="node-stone-base yellow-stone">
-                  <span>Game Practice</span>
-                </div>
-              </div>
 
-              <div class="journey-connector locked-connector" id="conn3"></div>
-
-              <!-- Station 4: Class Challenge -->
-              <div class="journey-node locked-node" id="nodeChallenge" data-station="challenge" title="Class Challenge">
-                <div class="node-badge-status lock-badge" id="badgeChallenge">🔒</div>
-                <div class="node-pulse-halo pulse-halo-gold" id="haloChallenge" style="display: none;"></div>
-                <div class="node-icon-wrapper">
-                  <img src="assets/learning_plan/icon_trophy.png" alt="Class Challenge" class="node-icon-img">
+                <!-- Island 2: Video -->
+                <div class="stepping-island" data-station="video" id="nodeVideo" title="Video Lesson">
+                  <img src="assets/illustrations/island_video_locked.png" alt="Video Island" class="island-img" id="imgIslandVideo">
+                  <div class="island-halo-pulse pulse-halo-purple" id="haloVideo" style="display: none;"></div>
                 </div>
-                <div class="node-stone-base gold-stone">
-                  <span>Class Challenge</span>
-                </div>
-              </div>
 
-              <div class="journey-connector locked-connector" id="conn4"></div>
-
-              <!-- Station 5: Treasure -->
-              <div class="journey-node locked-node" id="nodeTreasure" data-station="treasure" title="Treasure Reward">
-                <div class="node-badge-status lock-badge" id="badgeTreasure">🔒</div>
-                <div class="node-pulse-halo pulse-halo-treasure" id="haloTreasure" style="display: none;"></div>
-                <div class="treasure-sparkle-fx" id="treasureSparkleFx" style="display: none;"></div>
-                <div class="node-icon-wrapper">
-                  <img src="assets/learning_plan/icon_chest.png" alt="Treasure" class="node-icon-img">
+                <!-- Island 3: Game Practice -->
+                <div class="stepping-island" data-station="game" id="nodeGame" title="Game Practice">
+                  <img src="assets/illustrations/island_game_locked.png" alt="Game Practice Island" class="island-img" id="imgIslandGame">
+                  <div class="island-halo-pulse pulse-halo-yellow" id="haloGame" style="display: none;"></div>
                 </div>
-                <div class="node-stone-base red-stone">
-                  <span>Treasure</span>
+
+                <!-- Island 4: Class Challenge -->
+                <div class="stepping-island" data-station="challenge" id="nodeChallenge" title="Class Challenge">
+                  <img src="assets/illustrations/island_challenge_locked.png" alt="Class Challenge Island" class="island-img" id="imgIslandChallenge">
+                  <div class="island-halo-pulse pulse-halo-gold" id="haloChallenge" style="display: none;"></div>
+                </div>
+
+                <!-- Island 5: Treasure Reward -->
+                <div class="stepping-island" data-station="treasure" id="nodeTreasure" title="Treasure Reward">
+                  <img src="assets/illustrations/island_treasure_locked.png" alt="Treasure Reward Island" class="island-img" id="imgIslandTreasure">
+                  <div class="island-halo-pulse pulse-halo-treasure" id="haloTreasure" style="display: none;"></div>
+                  <div class="treasure-sparkle-fx" id="treasureSparkleFx" style="display: none;"></div>
                 </div>
               </div>
             </div>

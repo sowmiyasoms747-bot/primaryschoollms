@@ -647,8 +647,8 @@ function initChapterJourneyFlow() {
     });
   }
 
-  // Interactive Chapter Nodes (Theory, Video, Game, Challenge, Treasure)
-  const journeyNodes = document.querySelectorAll('#journeySteppingStonesContainer .journey-node');
+  // Interactive Chapter Islands (Theory, Video, Game, Challenge, Treasure)
+  const journeyNodes = document.querySelectorAll('#journeySteppingStonesContainer .stepping-island, #journeySteppingStonesContainer .journey-node');
   journeyNodes.forEach(node => {
     node.addEventListener('click', () => {
       const station = node.getAttribute('data-station');
@@ -875,42 +875,33 @@ function setJourneyStage(stageNum) {
 function renderJourneyStage(stageNum) {
   const bannerSlot = document.getElementById('journeyBannerSlot');
   const rewardCard = document.getElementById('chapterRewardCard');
+  const progressLabel = document.getElementById('journeyProgressLabel');
 
-  const badgeTheory = document.getElementById('badgeTheory');
+  const imgTheory = document.getElementById('imgIslandTheory');
   const haloTheory = document.getElementById('haloTheory');
 
-  const badgeVideo = document.getElementById('badgeVideo');
+  const imgVideo = document.getElementById('imgIslandVideo');
   const haloVideo = document.getElementById('haloVideo');
 
-  const badgeGame = document.getElementById('badgeGame');
+  const imgGame = document.getElementById('imgIslandGame');
   const haloGame = document.getElementById('haloGame');
 
-  const badgeChallenge = document.getElementById('badgeChallenge');
+  const imgChallenge = document.getElementById('imgIslandChallenge');
   const haloChallenge = document.getElementById('haloChallenge');
 
-  const badgeTreasure = document.getElementById('badgeTreasure');
+  const imgTreasure = document.getElementById('imgIslandTreasure');
   const haloTreasure = document.getElementById('haloTreasure');
   const sparkleTreasure = document.getElementById('treasureSparkleFx');
 
-  const conn1 = document.getElementById('conn1');
-  const conn2 = document.getElementById('conn2');
-  const conn3 = document.getElementById('conn3');
-  const conn4 = document.getElementById('conn4');
-
   if (!bannerSlot) return;
 
-  // Reset halo and badges to locked defaults
+  // Reset pulsing halos and sparkle fx
   if (haloTheory) haloTheory.style.display = 'none';
   if (haloVideo) haloVideo.style.display = 'none';
   if (haloGame) haloGame.style.display = 'none';
   if (haloChallenge) haloChallenge.style.display = 'none';
   if (haloTreasure) haloTreasure.style.display = 'none';
   if (sparkleTreasure) sparkleTreasure.style.display = 'none';
-
-  if (conn1) conn1.className = 'journey-connector locked-connector';
-  if (conn2) conn2.className = 'journey-connector locked-connector';
-  if (conn3) conn3.className = 'journey-connector locked-connector';
-  if (conn4) conn4.className = 'journey-connector locked-connector';
 
   if (rewardCard) rewardCard.style.display = 'none';
 
@@ -922,13 +913,16 @@ function renderJourneyStage(stageNum) {
         <span class="notice-text">Start the chapter! Only Theory is available now.</span>
       </div>
     `;
-    if (badgeTheory) { badgeTheory.innerText = '📖'; badgeTheory.className = 'node-badge-status status-active'; }
+    if (progressLabel) progressLabel.innerText = '0 of 4 Completed';
+
+    if (imgTheory) imgTheory.src = 'assets/illustrations/island_theory_active.png';
     if (haloTheory) haloTheory.style.display = 'block';
 
-    if (badgeVideo) { badgeVideo.innerText = '🔒'; badgeVideo.className = 'node-badge-status lock-badge'; }
-    if (badgeGame) { badgeGame.innerText = '🔒'; badgeGame.className = 'node-badge-status lock-badge'; }
-    if (badgeChallenge) { badgeChallenge.innerText = '🔒'; badgeChallenge.className = 'node-badge-status lock-badge'; }
-    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+    if (imgVideo) imgVideo.src = 'assets/illustrations/island_video_locked.png';
+    if (imgGame) imgGame.src = 'assets/illustrations/island_game_locked.png';
+    if (imgChallenge) imgChallenge.src = 'assets/illustrations/island_challenge_locked.png';
+    if (imgTreasure) imgTreasure.src = 'assets/illustrations/island_treasure_locked.png';
+
   } else if (stageNum === 3) {
     // 3. Theory Completed - Video Unlocked
     bannerSlot.innerHTML = `
@@ -937,15 +931,16 @@ function renderJourneyStage(stageNum) {
         <span class="success-text">Theory Completed! Video Unlocked!</span>
       </div>
     `;
-    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
-    if (badgeVideo) { badgeVideo.innerText = '▶'; badgeVideo.className = 'node-badge-status status-active'; }
+    if (progressLabel) progressLabel.innerText = '1 of 4 Completed';
+
+    if (imgTheory) imgTheory.src = 'assets/illustrations/island_theory_done.png';
+    if (imgVideo) imgVideo.src = 'assets/illustrations/island_video_active.png';
     if (haloVideo) haloVideo.style.display = 'block';
 
-    if (badgeGame) { badgeGame.innerText = '🔒'; badgeGame.className = 'node-badge-status lock-badge'; }
-    if (badgeChallenge) { badgeChallenge.innerText = '🔒'; badgeChallenge.className = 'node-badge-status lock-badge'; }
-    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+    if (imgGame) imgGame.src = 'assets/illustrations/island_game_locked.png';
+    if (imgChallenge) imgChallenge.src = 'assets/illustrations/island_challenge_locked.png';
+    if (imgTreasure) imgTreasure.src = 'assets/illustrations/island_treasure_locked.png';
 
-    if (conn1) conn1.className = 'journey-connector active-connector';
   } else if (stageNum === 5) {
     // 5. Video Completed - Game Practice Unlocked
     bannerSlot.innerHTML = `
@@ -954,16 +949,16 @@ function renderJourneyStage(stageNum) {
         <span class="success-text">Video Completed! Game Practice Unlocked!</span>
       </div>
     `;
-    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
-    if (badgeVideo) { badgeVideo.innerText = '✓'; badgeVideo.className = 'node-badge-status green-check'; }
-    if (badgeGame) { badgeGame.innerText = '🎮'; badgeGame.className = 'node-badge-status status-active'; }
+    if (progressLabel) progressLabel.innerText = '2 of 4 Completed';
+
+    if (imgTheory) imgTheory.src = 'assets/illustrations/island_theory_done.png';
+    if (imgVideo) imgVideo.src = 'assets/illustrations/island_video_done.png';
+    if (imgGame) imgGame.src = 'assets/illustrations/island_game_active.png';
     if (haloGame) haloGame.style.display = 'block';
 
-    if (badgeChallenge) { badgeChallenge.innerText = '🔒'; badgeChallenge.className = 'node-badge-status lock-badge'; }
-    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+    if (imgChallenge) imgChallenge.src = 'assets/illustrations/island_challenge_locked.png';
+    if (imgTreasure) imgTreasure.src = 'assets/illustrations/island_treasure_locked.png';
 
-    if (conn1) conn1.className = 'journey-connector active-connector';
-    if (conn2) conn2.className = 'journey-connector active-connector';
   } else if (stageNum === 7) {
     // 7. Game Practice Completed - Class Challenge Unlocked
     bannerSlot.innerHTML = `
@@ -972,17 +967,16 @@ function renderJourneyStage(stageNum) {
         <span class="success-text">Game Practice Completed! Class Challenge Unlocked!</span>
       </div>
     `;
-    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
-    if (badgeVideo) { badgeVideo.innerText = '✓'; badgeVideo.className = 'node-badge-status green-check'; }
-    if (badgeGame) { badgeGame.innerText = '✓'; badgeGame.className = 'node-badge-status green-check'; }
-    if (badgeChallenge) { badgeChallenge.innerText = '🏆'; badgeChallenge.className = 'node-badge-status status-active'; }
+    if (progressLabel) progressLabel.innerText = '3 of 4 Completed';
+
+    if (imgTheory) imgTheory.src = 'assets/illustrations/island_theory_done.png';
+    if (imgVideo) imgVideo.src = 'assets/illustrations/island_video_done.png';
+    if (imgGame) imgGame.src = 'assets/illustrations/island_game_done.png';
+    if (imgChallenge) imgChallenge.src = 'assets/illustrations/island_challenge_active.png';
     if (haloChallenge) haloChallenge.style.display = 'block';
 
-    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+    if (imgTreasure) imgTreasure.src = 'assets/illustrations/island_treasure_locked.png';
 
-    if (conn1) conn1.className = 'journey-connector active-connector';
-    if (conn2) conn2.className = 'journey-connector active-connector';
-    if (conn3) conn3.className = 'journey-connector active-connector';
   } else if (stageNum === 9) {
     // 9. Chapter Completed - Treasure Unlocked
     bannerSlot.innerHTML = `
@@ -996,19 +990,16 @@ function renderJourneyStage(stageNum) {
         <div class="celebration-ribbon-tail right-tail"></div>
       </div>
     `;
-    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
-    if (badgeVideo) { badgeVideo.innerText = '✓'; badgeVideo.className = 'node-badge-status green-check'; }
-    if (badgeGame) { badgeGame.innerText = '✓'; badgeGame.className = 'node-badge-status green-check'; }
-    if (badgeChallenge) { badgeChallenge.innerText = '✓'; badgeChallenge.className = 'node-badge-status green-check'; }
-    if (badgeTreasure) { badgeTreasure.innerText = '🎁'; badgeTreasure.className = 'node-badge-status green-check'; }
+    if (progressLabel) progressLabel.innerText = '4 of 4 Completed';
+
+    if (imgTheory) imgTheory.src = 'assets/illustrations/island_theory_done.png';
+    if (imgVideo) imgVideo.src = 'assets/illustrations/island_video_done.png';
+    if (imgGame) imgGame.src = 'assets/illustrations/island_game_done.png';
+    if (imgChallenge) imgChallenge.src = 'assets/illustrations/island_challenge_done.png';
+    if (imgTreasure) imgTreasure.src = 'assets/illustrations/island_treasure_done.png';
 
     if (haloTreasure) haloTreasure.style.display = 'block';
     if (sparkleTreasure) sparkleTreasure.style.display = 'block';
-
-    if (conn1) conn1.className = 'journey-connector active-connector';
-    if (conn2) conn2.className = 'journey-connector active-connector';
-    if (conn3) conn3.className = 'journey-connector active-connector';
-    if (conn4) conn4.className = 'journey-connector active-connector';
 
     if (rewardCard) rewardCard.style.display = 'flex';
   }
