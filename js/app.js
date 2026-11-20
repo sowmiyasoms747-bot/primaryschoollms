@@ -14,6 +14,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initFlowFeatures();
   initChapterJourneyFlow();
   initQuizFlow();
+  initAssignmentsFlow();
+  initLiveClassesFlow();
+  initProgressFlow();
+  initAchievementsFlow();
+  initAiBuddyFlow();
   switchView('home');
 });
 
@@ -1131,4 +1136,274 @@ function startQuizTimer() {
       }
     }
   }, 1000);
+}
+
+// ==========================================================================
+// UNIFIED FLOW CONTROLLERS: ASSIGNMENTS, LIVE CLASSES, PROGRESS, ACHIEVEMENTS, AI BUDDY
+// ==========================================================================
+
+// 1. ASSIGNMENTS FLOW
+let currentAsgScreen = 1;
+function setAssignmentsScreen(screenNum) {
+  currentAsgScreen = screenNum;
+  document.querySelectorAll('[data-asg-step]').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-asg-step'), 10);
+    pill.classList.toggle('active-pill', s === screenNum);
+  });
+  document.querySelectorAll('[data-asg-screen]').forEach(panel => {
+    const s = parseInt(panel.getAttribute('data-asg-screen'), 10);
+    panel.classList.toggle('active-screen', s === screenNum);
+  });
+  if (screenNum === 8) {
+    if (typeof playSound === 'function') playSound('celebration');
+    if (typeof triggerConfetti === 'function') triggerConfetti(window.innerWidth / 2, window.innerHeight / 2 - 50);
+  }
+}
+
+function initAssignmentsFlow() {
+  document.querySelectorAll('[data-asg-step]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const step = parseInt(pill.getAttribute('data-asg-step'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setAssignmentsScreen(step);
+    });
+  });
+  const btnReset = document.getElementById('btnResetAsgFlow');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (typeof playSound === 'function') playSound('pop');
+      setAssignmentsScreen(1);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-asg-nav]');
+    if (trigger) {
+      e.preventDefault();
+      const targetScreen = parseInt(trigger.getAttribute('data-asg-nav'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setAssignmentsScreen(targetScreen);
+    }
+  });
+}
+
+// 2. LIVE CLASSES FLOW
+let currentLiveScreen = 1;
+function setLiveClassesScreen(screenNum) {
+  currentLiveScreen = screenNum;
+  document.querySelectorAll('[data-live-step]').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-live-step'), 10);
+    pill.classList.toggle('active-pill', s === screenNum);
+  });
+  document.querySelectorAll('[data-live-screen]').forEach(panel => {
+    const s = parseInt(panel.getAttribute('data-live-screen'), 10);
+    panel.classList.toggle('active-screen', s === screenNum);
+  });
+  if (screenNum === 7) {
+    if (typeof playSound === 'function') playSound('celebration');
+    if (typeof triggerConfetti === 'function') triggerConfetti(window.innerWidth / 2, window.innerHeight / 2 - 50);
+  }
+}
+
+function initLiveClassesFlow() {
+  document.querySelectorAll('[data-live-step]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const step = parseInt(pill.getAttribute('data-live-step'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setLiveClassesScreen(step);
+    });
+  });
+  const btnReset = document.getElementById('btnResetLiveFlow');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (typeof playSound === 'function') playSound('pop');
+      setLiveClassesScreen(1);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-live-nav]');
+    if (trigger) {
+      e.preventDefault();
+      const targetScreen = parseInt(trigger.getAttribute('data-live-nav'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setLiveClassesScreen(targetScreen);
+    }
+  });
+}
+
+// 3. PROGRESS FLOW
+let currentProgScreen = 1;
+function setProgressScreen(screenNum) {
+  currentProgScreen = screenNum;
+  document.querySelectorAll('[data-prog-step]').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-prog-step'), 10);
+    pill.classList.toggle('active-pill', s === screenNum);
+  });
+  document.querySelectorAll('[data-prog-screen]').forEach(panel => {
+    const s = parseInt(panel.getAttribute('data-prog-screen'), 10);
+    panel.classList.toggle('active-screen', s === screenNum);
+  });
+  if (screenNum === 9) {
+    if (typeof playSound === 'function') playSound('celebration');
+    if (typeof triggerConfetti === 'function') triggerConfetti(window.innerWidth / 2, window.innerHeight / 2 - 50);
+  }
+}
+
+function initProgressFlow() {
+  document.querySelectorAll('[data-prog-step]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const step = parseInt(pill.getAttribute('data-prog-step'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setProgressScreen(step);
+    });
+  });
+  const btnReset = document.getElementById('btnResetProgFlow');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (typeof playSound === 'function') playSound('pop');
+      setProgressScreen(1);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-prog-nav]');
+    if (trigger) {
+      e.preventDefault();
+      const targetScreen = parseInt(trigger.getAttribute('data-prog-nav'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setProgressScreen(targetScreen);
+    }
+  });
+}
+
+// 4. ACHIEVEMENTS FLOW
+let currentAchScreen = 1;
+function setAchievementsScreen(screenNum) {
+  currentAchScreen = screenNum;
+  document.querySelectorAll('[data-ach-step]').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-ach-step'), 10);
+    pill.classList.toggle('active-pill', s === screenNum);
+  });
+  document.querySelectorAll('[data-ach-screen]').forEach(panel => {
+    const s = parseInt(panel.getAttribute('data-ach-screen'), 10);
+    panel.classList.toggle('active-screen', s === screenNum);
+  });
+  if (screenNum === 9) {
+    if (typeof playSound === 'function') playSound('celebration');
+    if (typeof triggerConfetti === 'function') triggerConfetti(window.innerWidth / 2, window.innerHeight / 2 - 50);
+  }
+}
+
+function initAchievementsFlow() {
+  document.querySelectorAll('[data-ach-step]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const step = parseInt(pill.getAttribute('data-ach-step'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setAchievementsScreen(step);
+    });
+  });
+  const btnReset = document.getElementById('btnResetAchFlow');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (typeof playSound === 'function') playSound('pop');
+      setAchievementsScreen(1);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-ach-nav]');
+    if (trigger) {
+      e.preventDefault();
+      const targetScreen = parseInt(trigger.getAttribute('data-ach-nav'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setAchievementsScreen(targetScreen);
+    }
+  });
+}
+
+// 5. AI STUDY BUDDY FLOW
+let currentAiScreen = 1;
+function setAiBuddyScreen(screenNum) {
+  currentAiScreen = screenNum;
+  document.querySelectorAll('[data-ai-step]').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-ai-step'), 10);
+    pill.classList.toggle('active-pill', s === screenNum);
+  });
+  document.querySelectorAll('[data-ai-screen]').forEach(panel => {
+    const s = parseInt(panel.getAttribute('data-ai-screen'), 10);
+    panel.classList.toggle('active-screen', s === screenNum);
+  });
+}
+
+function initAiBuddyFlow() {
+  document.querySelectorAll('[data-ai-step]').forEach(pill => {
+    pill.addEventListener('click', () => {
+      const step = parseInt(pill.getAttribute('data-ai-step'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setAiBuddyScreen(step);
+    });
+  });
+  const btnReset = document.getElementById('btnResetAiFlow');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      if (typeof playSound === 'function') playSound('pop');
+      setAiBuddyScreen(1);
+    });
+  }
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-ai-nav]');
+    if (trigger) {
+      e.preventDefault();
+      const targetScreen = parseInt(trigger.getAttribute('data-ai-nav'), 10);
+      if (typeof playSound === 'function') playSound('pop');
+      setAiBuddyScreen(targetScreen);
+    }
+  });
+
+  // Chat message sending
+  const chatInput = document.querySelector('.ai-chat-input');
+  const sendBtn = document.querySelector('.ai-send-btn');
+  const chatContainer = document.getElementById('aiChatMsgContainer');
+
+  function sendAiMessage() {
+    if (!chatInput || !chatContainer) return;
+    const text = chatInput.value.trim();
+    if (!text) return;
+    if (typeof playSound === 'function') playSound('pop');
+
+    // Append user message
+    const userRow = document.createElement('div');
+    userRow.className = 'chat-bubble-row user-row';
+    userRow.innerHTML = `
+      <div class="chat-speech-bubble user-bubble">${text}</div>
+      <div class="chat-avatar-circ user-avatar">👦</div>
+    `;
+    chatContainer.appendChild(userRow);
+    chatInput.value = '';
+    chatContainer.scrollTop = chatContainer.scrollHeight;
+
+    // Simulate smart AI response
+    setTimeout(() => {
+      if (typeof playSound === 'function') playSound('pop');
+      const botRow = document.createElement('div');
+      botRow.className = 'chat-bubble-row bot-row';
+      botRow.innerHTML = `
+        <div class="chat-avatar-circ">🤖</div>
+        <div class="chat-speech-bubble bot-bubble">
+          Super question! 🌟 Let's solve it step-by-step together! You can click "Show Visual Steps" or "Practice a Problem" above to master it!
+        </div>
+      `;
+      chatContainer.appendChild(botRow);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }, 700);
+  }
+
+  if (sendBtn) {
+    sendBtn.addEventListener('click', sendAiMessage);
+  }
+  if (chatInput) {
+    chatInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        sendAiMessage();
+      }
+    });
+  }
 }

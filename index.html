@@ -1511,377 +1511,1425 @@
       </section>
 
       <!-- ====================================================================
-           VIEW 7: ASSIGNMENTS
+           VIEW 7: ASSIGNMENTS (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-assignments">
-        <div class="assignments-header-card">
-          <div class="assignments-title-group">
-            <span class="assignments-star-badge">⭐</span>
-            <h1 class="view-heading">Assignments</h1>
-          </div>
-
-          <div class="assignments-filter-tabs">
-            <button class="asg-tab-btn active-tab" data-filter="todo">To Do (3)</button>
-            <button class="asg-tab-btn" data-filter="submitted">Submitted (2)</button>
-            <button class="asg-tab-btn" data-filter="reviewed">Reviewed (4)</button>
+        <!-- Stage Fast-Jump Strip -->
+        <div class="flow-stage-strip">
+          <div class="strip-label"><span class="strip-icon">📝</span><span>Assignments Flow:</span></div>
+          <div class="strip-pills">
+            <button class="stage-pill active-pill" data-asg-step="1">1. Dashboard</button>
+            <button class="stage-pill" data-asg-step="2">2. Subject</button>
+            <button class="stage-pill" data-asg-step="3">3. Chapter List</button>
+            <button class="stage-pill" data-asg-step="4">4. Instructions</button>
+            <button class="stage-pill" data-asg-step="5">5. Do Assignment</button>
+            <button class="stage-pill" data-asg-step="6">6. Submit</button>
+            <button class="stage-pill" data-asg-step="7">7. Under Review</button>
+            <button class="stage-pill" data-asg-step="8">8. Graded Result</button>
+            <button class="stage-pill" data-asg-step="9">9. History</button>
+            <button class="stage-reset-btn" id="btnResetAsgFlow">↺ Reset</button>
           </div>
         </div>
 
-        <div class="assignments-stage-layout">
-          <div class="assignments-cards-list">
-            <!-- Assignment 1 -->
-            <div class="assignment-item-card">
-              <div class="asg-card-left">
-                <div class="asg-icon-pill">
-                  <img src="assets/icons/nav_assignments_3d.png" alt="Clipboard" class="asg-icon-img">
-                </div>
-                <div class="asg-meta-info">
-                  <h3 class="asg-name">Maths - Addition Worksheet</h3>
-                  <span class="asg-due-date">Due: 20 Nov</span>
-                </div>
-              </div>
-              <button class="btn-asg-start" data-assignment="Maths - Addition Worksheet">
-                Start
-              </button>
+        <!-- SCREEN 1: ASSIGNMENTS DASHBOARD -->
+        <div class="flow-screen-panel active-screen" id="asgScreen1" data-asg-screen="1">
+          <div class="view-dashboard-card">
+            <div class="view-wood-header">
+              <img src="assets/illustrations/assignments_wooden_sign.png" alt="Assignments" class="wood-sign-img">
+              <p class="wood-header-tagline">Complete Tasks, Practice More, and Show Your Learning!</p>
             </div>
-
-            <!-- Assignment 2 -->
-            <div class="assignment-item-card">
-              <div class="asg-card-left">
-                <div class="asg-icon-pill">
-                  <img src="assets/icons/nav_assignments_3d.png" alt="Clipboard" class="asg-icon-img">
+            <div class="view-dashboard-body">
+              <div class="view-mascot-col">
+                <img src="assets/characters/fox_pencil_mascot.png" alt="Fox with Pencil" class="mascot-img-pencil">
+              </div>
+              <div class="view-cards-grid-3">
+                <div class="clay-stat-card card-orange-glow" data-asg-nav="3">
+                  <div class="card-badge-count count-red">3</div>
+                  <div class="card-icon-wrap"><span class="card-emoji-icon">📋</span></div>
+                  <h3 class="card-title-text">New Assignments</h3>
                 </div>
-                <div class="asg-meta-info">
-                  <h3 class="asg-name">English - Reading Practice</h3>
-                  <span class="asg-due-date">Due: 21 Nov</span>
+                <div class="clay-stat-card card-yellow-glow" data-asg-nav="5">
+                  <div class="card-badge-count count-orange">1</div>
+                  <div class="card-icon-wrap"><span class="card-emoji-icon">⏱</span></div>
+                  <h3 class="card-title-text">In Progress</h3>
+                </div>
+                <div class="clay-stat-card card-green-glow" data-asg-nav="9">
+                  <div class="card-badge-count count-green">5</div>
+                  <div class="card-icon-wrap"><span class="card-emoji-icon">✅</span></div>
+                  <h3 class="card-title-text">Completed</h3>
                 </div>
               </div>
-              <button class="btn-asg-start" data-assignment="English - Reading Practice">
-                Start
-              </button>
-            </div>
-
-            <!-- Assignment 3 -->
-            <div class="assignment-item-card">
-              <div class="asg-card-left">
-                <div class="asg-icon-pill">
-                  <img src="assets/icons/nav_assignments_3d.png" alt="Clipboard" class="asg-icon-img">
-                </div>
-                <div class="asg-meta-info">
-                  <h3 class="asg-name">EVS - My Family (Write 5 Lines)</h3>
-                  <span class="asg-due-date">Due: 22 Nov</span>
-                </div>
-              </div>
-              <button class="btn-asg-start" data-assignment="EVS - My Family">
-                Start
-              </button>
             </div>
           </div>
+        </div>
 
-          <div class="assignments-fox-guide">
-            <img src="assets/characters/fox_waving.png" alt="Fox Cheering" class="asg-fox-img">
+        <!-- SCREEN 2: CHOOSE SUBJECT -->
+        <div class="flow-screen-panel" id="asgScreen2" data-asg-screen="2">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-asg-nav="1">Assignments</span><span class="bc-sep">></span><span class="bc-curr">Choose Subject</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Select a Subject</h2>
+            <div class="quiz-subjects-grid">
+              <div class="quiz-subject-card clay-purple" data-asg-nav="3"><div class="quiz-subj-icon-box"><svg class="subj-math-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#a855f7"/><text x="14" y="22" font-size="20" font-weight="900" fill="#fff">+</text><text x="30" y="22" font-size="20" font-weight="900" fill="#fff">−</text><text x="14" y="38" font-size="20" font-weight="900" fill="#fff">×</text><text x="30" y="38" font-size="20" font-weight="900" fill="#fff">÷</text></svg></div><span class="quiz-subj-name">Maths</span></div>
+              <div class="quiz-subject-card clay-orange" data-asg-nav="3"><div class="quiz-subj-icon-box"><svg class="subj-english-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#fb923c"/><text x="11" y="32" font-size="20" font-weight="900" fill="#fff">ABC</text></svg></div><span class="quiz-subj-name">English</span></div>
+              <div class="quiz-subject-card clay-green" data-asg-nav="3"><div class="quiz-subj-icon-box"><svg class="subj-evs-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#4ade80"/><path d="M24 38 C24 24 36 20 36 20 C36 20 36 32 24 38 Z" fill="#15803d"/><path d="M24 38 C24 28 14 26 14 26 C14 26 15 35 24 38 Z" fill="#16a34a"/></svg></div><span class="quiz-subj-name">EVS</span></div>
+              <div class="quiz-subject-card clay-cyan" data-asg-nav="3"><div class="quiz-subj-icon-box"><svg class="subj-science-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#38bdf8"/><path d="M20 12 L28 12 L28 20 L35 34 C36 36 34 38 32 38 L16 38 C14 38 12 36 13 34 L20 20 Z" fill="#fff" opacity="0.9"/></svg></div><span class="quiz-subj-name">Science</span></div>
+              <div class="quiz-subject-card clay-pink" data-asg-nav="3"><div class="quiz-subj-icon-box"><svg class="subj-tamil-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#f472b6"/><text x="14" y="34" font-size="24" font-weight="900" fill="#fff">அ</text></svg></div><span class="quiz-subj-name">தமிழ்</span></div>
+              <div class="quiz-subject-card clay-yellow" data-asg-nav="3"><div class="quiz-subj-icon-box"><svg class="subj-art-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#facc15"/><circle cx="20" cy="20" r="4" fill="#ef4444"/><circle cx="28" cy="18" r="4" fill="#3b82f6"/><circle cx="34" cy="26" r="4" fill="#22c55e"/><circle cx="26" cy="32" r="4" fill="#a855f7"/></svg></div><span class="quiz-subj-name">Art & Craft</span></div>
+            </div>
+            <img src="assets/characters/fox_reading.png" alt="Fox Reading" class="quiz-fox-reading-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 3: ASSIGNMENT LIST (CHOOSE CHAPTER) -->
+        <div class="flow-screen-panel" id="asgScreen3" data-asg-screen="3">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-asg-nav="1">Assignments</span><span class="bc-sep">></span><span class="bc-curr">Maths</span>
+          </div>
+          <div class="view-dashboard-card">
+            <div class="quiz-class-badge-pill"><span class="badge-star-icon">⭐</span><span class="badge-title-text">Maths – Class 3</span></div>
+            <div class="quiz-chapters-vertical-list">
+              <div class="quiz-chapter-row ch-completed">
+                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 1 – Numbers and Place Value</span></div>
+                <span class="ch-status-pill pill-completed">Completed</span>
+              </div>
+              <div class="quiz-chapter-row ch-active">
+                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 2 – Addition</span></div>
+                <button class="btn-start-quiz-orange" data-asg-nav="4">New ▶</button>
+              </div>
+              <div class="quiz-chapter-row">
+                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 3 – Subtraction</span></div>
+                <span class="ch-status-pill pill-locked">Not Started</span>
+              </div>
+              <div class="quiz-chapter-row">
+                <div class="ch-left-info"><span class="asg-doc-icon">📄</span><span class="ch-title">Chapter 4 – Multiplication</span></div>
+                <span class="ch-status-pill pill-locked">Not Started</span>
+              </div>
+              <div class="quiz-chapter-row ch-locked">
+                <div class="ch-left-info"><span class="asg-doc-icon">🔒</span><span class="ch-title">Chapter 5 – Division</span></div>
+                <span class="ch-status-pill pill-locked">Locked</span>
+              </div>
+            </div>
+            <img src="assets/characters/fox_cheer_right.png" alt="Cheering Fox" class="quiz-fox-cheer-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 4: ASSIGNMENT INSTRUCTIONS -->
+        <div class="flow-screen-panel" id="asgScreen4" data-asg-screen="4">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-asg-nav="3">Maths</span><span class="bc-sep">></span><span class="bc-curr">Chapter 2 – Addition</span>
+          </div>
+          <div class="quiz-instructions-stage-card">
+            <div class="quiz-instructions-content">
+              <div class="inst-top-header">
+                <img src="assets/icons/quiz_clipboard_3d.png" alt="Clipboard" class="inst-clipboard-icon">
+                <h2 class="inst-main-title">Assignment – Addition</h2>
+              </div>
+              <div class="inst-details-list">
+                <div class="inst-detail-item"><span class="inst-item-icon">❓</span><span class="inst-item-label">Total Questions :</span><span class="inst-item-val">5</span></div>
+                <div class="inst-detail-item"><span class="inst-item-icon">📝</span><span class="inst-item-label">Submission Type :</span><span class="inst-item-val">Write / Upload</span></div>
+                <div class="inst-detail-item"><span class="inst-item-icon">📅</span><span class="inst-item-label">Due Date :</span><span class="inst-item-val">20 Nov 2026, 11:59 PM</span></div>
+                <div class="inst-detail-item"><span class="inst-item-icon">⭐</span><span class="inst-item-label">Marks :</span><span class="inst-item-val">10</span></div>
+              </div>
+              <button class="btn-start-quiz-green-giant" data-asg-nav="5">Start Assignment ▶</button>
+            </div>
+            <img src="assets/characters/fox_thumbs_up.png" alt="Fox Thumbs Up" class="quiz-fox-thumbs-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 5: DO THE ASSIGNMENT (ANSWER & UPLOAD) -->
+        <div class="flow-screen-panel" id="asgScreen5" data-asg-screen="5">
+          <div class="quiz-hud-top-bar">
+            <div class="hud-subject-pill">Maths – Addition</div>
+            <div class="hud-counter-pill">Q 2 of 5</div>
+          </div>
+          <div class="view-dashboard-card asg-work-card">
+            <h2 class="asg-question-title">2. Add the following numbers:</h2>
+            <div class="asg-equation-large">245 + 132 = ?</div>
+            <div class="asg-input-wrap">
+              <input type="text" class="asg-text-input" value="377" placeholder="Type your answer...">
+            </div>
+            <div class="quiz-nav-bottom-bar">
+              <button class="btn-quiz-back" data-asg-nav="4">&lt; Previous</button>
+              <button class="btn-quiz-forward" data-asg-nav="6">Next &gt;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 6: SUBMIT ASSIGNMENT -->
+        <div class="flow-screen-panel" id="asgScreen6" data-asg-screen="6">
+          <div class="view-dashboard-card asg-submit-card">
+            <div class="asg-submit-icon-circ">
+              <img src="assets/icons/quiz_clipboard_3d.png" alt="Clipboard" class="submit-clip-img">
+              <div class="submit-check-badge">✓</div>
+            </div>
+            <h2 class="submit-main-heading">Ready to Submit?</h2>
+            <p class="submit-subheading">You have answered 5 out of 5 questions.</p>
+            <div class="submit-actions-group">
+              <button class="btn-start-quiz-green-giant" data-asg-nav="7">Submit Assignment ▶</button>
+              <button class="btn-review-answers" data-asg-nav="5">✏️ Review Answers</button>
+            </div>
+            <img src="assets/characters/fox_cheer_right.png" alt="Cheering Fox" class="quiz-fox-cheer-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 7: SUBMISSION - UNDER REVIEW -->
+        <div class="flow-screen-panel" id="asgScreen7" data-asg-screen="7">
+          <div class="view-dashboard-card asg-review-card">
+            <div class="hourglass-anim-wrap"><span class="hourglass-big-icon">⏳</span></div>
+            <h2 class="review-main-title">Assignment Submitted!</h2>
+            <p class="review-body-desc">Your assignment has been submitted successfully and is under review by your teacher.</p>
+            <div class="review-status-capsule">Status: In Review</div>
+            <div class="review-buttons-row">
+              <button class="btn-result-action btn-back-quizzes" data-asg-nav="8">View Graded Result ▶</button>
+              <button class="btn-result-action btn-review" data-asg-nav="1">Back to Assignments</button>
+            </div>
+            <img src="assets/characters/fox_reading.png" alt="Fox Reading" class="quiz-fox-reading-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 8: GRADED RESULT -->
+        <div class="flow-screen-panel" id="asgScreen8" data-asg-screen="8">
+          <div class="quiz-result-stage-card">
+            <div class="result-trophy-banner-wrap"><img src="assets/illustrations/trophy_quiz_completed.png" alt="Result" class="trophy-completed-img"></div>
+            <div class="result-body-layout">
+              <div class="result-score-col">
+                <img src="assets/characters/fox_result.png" alt="Fox Result" class="fox-result-cheer-img">
+                <div class="result-score-box">
+                  <span class="score-box-sub">Score</span>
+                  <h1 class="score-box-big">8 / 10</h1>
+                </div>
+              </div>
+              <div class="result-stats-col">
+                <div class="result-stat-item item-green"><div class="stat-left"><span class="stat-badge green-badge">✓</span><span class="stat-name">Correct Answers</span></div><span class="stat-number">4</span></div>
+                <div class="result-stat-item item-red"><div class="stat-left"><span class="stat-badge red-badge">✕</span><span class="stat-name">Wrong Answers</span></div><span class="stat-number">1</span></div>
+                <div class="result-stat-item item-blue"><div class="stat-left"><span class="stat-badge blue-badge">❓</span><span class="stat-name">Not Answered</span></div><span class="stat-number">0</span></div>
+              </div>
+            </div>
+            <div class="result-actions-row">
+              <button class="btn-result-action btn-review" data-asg-nav="5">👁️ View Answers</button>
+              <button class="btn-result-action btn-retry" data-asg-nav="4">Try Again</button>
+              <button class="btn-result-action btn-back-quizzes" data-asg-nav="9">My Assignments ▶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 9: MY ASSIGNMENTS - HISTORY -->
+        <div class="flow-screen-panel" id="asgScreen9" data-asg-screen="9">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-asg-nav="1">Assignments</span><span class="bc-sep">></span><span class="bc-curr">My Assignments</span>
+          </div>
+          <div class="quiz-results-history-stage-card">
+            <div class="results-wood-title-wrap"><img src="assets/illustrations/assignments_wooden_sign.png" alt="My Assignments" class="results-wood-title-img"></div>
+            <div class="results-table-card">
+              <table class="quiz-history-table">
+                <thead>
+                  <tr><th>Assignment</th><th>Subject</th><th>Score</th><th>Status</th><th>Date</th><th>Action</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td class="quiz-name-cell">Addition – Chapter 2</td><td>Maths</td><td><span class="score-pill-badge badge-green-score">8 / 10</span></td><td><span class="ch-status-pill pill-completed">Completed</span></td><td class="date-cell">19 Nov 2026</td><td><button class="btn-history-view" data-asg-nav="8">View ▶</button></td></tr>
+                  <tr><td class="quiz-name-cell">Numbers – Chapter 1</td><td>Maths</td><td><span class="score-pill-badge badge-green-score">10 / 10</span></td><td><span class="ch-status-pill pill-completed">Completed</span></td><td class="date-cell">15 Nov 2026</td><td><button class="btn-history-view" data-asg-nav="8">View ▶</button></td></tr>
+                  <tr><td class="quiz-name-cell">Worksheet – EVS</td><td>EVS</td><td><span class="score-pill-badge badge-orange-score">7 / 10</span></td><td><span class="ch-status-pill pill-completed">Completed</span></td><td class="date-cell">12 Nov 2026</td><td><button class="btn-history-view" data-asg-nav="8">View ▶</button></td></tr>
+                  <tr><td class="quiz-name-cell">Reading Practice</td><td>English</td><td>—</td><td><span class="review-status-capsule status-inline">In Review</span></td><td class="date-cell">11 Nov 2026</td><td><button class="btn-history-view" data-asg-nav="7">View ▶</button></td></tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ====================================================================
-           VIEW 8: LIVE CLASSES
+<!-- ====================================================================
+           VIEW 8: LIVE CLASSES (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-live-classes">
-        <div class="live-classes-header-card">
-          <div class="live-title-group">
-            <img src="assets/icons/nav_live_classes_3d.png" alt="Live Classes" class="live-head-icon">
-            <h1 class="view-heading">Live Classes</h1>
-          </div>
-
-          <div class="live-filter-tabs">
-            <button class="live-tab-btn" data-live-filter="upcoming">Upcoming</button>
-            <button class="live-tab-btn active-live-tab" data-live-filter="live">Live Now (1)</button>
-            <button class="live-tab-btn" data-live-filter="recordings">Recordings</button>
+        <!-- Stage Fast-Jump Strip -->
+        <div class="flow-stage-strip">
+          <div class="strip-label"><span class="strip-icon">📹</span><span>Live Classes Flow:</span></div>
+          <div class="strip-pills">
+            <button class="stage-pill active-pill" data-live-step="1">1. Dashboard</button>
+            <button class="stage-pill" data-live-step="2">2. Upcoming</button>
+            <button class="stage-pill" data-live-step="3">3. Class Details</button>
+            <button class="stage-pill" data-live-step="4">4. Preparation</button>
+            <button class="stage-pill" data-live-step="5">5. In Progress</button>
+            <button class="stage-pill" data-live-step="6">6. Interaction</button>
+            <button class="stage-pill" data-live-step="7">7. Completed</button>
+            <button class="stage-pill" data-live-step="8">8. Resources</button>
+            <button class="stage-pill" data-live-step="9">9. History</button>
+            <button class="stage-reset-btn" id="btnResetLiveFlow">↺ Reset</button>
           </div>
         </div>
 
-        <div class="live-feature-card">
-          <div class="live-video-preview-box">
-            <img src="assets/characters/teacher.png" alt="Ms. Nandhini" class="live-teacher-portrait">
-            <div class="live-blackboard-overlay">
-              <span class="blackboard-title">Addition</span>
-              <span class="blackboard-math">5 + 3 = ?</span>
+        <!-- SCREEN 1: DASHBOARD -->
+        <div class="flow-screen-panel active-screen" id="liveScreen1" data-live-screen="1">
+          <div class="view-dashboard-card">
+            <div class="view-wood-header">
+              <img src="assets/illustrations/live_wooden_sign.png" alt="Live Classes" class="wood-sign-img">
+              <p class="wood-header-tagline">Join real-time classes with your teacher, ask doubts and learn together!</p>
             </div>
-            <div class="live-pulse-badge">
-              <span class="live-pulse-dot"></span>
-              <span>LIVE</span>
+            <div class="view-dashboard-body">
+              <div class="view-mascot-col">
+                <img src="assets/characters/fox_laptop.png" alt="Fox at Laptop" class="mascot-img-laptop">
+              </div>
+              <div class="quiz-modes-grid">
+                <div class="quiz-mode-card" data-live-nav="4">
+                  <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">📹</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Join Live Class</h3><p class="quiz-mode-desc">Enter active classroom</p></div>
+                </div>
+                <div class="quiz-mode-card" data-live-nav="2">
+                  <div class="quiz-mode-icon-circle bg-red-glow"><span class="card-emoji-icon">📅</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Upcoming Classes</h3><p class="quiz-mode-desc">View schedule & reminders</p></div>
+                </div>
+                <div class="quiz-mode-card" data-live-nav="9">
+                  <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">🎓</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">My Classes</h3><p class="quiz-mode-desc">Attended sessions history</p></div>
+                </div>
+                <div class="quiz-mode-card" data-live-nav="8">
+                  <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">📼</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Recordings</h3><p class="quiz-mode-desc">Replay past lessons</p></div>
+                </div>
+              </div>
             </div>
           </div>
+        </div>
 
-          <div class="live-details-box">
-            <h2 class="live-class-subject-title">Maths - Addition</h2>
-            <span class="live-class-grade">Class 3</span>
-            <span class="live-class-teacher-name">By Ms. Nandhini</span>
+        <!-- SCREEN 2: UPCOMING LIVE CLASSES -->
+        <div class="flow-screen-panel" id="liveScreen2" data-live-screen="2">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-live-nav="1">Live Classes</span><span class="bc-sep">></span><span class="bc-curr">Upcoming Classes</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Upcoming Live Classes</h2>
+            <div class="live-classes-schedule-list">
+              <div class="live-schedule-card active-live-row">
+                <div class="live-subj-badge badge-maths">π</div>
+                <div class="live-schedule-info">
+                  <h3 class="live-card-title">Maths – Addition</h3>
+                  <p class="live-card-sub">Class 3 • Chapter 2</p>
+                </div>
+                <div class="live-time-pill"><span class="clock-icon">📅</span> Today 11:00 AM</div>
+                <button class="btn-live-join-green" data-live-nav="3">Join ▶</button>
+              </div>
+              <div class="live-schedule-card">
+                <div class="live-subj-badge badge-english">📖</div>
+                <div class="live-schedule-info">
+                  <h3 class="live-card-title">English – Grammar</h3>
+                  <p class="live-card-sub">Class 3 • Chapter 1</p>
+                </div>
+                <div class="live-time-pill"><span class="clock-icon">📅</span> Today 03:00 PM</div>
+                <button class="btn-live-remind-blue">🔔 Remind Me</button>
+              </div>
+              <div class="live-schedule-card">
+                <div class="live-subj-badge badge-science">🔬</div>
+                <div class="live-schedule-info">
+                  <h3 class="live-card-title">Science – Plants</h3>
+                  <p class="live-card-sub">Class 3 • Chapter 3</p>
+                </div>
+                <div class="live-time-pill"><span class="clock-icon">📅</span> Tomorrow 11:00 AM</div>
+                <button class="btn-live-remind-blue">🔔 Remind Me</button>
+              </div>
+            </div>
+            <img src="assets/characters/fox_reading.png" alt="Fox Reading" class="quiz-fox-reading-corner">
+          </div>
+        </div>
 
-            <button class="btn-join-live-class" id="btnJoinLiveClass">
-              Join Now
-            </button>
+        <!-- SCREEN 3: LIVE CLASS DETAILS -->
+        <div class="flow-screen-panel" id="liveScreen3" data-live-screen="3">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-live-nav="2">Live Classes</span><span class="bc-sep">></span><span class="bc-curr">Maths – Addition</span>
+          </div>
+          <div class="view-dashboard-card live-details-card">
+            <div class="live-details-layout">
+              <div class="live-chalkboard-preview">
+                <div class="chalkboard-inner"><span class="chalk-math">2 + 3 = ?</span></div>
+              </div>
+              <div class="live-details-meta">
+                <h2 class="live-detail-heading">Maths – Addition</h2>
+                <p class="live-detail-sub">Class 3 • Chapter 2</p>
+                <div class="live-meta-list">
+                  <div class="meta-item"><span class="meta-icon">📅</span><span class="meta-label">Date :</span><span class="meta-val">19 Nov 2026</span></div>
+                  <div class="meta-item"><span class="meta-icon">⏰</span><span class="meta-label">Time :</span><span class="meta-val">11:00 AM – 11:45 AM</span></div>
+                  <div class="meta-item"><span class="meta-icon">👩‍🏫</span><span class="meta-label">Teacher :</span><span class="meta-val">Ms. Nandhini</span></div>
+                </div>
+                <button class="btn-start-quiz-green-giant" data-live-nav="4">Join Live Class ▶</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 4: JOIN LIVE CLASS PREPARATION -->
+        <div class="flow-screen-panel" id="liveScreen4" data-live-screen="4">
+          <div class="view-dashboard-card live-prep-card">
+            <div class="prep-cam-circle"><span class="prep-cam-icon">📹</span></div>
+            <h2 class="prep-heading">Get Ready for the Live Class!</h2>
+            <div class="prep-checklist-box">
+              <div class="prep-check-row"><span class="prep-icon">📹</span><span>Camera (Optional)</span><span class="check-green-pill">✓</span></div>
+              <div class="prep-check-row"><span class="prep-icon">🎙️</span><span>Microphone</span><span class="check-green-pill">✓</span></div>
+              <div class="prep-check-row"><span class="prep-icon">📶</span><span>Internet Connection</span><span class="check-green-pill">✓</span></div>
+            </div>
+            <button class="btn-start-quiz-green-giant" data-live-nav="5">Join Now ▶</button>
+            <img src="assets/characters/fox_laptop.png" alt="Fox Laptop" class="quiz-fox-reading-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 5: LIVE CLASS IN PROGRESS -->
+        <div class="flow-screen-panel" id="liveScreen5" data-live-screen="5">
+          <div class="live-room-container">
+            <div class="live-room-hud">
+              <div class="room-hud-left"><span class="room-badge-math">π</span><span>Maths – Addition (Class 3)</span></div>
+              <div class="room-hud-right">
+                <span class="live-pill-red">🔴 LIVE</span>
+                <span class="attendees-pill">👥 28</span>
+                <span class="timer-pill-hud">⏱ 00:18:24</span>
+              </div>
+            </div>
+            <div class="live-room-video-grid">
+              <div class="teacher-main-feed">
+                <div class="teacher-blackboard-view">
+                  <h2 class="teacher-topic">Addition</h2>
+                  <div class="teacher-formula">234 + 125 = ?</div>
+                  <div class="teacher-calc">
+                    <pre>  234
++ 125
+-----
+  359</pre>
+                  </div>
+                  <div class="teacher-avatar-badge">👩‍🏫 Ms. Nandhini</div>
+                </div>
+              </div>
+              <div class="students-cam-column">
+                <div class="student-thumb"><div class="student-cam-placeholder bg-blue-stud">👦 Arjun</div></div>
+                <div class="student-thumb"><div class="student-cam-placeholder bg-pink-stud">👧 Hasmitha</div></div>
+                <div class="student-thumb"><div class="student-cam-placeholder bg-green-stud">👦 Rohit</div></div>
+              </div>
+            </div>
+            <div class="live-room-controls-bar">
+              <div class="room-media-btns">
+                <button class="room-tool-btn">🎙️</button>
+                <button class="room-tool-btn">📹</button>
+                <button class="room-tool-btn">✋</button>
+                <button class="room-tool-btn" data-live-nav="6">💬</button>
+              </div>
+              <button class="btn-leave-class" data-live-nav="7">Leave</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 6: LIVE CLASS - TOOLS & INTERACTION -->
+        <div class="flow-screen-panel" id="liveScreen6" data-live-screen="6">
+          <div class="live-room-container">
+            <div class="live-room-hud">
+              <div class="room-hud-left"><span class="room-badge-math">π</span><span>Maths – Addition (Class 3)</span></div>
+              <div class="room-hud-right">
+                <span class="live-pill-red">🔴 LIVE</span>
+                <span class="attendees-pill">👥 28</span>
+                <span class="timer-pill-hud">⏱ 00:18:24</span>
+              </div>
+            </div>
+            <div class="live-interaction-layout">
+              <div class="live-tools-sidebar">
+                <button class="tool-action-btn"><span>✋</span><span>Raise Hand</span></button>
+                <button class="tool-action-btn"><span>📊</span><span>Poll / Quiz</span></button>
+                <button class="tool-action-btn"><span>💻</span><span>Share Screen</span></button>
+                <button class="tool-action-btn"><span>📋</span><span>Class Notes</span></button>
+                <button class="tool-action-btn"><span>📥</span><span>Resources</span></button>
+              </div>
+              <div class="live-chat-panel">
+                <div class="chat-tab-bar">
+                  <button class="chat-tab active-chat-tab">Chat</button>
+                  <button class="chat-tab">Q&A</button>
+                  <button class="chat-tab">Participants</button>
+                </div>
+                <div class="chat-messages-stream">
+                  <div class="chat-entry"><span class="chat-author author-arjun">👦 Arjun:</span><span class="chat-text">Ma'am, can you explain this again?</span></div>
+                  <div class="chat-entry"><span class="chat-author author-hasmitha">👧 Hasmitha:</span><span class="chat-text">Yes, I also have the same doubt.</span></div>
+                  <div class="chat-entry"><span class="chat-author author-teacher">👩‍🏫 Teacher:</span><span class="chat-text">Sure children! Always start adding from the ones place!</span></div>
+                </div>
+                <div class="chat-input-row">
+                  <input type="text" class="chat-box-input" placeholder="Type a message...">
+                  <button class="chat-send-btn">➤</button>
+                </div>
+              </div>
+            </div>
+            <div class="live-room-controls-bar">
+              <button class="btn-leave-class" data-live-nav="7">Finish Session ▶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 7: LIVE CLASS COMPLETED -->
+        <div class="flow-screen-panel" id="liveScreen7" data-live-screen="7">
+          <div class="view-dashboard-card live-completed-card">
+            <div class="completed-check-giant">✓</div>
+            <h2 class="completed-heading">Live Class Completed!</h2>
+            <h3 class="completed-subheading">Maths – Addition (Class 3 • Chapter 2)</h3>
+            <div class="completed-actions-row">
+              <button class="btn-result-action btn-review" data-live-nav="8">📹 View Recording</button>
+              <button class="btn-result-action btn-retry" data-live-nav="8">📋 Class Notes</button>
+              <button class="btn-result-action btn-back-quizzes" data-live-nav="1">🎮 Practice Quiz</button>
+            </div>
+            <img src="assets/characters/fox_cheer_right.png" alt="Cheering Fox" class="quiz-fox-cheer-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 8: RECORDING & CLASS RESOURCES -->
+        <div class="flow-screen-panel" id="liveScreen8" data-live-screen="8">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-live-nav="1">Live Classes</span><span class="bc-sep">></span><span class="bc-curr">Maths – Addition</span>
+          </div>
+          <div class="view-dashboard-card">
+            <div class="resources-tabs-strip">
+              <button class="res-tab active-res-tab">📹 Recording</button>
+              <button class="res-tab">📋 Class Notes</button>
+              <button class="res-tab">📁 Resources</button>
+            </div>
+            <div class="resources-body-split">
+              <div class="res-video-player-wrap">
+                <div class="video-mock-screen">
+                  <div class="screen-math-text">Addition<br>234 + 125 = 359</div>
+                  <button class="video-center-play">▶</button>
+                </div>
+                <div class="video-scrubber-bar"><div class="scrub-fill" style="width: 45%;"></div></div>
+              </div>
+              <div class="res-downloads-list">
+                <h3 class="downloads-title">Class Resources</h3>
+                <div class="download-item-row"><span class="doc-icon-red">📄</span><span>Class Notes.pdf</span><span class="dl-icon">📥</span></div>
+                <div class="download-item-row"><span class="doc-icon-orange">📊</span><span>Examples.ppt</span><span class="dl-icon">📥</span></div>
+                <div class="download-item-row"><span class="doc-icon-blue">📝</span><span>Worksheet.pdf</span><span class="dl-icon">📥</span></div>
+                <button class="btn-download-all-blue">📥 Download All</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 9: MY LIVE CLASSES - HISTORY -->
+        <div class="flow-screen-panel" id="liveScreen9" data-live-screen="9">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-live-nav="1">Live Classes</span><span class="bc-sep">></span><span class="bc-curr">My Classes</span>
+          </div>
+          <div class="view-dashboard-card">
+            <div class="history-filter-strip">
+              <button class="filter-tab">📅 Upcoming (2)</button>
+              <button class="filter-tab active-filter-tab">✓ Completed (6)</button>
+              <button class="filter-tab">📹 Recordings</button>
+            </div>
+            <div class="live-history-list">
+              <div class="live-history-item">
+                <div class="live-subj-badge badge-maths">π</div>
+                <div class="history-item-info"><h4 class="history-item-title">Maths – Addition</h4><p class="history-item-date">19 Nov 2026, 11:00 AM</p></div>
+                <span class="ch-status-pill pill-completed">✓ Completed</span>
+                <button class="btn-history-view" data-live-nav="8">Watch ▶</button>
+              </div>
+              <div class="live-history-item">
+                <div class="live-subj-badge badge-english">📖</div>
+                <div class="history-item-info"><h4 class="history-item-title">English – Grammar</h4><p class="history-item-date">18 Nov 2026, 03:00 PM</p></div>
+                <span class="ch-status-pill pill-completed">✓ Completed</span>
+                <button class="btn-history-view" data-live-nav="8">Watch ▶</button>
+              </div>
+              <div class="live-history-item">
+                <div class="live-subj-badge badge-science">🔬</div>
+                <div class="history-item-info"><h4 class="history-item-title">Science – Plants</h4><p class="history-item-date">17 Nov 2026, 11:00 AM</p></div>
+                <span class="ch-status-pill pill-completed">✓ Completed</span>
+                <button class="btn-history-view" data-live-nav="8">Watch ▶</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ====================================================================
-           VIEW 9: PROGRESS
+<!-- ====================================================================
+           VIEW 9: PROGRESS (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-progress">
-        <div class="view-header-card">
-          <div class="view-header-title-group">
-            <img src="assets/icons/nav_progress_3d.png" alt="Progress" class="view-header-icon">
-            <h1 class="view-heading">My Progress</h1>
+        <!-- Stage Fast-Jump Strip -->
+        <div class="flow-stage-strip">
+          <div class="strip-label"><span class="strip-icon">📊</span><span>Progress Flow:</span></div>
+          <div class="strip-pills">
+            <button class="stage-pill active-pill" data-prog-step="1">1. Overview</button>
+            <button class="stage-pill" data-prog-step="2">2. Summary</button>
+            <button class="stage-pill" data-prog-step="3">3. Subjects</button>
+            <button class="stage-pill" data-prog-step="4">4. Detail (Maths)</button>
+            <button class="stage-pill" data-prog-step="5">5. Performance</button>
+            <button class="stage-pill" data-prog-step="6">6. Streak</button>
+            <button class="stage-pill" data-prog-step="7">7. Activity</button>
+            <button class="stage-pill" data-prog-step="8">8. Insights</button>
+            <button class="stage-pill" data-prog-step="9">9. Milestone</button>
+            <button class="stage-reset-btn" id="btnResetProgFlow">↺ Reset</button>
           </div>
         </div>
 
-        <div class="progress-view-content">
-          <!-- Top Analytics Card -->
-          <div class="progress-summary-card">
-            <div class="progress-gauge-side">
-              <div class="donut-chart-box-large">
-                <svg class="donut-svg-graphic" viewBox="0 0 100 100">
-                  <circle class="donut-track-ring" cx="50" cy="50" r="38"/>
-                  <circle class="donut-value-ring" cx="50" cy="50" r="38" stroke="url(#donutProgressGreen)" stroke-dasharray="238.76" stroke-dashoffset="83.56"/>
-                </svg>
-                <div class="donut-center-metric">
-                  <span class="donut-pct-large">65%</span>
-                  <span class="donut-lbl">Overall</span>
-                </div>
-              </div>
+        <!-- SCREEN 1: PROGRESS DASHBOARD -->
+        <div class="flow-screen-panel active-screen" id="progScreen1" data-prog-screen="1">
+          <div class="view-dashboard-card">
+            <div class="view-wood-header">
+              <img src="assets/illustrations/progress_wooden_sign.png" alt="My Progress" class="wood-sign-img">
+              <p class="wood-header-tagline">Track your learning, performance, and overall growth!</p>
             </div>
-
-            <div class="progress-subject-bars-side">
-              <div class="prog-subj-row">
-                <span class="subj-bullet bullet-maths">●</span>
-                <span class="subj-name">Maths</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-maths" style="width: 80%;"></div>
-                </div>
-                <span class="prog-subj-pct">80%</span>
+            <div class="view-dashboard-body">
+              <div class="view-mascot-col">
+                <img src="assets/characters/fox_thumbs_up.png" alt="Fox Mascot" class="mascot-img-pencil">
               </div>
-
-              <div class="prog-subj-row">
-                <span class="subj-bullet bullet-english">●</span>
-                <span class="subj-name">English</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-english" style="width: 60%;"></div>
+              <div class="quiz-modes-grid">
+                <div class="quiz-mode-card" data-prog-nav="2">
+                  <div class="quiz-mode-icon-circle bg-orange-glow"><span class="card-emoji-icon">📊</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Overall Progress</h3><p class="quiz-mode-desc">Total syllabus completion</p></div>
                 </div>
-                <span class="prog-subj-pct">60%</span>
-              </div>
-
-              <div class="prog-subj-row">
-                <span class="subj-bullet bullet-evs">●</span>
-                <span class="subj-name">EVS</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-evs" style="width: 70%;"></div>
+                <div class="quiz-mode-card" data-prog-nav="3">
+                  <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">📚</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Subject Progress</h3><p class="quiz-mode-desc">Subject breakdown</p></div>
                 </div>
-                <span class="prog-subj-pct">70%</span>
-              </div>
-
-              <div class="prog-subj-row">
-                <span class="subj-bullet bullet-science">●</span>
-                <span class="subj-name">Science</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-science" style="width: 50%;"></div>
+                <div class="quiz-mode-card" data-prog-nav="5">
+                  <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">📋</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Performance Reports</h3><p class="quiz-mode-desc">Scores & analytics</p></div>
                 </div>
-                <span class="prog-subj-pct">50%</span>
+                <div class="quiz-mode-card" data-prog-nav="6">
+                  <div class="quiz-mode-icon-circle bg-red-glow"><span class="card-emoji-icon">🔥</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Learning Streak</h3><p class="quiz-mode-desc">Daily study habit</p></div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Bottom Chapters Progress Breakdown Card -->
-          <div class="chapter-progress-card">
-            <h3 class="chapter-progress-title">Chapter Progress - Maths</h3>
-
-            <div class="chapter-prog-list">
-              <div class="ch-prog-row">
-                <span class="ch-bullet green-bullet">●</span>
-                <span class="ch-name">Addition</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-evs" style="width: 100%;"></div>
+        <!-- SCREEN 2: OVERALL PROGRESS - SUMMARY -->
+        <div class="flow-screen-panel" id="progScreen2" data-prog-screen="2">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="1">Progress</span><span class="bc-sep">></span><span class="bc-curr">Overall Progress</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Overall Progress</h2>
+            <div class="summary-split-layout">
+              <div class="donut-chart-container">
+                <div class="donut-ring-wrap">
+                  <svg class="donut-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" class="donut-bg-circle"/>
+                    <circle cx="50" cy="50" r="40" class="donut-fill-circle" stroke-dasharray="251.2" stroke-dashoffset="50.2"/>
+                  </svg>
+                  <div class="donut-center-text">
+                    <span class="donut-number">80%</span>
+                    <span class="donut-label">Completed</span>
+                  </div>
                 </div>
-                <span class="prog-subj-pct">100%</span>
               </div>
-
-              <div class="ch-prog-row">
-                <span class="ch-bullet orange-bullet">●</span>
-                <span class="ch-name">Subtraction</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-english" style="width: 60%;"></div>
-                </div>
-                <span class="prog-subj-pct">60%</span>
-              </div>
-
-              <div class="ch-prog-row">
-                <span class="ch-bullet blue-bullet">●</span>
-                <span class="ch-name">Multiplication</span>
-                <div class="prog-bar-trough">
-                  <div class="prog-bar-fill bar-science" style="width: 40%;"></div>
-                </div>
-                <span class="prog-subj-pct">40%</span>
+              <div class="summary-stats-column">
+                <div class="summary-stat-box"><span class="stat-ico">📖</span><span class="stat-name">Chapters Completed</span><span class="stat-val-bold">16 / 20</span></div>
+                <div class="summary-stat-box"><span class="stat-ico">🎯</span><span class="stat-name">Quizzes Completed</span><span class="stat-val-bold">12 / 15</span></div>
+                <div class="summary-stat-box"><span class="stat-ico">📝</span><span class="stat-name">Assignments Completed</span><span class="stat-val-bold">9 / 10</span></div>
+                <div class="summary-stat-box"><span class="stat-ico">📹</span><span class="stat-name">Live Classes Attended</span><span class="stat-val-bold">8 / 10</span></div>
               </div>
             </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 3: SUBJECT WISE PROGRESS -->
+        <div class="flow-screen-panel" id="progScreen3" data-prog-screen="3">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="1">Progress</span><span class="bc-sep">></span><span class="bc-curr">Subject Progress</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Subject Progress</h2>
+            <div class="subjects-progress-bars-stack">
+              <div class="subj-prog-row" data-prog-nav="4">
+                <div class="subj-prog-label"><span class="subj-badge badge-maths">π</span><span class="subj-title">Maths</span></div>
+                <div class="subj-prog-bar-wrap"><div class="subj-bar-fill bar-maths" style="width: 85%;"></div></div>
+                <span class="subj-prog-pct">85%</span>
+                <span class="subj-prog-frac">17 / 20</span>
+                <span class="subj-row-arrow">›</span>
+              </div>
+              <div class="subj-prog-row">
+                <div class="subj-prog-label"><span class="subj-badge badge-english">📖</span><span class="subj-title">English</span></div>
+                <div class="subj-prog-bar-wrap"><div class="subj-bar-fill bar-english" style="width: 78%;"></div></div>
+                <span class="subj-prog-pct">78%</span>
+                <span class="subj-prog-frac">14 / 18</span>
+                <span class="subj-row-arrow">›</span>
+              </div>
+              <div class="subj-prog-row">
+                <div class="subj-prog-label"><span class="subj-badge badge-science">🔬</span><span class="subj-title">Science</span></div>
+                <div class="subj-prog-bar-wrap"><div class="subj-bar-fill bar-science" style="width: 72%;"></div></div>
+                <span class="subj-prog-pct">72%</span>
+                <span class="subj-prog-frac">13 / 18</span>
+                <span class="subj-row-arrow">›</span>
+              </div>
+              <div class="subj-prog-row">
+                <div class="subj-prog-label"><span class="subj-badge badge-evs">🌿</span><span class="subj-title">EVS</span></div>
+                <div class="subj-prog-bar-wrap"><div class="subj-bar-fill bar-evs" style="width: 90%;"></div></div>
+                <span class="subj-prog-pct">90%</span>
+                <span class="subj-prog-frac">18 / 20</span>
+                <span class="subj-row-arrow">›</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 4: SUBJECT DETAILED PROGRESS (MATHS) -->
+        <div class="flow-screen-panel" id="progScreen4" data-prog-screen="4">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="3">Progress</span><span class="bc-sep">></span><span class="bc-link" data-prog-nav="3">Subject Progress</span><span class="bc-sep">></span><span class="bc-curr">Maths</span>
+          </div>
+          <div class="view-dashboard-card">
+            <div class="quiz-class-badge-pill"><span class="badge-star-icon">π</span><span class="badge-title-text">Maths – Progress</span></div>
+            <div class="summary-split-layout">
+              <div class="donut-chart-container">
+                <div class="donut-ring-wrap">
+                  <svg class="donut-svg" viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="40" class="donut-bg-circle"/>
+                    <circle cx="50" cy="50" r="40" class="donut-fill-circle bar-maths-stroke" stroke-dasharray="251.2" stroke-dashoffset="37.6"/>
+                  </svg>
+                  <div class="donut-center-text">
+                    <span class="donut-number">85%</span>
+                    <span class="donut-label">Completed</span>
+                  </div>
+                </div>
+              </div>
+              <div class="summary-stats-column">
+                <div class="summary-stat-box"><span class="stat-ico">✅</span><span class="stat-name">Chapters Completed</span><span class="stat-val-bold">17 / 20</span></div>
+                <div class="summary-stat-box"><span class="stat-ico">⭐</span><span class="stat-name">Average Quiz Score</span><span class="stat-val-bold">8.5 / 10</span></div>
+                <div class="summary-stat-box"><span class="stat-ico">📝</span><span class="stat-name">Assignments Completed</span><span class="stat-val-bold">4 / 5</span></div>
+                <div class="summary-stat-box"><span class="stat-ico">📹</span><span class="stat-name">Live Classes Attended</span><span class="stat-val-bold">5 / 6</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 5: PERFORMANCE REPORT -->
+        <div class="flow-screen-panel" id="progScreen5" data-prog-screen="5">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="1">Progress</span><span class="bc-sep">></span><span class="bc-curr">Performance Report</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Performance Report</h2>
+            <div class="report-period-pill-bar">
+              <button class="period-pill active-period">Weekly</button>
+              <button class="period-pill">Monthly</button>
+              <button class="period-pill">Term</button>
+            </div>
+            <div class="perf-report-body">
+              <div class="barchart-card">
+                <h4 class="chart-header-title">Subject Wise Score (%)</h4>
+                <div class="barchart-bars-row">
+                  <div class="bar-col"><span class="bar-top-val">85%</span><div class="bar-stick bar-purple" style="height: 85%;"></div><span class="bar-sub-label">Maths</span></div>
+                  <div class="bar-col"><span class="bar-top-val">78%</span><div class="bar-stick bar-orange" style="height: 78%;"></div><span class="bar-sub-label">English</span></div>
+                  <div class="bar-col"><span class="bar-top-val">72%</span><div class="bar-stick bar-cyan" style="height: 72%;"></div><span class="bar-sub-label">Science</span></div>
+                  <div class="bar-col"><span class="bar-top-val">90%</span><div class="bar-stick bar-green" style="height: 90%;"></div><span class="bar-sub-label">EVS</span></div>
+                </div>
+              </div>
+              <div class="overall-score-card">
+                <span class="score-card-sub">Overall Score</span>
+                <div class="overall-score-star-wrap"><span class="star-gold">⭐</span><h2 class="overall-score-number">81%</h2></div>
+                <div class="score-gain-pill">▲ +6% vs Last Week</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 6: LEARNING STREAK -->
+        <div class="flow-screen-panel" id="progScreen6" data-prog-screen="6">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="1">Progress</span><span class="bc-sep">></span><span class="bc-curr">Learning Streak</span>
+          </div>
+          <div class="view-dashboard-card streak-display-card">
+            <h2 class="section-title-bold">My Learning Streak</h2>
+            <div class="streak-body-split">
+              <div class="streak-calendar-badge">
+                <div class="cal-badge-flame">🔥</div>
+                <h1 class="streak-giant-days">7</h1>
+                <span class="streak-giant-label">Days Streak!</span>
+              </div>
+              <div class="streak-checklist-col">
+                <div class="streak-check-item"><span class="check-circ">✓</span><span>Learned a Lesson</span></div>
+                <div class="streak-check-item"><span class="check-circ">✓</span><span>Completed a Quiz</span></div>
+                <div class="streak-check-item"><span class="check-circ">✓</span><span>Submitted an Assignment</span></div>
+                <div class="streak-check-item"><span class="check-circ">✓</span><span>Attended a Live Class</span></div>
+                <div class="streak-congrats-capsule">🏆 Keep it up! You're learning consistently!</div>
+              </div>
+            </div>
+            <img src="assets/characters/fox_celebrating.png" alt="Fox Celebrating" class="quiz-fox-reading-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 7: TIMELINE / ACTIVITY PROGRESS -->
+        <div class="flow-screen-panel" id="progScreen7" data-prog-screen="7">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="1">Progress</span><span class="bc-sep">></span><span class="bc-curr">My Learning Activity</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">My Learning Activity</h2>
+            <div class="activity-timeline-list">
+              <div class="timeline-row">
+                <div class="timeline-left-badge bg-green-glow">✓</div>
+                <div class="timeline-info"><span class="timeline-title">Chapter 2 – Addition Completed</span></div>
+                <span class="timeline-time">Today, 10:24 AM</span>
+              </div>
+              <div class="timeline-row">
+                <div class="timeline-left-badge bg-purple-glow">▶</div>
+                <div class="timeline-info"><span class="timeline-title">Live Class – Maths Attended</span></div>
+                <span class="timeline-time">Today, 09:00 AM</span>
+              </div>
+              <div class="timeline-row">
+                <div class="timeline-left-badge bg-gold-glow">📝</div>
+                <div class="timeline-info"><span class="timeline-title">Assignment – Addition Submitted</span></div>
+                <span class="timeline-time">Yesterday, 05:30 PM</span>
+              </div>
+              <div class="timeline-row">
+                <div class="timeline-left-badge bg-orange-glow">💡</div>
+                <div class="timeline-info"><span class="timeline-title">Quiz – Chapter 1 Completed (8/10)</span></div>
+                <span class="timeline-time">Yesterday, 04:10 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 8: PROGRESS INSIGHTS & SUGGESTIONS -->
+        <div class="flow-screen-panel" id="progScreen8" data-prog-screen="8">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-prog-nav="1">Progress</span><span class="bc-sep">></span><span class="bc-curr">Learning Insights</span>
+          </div>
+          <div class="view-dashboard-card insights-card-wrap">
+            <h2 class="section-title-bold">Learning Insights</h2>
+            <div class="insights-body-layout">
+              <div class="insights-bulb-circle"><span class="bulb-giant">💡</span></div>
+              <div class="insights-list-col">
+                <div class="insight-row-item"><span class="check-circ">✓</span><span>You are doing great in EVS! (90%)</span></div>
+                <div class="insight-row-item"><span class="alert-circ">⚠️</span><span>Try to improve in Science. (72%)</span></div>
+                <div class="insight-row-item"><span class="check-circ">✓</span><span>Complete 3 more assignments this week.</span></div>
+                <div class="insight-row-item"><span class="check-circ">✓</span><span>Attend the next live class on Multiplication.</span></div>
+                <button class="btn-start-quiz-orange btn-study-plan-glow" data-prog-nav="9">🎯 Get Study Plan ▶</button>
+              </div>
+            </div>
+            <img src="assets/characters/fox_pencil_mascot.png" alt="Fox Pencil" class="quiz-fox-reading-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 9: PROGRESS - MILESTONE CELEBRATION -->
+        <div class="flow-screen-panel" id="progScreen9" data-prog-screen="9">
+          <div class="view-dashboard-card milestone-celebration-card">
+            <div class="result-trophy-banner-wrap"><img src="assets/illustrations/trophy_quiz_completed.png" alt="Milestone" class="trophy-completed-img"></div>
+            <div class="chapter-completed-ribbon-wrap">
+              <div class="celebration-ribbon-body"><span class="ribbon-text">Milestone Achieved!</span></div>
+            </div>
+            <h2 class="milestone-headline">You have completed 80% of your learning! 🎉</h2>
+            <button class="btn-start-quiz-green-giant" data-prog-nav="1">Continue Learning ▶</button>
+            <img src="assets/characters/fox_celebrating.png" alt="Fox Celebrating" class="quiz-fox-cheer-corner">
           </div>
         </div>
       </section>
 
-      <!-- ====================================================================
-           VIEW 10 & 11: ACHIEVEMENTS & BADGES
+<!-- ====================================================================
+           VIEW 10: ACHIEVEMENTS (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-achievements">
-        <div class="achievements-header-card">
-          <div class="achievements-title-group">
-            <span class="achievements-star-badge">⭐</span>
-            <h1 class="view-heading" id="achievementsMainTitle">Achievements</h1>
-          </div>
-
-          <div class="achievements-filter-tabs">
-            <button class="ach-tab-btn active-ach-tab" data-ach-view="map">My Adventure Map</button>
-            <button class="ach-tab-btn" data-ach-view="badges">My Badges</button>
-            <button class="ach-tab-btn" data-ach-view="rewards">Rewards</button>
+        <!-- Stage Fast-Jump Strip -->
+        <div class="flow-stage-strip">
+          <div class="strip-label"><span class="strip-icon">🏆</span><span>Achievements Flow:</span></div>
+          <div class="strip-pills">
+            <button class="stage-pill active-pill" data-ach-step="1">1. Dashboard</button>
+            <button class="stage-pill" data-ach-step="2">2. Categories</button>
+            <button class="stage-pill" data-ach-step="3">3. Badges Collection</button>
+            <button class="stage-pill" data-ach-step="4">4. Badge Details</button>
+            <button class="stage-pill" data-ach-step="5">5. Points & Level</button>
+            <button class="stage-pill" data-ach-step="6">6. Certificates</button>
+            <button class="stage-pill" data-ach-step="7">7. Leaderboard</button>
+            <button class="stage-pill" data-ach-step="8">8. Milestones</button>
+            <button class="stage-pill" data-ach-step="9">9. Summary</button>
+            <button class="stage-reset-btn" id="btnResetAchFlow">↺ Reset</button>
           </div>
         </div>
 
-        <!-- Tab 1: Adventure Map View (Screen 10) -->
-        <div class="ach-content-tab active-tab-content" id="tabContentMap">
-          <div class="adventure-map-container">
-            <div class="adventure-fox-explorer">
-              <img src="assets/characters/fox_waving.png" alt="Explorer Fox" class="fox-explorer-img">
+        <!-- SCREEN 1: ACHIEVEMENTS DASHBOARD -->
+        <div class="flow-screen-panel active-screen" id="achScreen1" data-ach-screen="1">
+          <div class="view-dashboard-card">
+            <div class="view-wood-header">
+              <img src="assets/illustrations/achievements_wooden_sign.png" alt="Achievements" class="wood-sign-img">
+              <p class="wood-header-tagline">Celebrate your learning milestones, earn badges and climb the ranks!</p>
             </div>
-
-            <div class="adventure-stepping-path">
-              <div class="stage-stone stone-gold active-stage">
-                <span class="stage-star">⭐</span>
-                <span class="stage-num">1</span>
+            <div class="view-dashboard-body">
+              <div class="view-mascot-col">
+                <img src="assets/characters/fox_with_trophy.png" alt="Fox with Trophy" class="mascot-img-pencil">
               </div>
-
-              <div class="path-curve-dash"></div>
-
-              <div class="stage-stone stone-gold active-stage">
-                <span class="stage-star">⭐</span>
-                <span class="stage-num">2</span>
-              </div>
-
-              <div class="path-curve-dash"></div>
-
-              <div class="stage-stone stone-gold current-stage-pulse">
-                <span class="stage-star">⭐</span>
-                <span class="stage-num">3</span>
-              </div>
-
-              <div class="path-curve-dash"></div>
-
-              <div class="stage-stone stone-locked">
-                <span class="stage-lock-icon">🔒</span>
-                <span class="stage-num">4</span>
-              </div>
-
-              <div class="path-curve-dash"></div>
-
-              <div class="stage-stone stone-chest-reward">
-                <img src="assets/learning_plan/icon_chest.png" alt="Treasure" class="stage-chest-img">
+              <div class="quiz-modes-grid">
+                <div class="quiz-mode-card" data-ach-nav="3">
+                  <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">🏅</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Badges Collection</h3><p class="quiz-mode-desc">View all 12 badges</p></div>
+                </div>
+                <div class="quiz-mode-card" data-ach-nav="5">
+                  <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">⭐</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Points & Level</h3><p class="quiz-mode-desc">Level 4 • 1,450 XP</p></div>
+                </div>
+                <div class="quiz-mode-card" data-ach-nav="6">
+                  <div class="quiz-mode-icon-circle bg-orange-glow"><span class="card-emoji-icon">📜</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Certificates</h3><p class="quiz-mode-desc">Official certificates</p></div>
+                </div>
+                <div class="quiz-mode-card" data-ach-nav="7">
+                  <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">🏆</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Leaderboard</h3><p class="quiz-mode-desc">Rank #4 in Class 3</p></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- Tab 2: My Badges Grid View (Screen 11) -->
-        <div class="ach-content-tab" id="tabContentBadges" style="display: none;">
-          <div class="badges-gallery-grid">
-            <div class="badge-gallery-card">
-              <img src="assets/icons/stat_star_3d.png" alt="Quick Learner" class="badge-sticker-img">
-              <h4 class="badge-title">Quick Learner</h4>
-              <p class="badge-desc">Completed 5 lessons</p>
+        <!-- SCREEN 2: CATEGORIES -->
+        <div class="flow-screen-panel" id="achScreen2" data-ach-screen="2">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Categories</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Achievement Categories</h2>
+            <div class="quiz-modes-grid">
+              <div class="quiz-mode-card" data-ach-nav="3">
+                <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">📘</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Subject Mastery</h3><p class="quiz-mode-desc">4 Badges • 2 Unlocked</p></div>
+              </div>
+              <div class="quiz-mode-card" data-ach-nav="3">
+                <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">⚡</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Speed & Accuracy</h3><p class="quiz-mode-desc">3 Badges • 2 Unlocked</p></div>
+              </div>
+              <div class="quiz-mode-card" data-ach-nav="3">
+                <div class="quiz-mode-icon-circle bg-red-glow"><span class="card-emoji-icon">🔥</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Streak & Habits</h3><p class="quiz-mode-desc">3 Badges • 1 Unlocked</p></div>
+              </div>
+              <div class="quiz-mode-card" data-ach-nav="8">
+                <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">🎯</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Milestones</h3><p class="quiz-mode-desc">4 Milestones • 3 Done</p></div>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="badge-gallery-card">
-              <img src="assets/icons/stat_crown_3d.png" alt="Maths Star" class="badge-sticker-img">
-              <h4 class="badge-title">Maths Star</h4>
-              <p class="badge-desc">Top in Maths Quiz</p>
+        <!-- SCREEN 3: BADGES COLLECTION -->
+        <div class="flow-screen-panel" id="achScreen3" data-ach-screen="3">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Badges Collection</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">My Badges Collection</h2>
+            <div class="badges-showcase-grid">
+              <div class="badge-item-card earned-badge" data-ach-nav="4">
+                <div class="badge-icon-bubble bg-gold-glow">🌟</div>
+                <h4 class="badge-card-name">Maths Star</h4>
+                <span class="badge-status-pill earned-pill">Unlocked</span>
+              </div>
+              <div class="badge-item-card earned-badge" data-ach-nav="4">
+                <div class="badge-icon-bubble bg-purple-glow">🎯</div>
+                <h4 class="badge-card-name">Quiz Champ</h4>
+                <span class="badge-status-pill earned-pill">Unlocked</span>
+              </div>
+              <div class="badge-item-card earned-badge" data-ach-nav="4">
+                <div class="badge-icon-bubble bg-green-glow">⚡</div>
+                <h4 class="badge-card-name">Quick Learner</h4>
+                <span class="badge-status-pill earned-pill">Unlocked</span>
+              </div>
+              <div class="badge-item-card earned-badge" data-ach-nav="4">
+                <div class="badge-icon-bubble bg-red-glow">🔥</div>
+                <h4 class="badge-card-name">Streak Master</h4>
+                <span class="badge-status-pill earned-pill">Unlocked</span>
+              </div>
+              <div class="badge-item-card locked-badge">
+                <div class="badge-icon-bubble bg-gray-glow">🔒</div>
+                <h4 class="badge-card-name">Homework Hero</h4>
+                <span class="badge-status-pill locked-pill">Locked</span>
+              </div>
+              <div class="badge-item-card locked-badge">
+                <div class="badge-icon-bubble bg-gray-glow">🔒</div>
+                <h4 class="badge-card-name">Science Explorer</h4>
+                <span class="badge-status-pill locked-pill">Locked</span>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="badge-gallery-card">
-              <img src="assets/icons/badge_quiz_champ_3d.png" alt="Quiz Champ" class="badge-sticker-img">
-              <h4 class="badge-title">Quiz Champ</h4>
-              <p class="badge-desc">Completed 10 quizzes</p>
+        <!-- SCREEN 4: BADGE DETAILS -->
+        <div class="flow-screen-panel" id="achScreen4" data-ach-screen="4">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="3">Badges</span><span class="bc-sep">></span><span class="bc-curr">Badge Details</span>
+          </div>
+          <div class="view-dashboard-card badge-detail-wrap">
+            <div class="badge-detail-col">
+              <div class="badge-giant-icon-ring bg-gold-glow">
+                <span class="giant-emoji">🌟</span>
+              </div>
+              <h2 class="badge-detail-title">Maths Star</h2>
+              <p class="badge-detail-desc">Awarded for scoring 80% or higher in all Class 3 Maths Chapter Quizzes!</p>
+              <div class="badge-detail-stats-row">
+                <div class="b-stat"><span class="b-stat-lbl">Earned on:</span><span class="b-stat-val">18 Nov 2026</span></div>
+                <div class="b-stat"><span class="b-stat-lbl">XP Bonus:</span><span class="b-stat-val font-green">+250 XP</span></div>
+                <div class="b-stat"><span class="b-stat-lbl">Rarity:</span><span class="b-stat-val font-gold">Rare (Top 15%)</span></div>
+              </div>
+              <button class="btn-start-quiz-green" data-ach-nav="3">Back to Badges</button>
             </div>
+            <img src="assets/characters/fox_with_trophy.png" alt="Fox Trophy" class="quiz-fox-reading-corner">
+          </div>
+        </div>
 
-            <div class="badge-gallery-card">
-              <img src="assets/icons/stat_flame_3d.png" alt="Streak Master" class="badge-sticker-img">
-              <h4 class="badge-title">Streak Master</h4>
-              <p class="badge-desc">5 Days Streak</p>
+        <!-- SCREEN 5: POINTS & LEVEL -->
+        <div class="flow-screen-panel" id="achScreen5" data-ach-screen="5">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Points & Level</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Points & Level</h2>
+            <div class="level-progress-banner-clay">
+              <div class="level-badge-circle"><span class="lvl-num">4</span><span class="lvl-txt">Level</span></div>
+              <div class="level-info-col">
+                <div class="level-header-row"><span class="level-title">Scholar Rank</span><span class="level-xp-text">1,450 / 2,000 XP</span></div>
+                <div class="level-bar-track"><div class="level-bar-fill" style="width: 72.5%;"></div></div>
+                <span class="level-sub-tip">550 XP needed to reach Level 5 (Master)!</span>
+              </div>
             </div>
+            <div class="xp-sources-grid">
+              <div class="xp-source-card"><span class="xp-ico">🎯</span><span class="xp-name">Quizzes</span><span class="xp-val">+600 XP</span></div>
+              <div class="xp-source-card"><span class="xp-ico">📖</span><span class="xp-name">Lessons</span><span class="xp-val">+450 XP</span></div>
+              <div class="xp-source-card"><span class="xp-ico">📝</span><span class="xp-name">Assignments</span><span class="xp-val">+250 XP</span></div>
+              <div class="xp-source-card"><span class="xp-ico">🔥</span><span class="xp-name">Streak Bonus</span><span class="xp-val">+150 XP</span></div>
+            </div>
+          </div>
+        </div>
 
-            <div class="badge-gallery-card">
-              <img src="assets/icons/badge_explorer_3d.png" alt="Explorer" class="badge-sticker-img">
-              <h4 class="badge-title">Explorer</h4>
-              <p class="badge-desc">Tried all subjects</p>
+        <!-- SCREEN 6: CERTIFICATES -->
+        <div class="flow-screen-panel" id="achScreen6" data-ach-screen="6">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Certificates</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Earned Certificates</h2>
+            <div class="certificates-list-stack">
+              <div class="cert-item-card">
+                <div class="cert-icon-border"><span class="cert-seal">📜</span></div>
+                <div class="cert-info">
+                  <h3 class="cert-title">Certificate of Excellence – Mathematics</h3>
+                  <p class="cert-meta">Class 3 • Issued on 18 Nov 2026 • Grade: A+</p>
+                </div>
+                <div class="cert-actions">
+                  <button class="btn-cert-view">👁 View</button>
+                  <button class="btn-cert-download">📥 Download</button>
+                </div>
+              </div>
+              <div class="cert-item-card">
+                <div class="cert-icon-border"><span class="cert-seal">📜</span></div>
+                <div class="cert-info">
+                  <h3 class="cert-title">Certificate of Completion – Science Basics</h3>
+                  <p class="cert-meta">Class 3 • Issued on 25 Oct 2026 • Grade: A</p>
+                </div>
+                <div class="cert-actions">
+                  <button class="btn-cert-view">👁 View</button>
+                  <button class="btn-cert-download">📥 Download</button>
+                </div>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <div class="badge-gallery-card">
-              <img src="assets/icons/badge_creative_star_3d.png" alt="Creative Star" class="badge-sticker-img">
-              <h4 class="badge-title">Creative Star</h4>
-              <p class="badge-desc">Completed Art & Craft</p>
+        <!-- SCREEN 7: LEADERBOARD -->
+        <div class="flow-screen-panel" id="achScreen7" data-ach-screen="7">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Leaderboard</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Class 3 Leaderboard</h2>
+            <div class="leaderboard-podium-row">
+              <div class="podium-col rank-2">
+                <div class="podium-avatar">🥈</div>
+                <span class="podium-name">Diya S.</span>
+                <span class="podium-pts">1,950 pts</span>
+                <div class="podium-step step-2"><span class="step-num">2</span></div>
+              </div>
+              <div class="podium-col rank-1">
+                <div class="podium-crown">👑</div>
+                <div class="podium-avatar">🥇</div>
+                <span class="podium-name">Aarav P.</span>
+                <span class="podium-pts">2,100 pts</span>
+                <div class="podium-step step-1"><span class="step-num">1</span></div>
+              </div>
+              <div class="podium-col rank-3">
+                <div class="podium-avatar">🥉</div>
+                <span class="podium-name">Rohan G.</span>
+                <span class="podium-pts">1,820 pts</span>
+                <div class="podium-step step-3"><span class="step-num">3</span></div>
+              </div>
             </div>
+            <div class="my-leaderboard-rank-strip">
+              <span class="my-rank-badge">#4</span>
+              <span class="my-rank-name">You (Aarav)</span>
+              <span class="my-rank-score">1,450 pts</span>
+              <span class="my-rank-diff font-green">▲ 2 places today</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 8: MILESTONES -->
+        <div class="flow-screen-panel" id="achScreen8" data-ach-screen="8">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Milestones</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Learning Milestones</h2>
+            <div class="milestones-track-list">
+              <div class="milestone-track-item done">
+                <span class="m-status-circle">✓</span>
+                <div class="m-content"><span class="m-title">5 Chapters Completed</span><span class="m-sub">Completed on 10 Nov</span></div>
+                <span class="m-reward">+50 XP</span>
+              </div>
+              <div class="milestone-track-item done">
+                <span class="m-status-circle">✓</span>
+                <div class="m-content"><span class="m-title">10 Quizzes Aced</span><span class="m-sub">Completed on 14 Nov</span></div>
+                <span class="m-reward">+100 XP</span>
+              </div>
+              <div class="milestone-track-item done">
+                <span class="m-status-circle">✓</span>
+                <div class="m-content"><span class="m-title">7-Day Learning Streak</span><span class="m-sub">Completed Today</span></div>
+                <span class="m-reward">+150 XP</span>
+              </div>
+              <div class="milestone-track-item current">
+                <span class="m-status-circle in-prog">⏱</span>
+                <div class="m-content"><span class="m-title">20 Lessons Completed</span><span class="m-sub">16 / 20 Completed</span></div>
+                <span class="m-reward">+200 XP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 9: SUMMARY / CELEBRATION -->
+        <div class="flow-screen-panel" id="achScreen9" data-ach-screen="9">
+          <div class="view-dashboard-card milestone-celebration-card">
+            <div class="result-trophy-banner-wrap"><img src="assets/illustrations/trophy_quiz_completed.png" alt="Trophy" class="trophy-completed-img"></div>
+            <div class="chapter-completed-ribbon-wrap">
+              <div class="celebration-ribbon-body"><span class="ribbon-text">New Achievement Unlocked!</span></div>
+            </div>
+            <h2 class="milestone-headline">You've unlocked the "Maths Star" Badge! 🎉</h2>
+            <div class="celebration-badge-row">
+              <div class="badge-giant-icon-ring bg-gold-glow"><span class="giant-emoji">🌟</span></div>
+            </div>
+            <button class="btn-start-quiz-green-giant" data-ach-nav="1">Claim +100 Stars & Continue ▶</button>
+            <img src="assets/characters/fox_celebrating.png" alt="Fox Celebrating" class="quiz-fox-cheer-corner">
           </div>
         </div>
       </section>
 
-      <!-- ====================================================================
-           VIEW 12: AI STUDY BUDDY
+<!-- ====================================================================
+           VIEW 11: AI STUDY BUDDY (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-ai-buddy">
-        <div class="view-header-card">
-          <div class="view-header-title-group">
-            <img src="assets/icons/nav_ai_buddy_3d.png" alt="AI Study Buddy" class="view-header-icon">
-            <h1 class="view-heading">AI Study Buddy</h1>
+        <!-- Stage Fast-Jump Strip -->
+        <div class="flow-stage-strip">
+          <div class="strip-label"><span class="strip-icon">🤖</span><span>AI Study Buddy Flow:</span></div>
+          <div class="strip-pills">
+            <button class="stage-pill active-pill" data-ai-step="1">1. Home</button>
+            <button class="stage-pill" data-ai-step="2">2. Help Options</button>
+            <button class="stage-pill" data-ai-step="3">3. Ask Doubt</button>
+            <button class="stage-pill" data-ai-step="4">4. Concept Visual</button>
+            <button class="stage-pill" data-ai-step="5">5. Practice Qs</button>
+            <button class="stage-pill" data-ai-step="6">6. Quick Notes</button>
+            <button class="stage-pill" data-ai-step="7">7. Study Plan</button>
+            <button class="stage-pill" data-ai-step="8">8. Chat History</button>
+            <button class="stage-pill" data-ai-step="9">9. Insights</button>
+            <button class="stage-reset-btn" id="btnResetAiFlow">↺ Reset</button>
           </div>
         </div>
 
-        <div class="ai-buddy-chat-container">
-          <div class="chat-messages-scroll" id="aiChatMessages">
-            <!-- Message 1: AI Greeting -->
-            <div class="chat-msg ai-msg">
-              <img src="assets/icons/nav_ai_buddy_3d.png" alt="Bot Avatar" class="chat-avatar bot-avatar">
-              <div class="chat-bubble ai-bubble">
-                <p>Hi Aarav! 👋</p>
-                <p>Ask me anything about your subjects. I can explain, give hints or practice questions!</p>
-              </div>
+        <!-- SCREEN 1: AI BUDDY HOME -->
+        <div class="flow-screen-panel active-screen" id="aiScreen1" data-ai-screen="1">
+          <div class="view-dashboard-card">
+            <div class="view-wood-header">
+              <img src="assets/illustrations/ai_buddy_wooden_sign.png" alt="AI Study Buddy" class="wood-sign-img">
+              <p class="wood-header-tagline">Ask questions, clear doubts, and master any topic with your 24/7 AI tutor!</p>
             </div>
-
-            <!-- Message 2: User Prompt -->
-            <div class="chat-msg user-msg">
-              <div class="chat-bubble user-bubble">
-                <p>What is addition?</p>
+            <div class="view-dashboard-body">
+              <div class="view-mascot-col">
+                <img src="assets/characters/ai_robot_mascot.png" alt="AI Robot Mascot" class="mascot-img-pencil">
               </div>
-              <img src="assets/characters/aarav_avatar.png" alt="Aarav" class="chat-avatar user-avatar">
-            </div>
-
-            <!-- Message 3: AI Explanation -->
-            <div class="chat-msg ai-msg">
-              <img src="assets/icons/nav_ai_buddy_3d.png" alt="Bot Avatar" class="chat-avatar bot-avatar">
-              <div class="chat-bubble ai-bubble">
-                <p>Addition means putting numbers together. 😊</p>
-                <p class="chat-math-example">Example:<br>🍎 + 🍎 = 3 apples</p>
+              <div class="quiz-modes-grid">
+                <div class="quiz-mode-card" data-ai-nav="3">
+                  <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">💬</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Ask a Doubt</h3><p class="quiz-mode-desc">Chat & get instant answers</p></div>
+                </div>
+                <div class="quiz-mode-card" data-ai-nav="4">
+                  <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">💡</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Concept Explainer</h3><p class="quiz-mode-desc">Visual step-by-step guides</p></div>
+                </div>
+                <div class="quiz-mode-card" data-ai-nav="5">
+                  <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">🎯</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Practice Questions</h3><p class="quiz-mode-desc">AI generated drills</p></div>
+                </div>
+                <div class="quiz-mode-card" data-ai-nav="6">
+                  <div class="quiz-mode-icon-circle bg-orange-glow"><span class="card-emoji-icon">📝</span></div>
+                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Quick Notes</h3><p class="quiz-mode-desc">Summary & revision sheets</p></div>
+                </div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Bottom Action Bar & Input -->
-          <div class="ai-chat-bottom-bar">
-            <div class="chat-action-pills">
-              <button class="chat-quick-pill" data-prompt="Explain Again">Explain Again</button>
-              <button class="chat-quick-pill" data-prompt="Give a Hint">Give a Hint</button>
-              <button class="chat-quick-pill" data-prompt="Try a Question">Try a Question</button>
+        <!-- SCREEN 2: HELP OPTIONS / TOPICS -->
+        <div class="flow-screen-panel" id="aiScreen2" data-ai-screen="2">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="1">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Help Options</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">What do you want help with today?</h2>
+            <div class="quiz-modes-grid">
+              <div class="quiz-mode-card" data-ai-nav="3">
+                <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">➕</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Maths Homework</h3><p class="quiz-mode-desc">Addition, subtraction & tables</p></div>
+              </div>
+              <div class="quiz-mode-card" data-ai-nav="3">
+                <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">🌱</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Science Concepts</h3><p class="quiz-mode-desc">Plants, animals, and weather</p></div>
+              </div>
+              <div class="quiz-mode-card" data-ai-nav="3">
+                <div class="quiz-mode-icon-circle bg-orange-glow"><span class="card-emoji-icon">📖</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">English Grammar</h3><p class="quiz-mode-desc">Nouns, verbs and sentences</p></div>
+              </div>
+              <div class="quiz-mode-card" data-ai-nav="7">
+                <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">📅</span></div>
+                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Create Study Plan</h3><p class="quiz-mode-desc">Personalized timetable</p></div>
+              </div>
             </div>
+          </div>
+        </div>
 
-            <form class="chat-input-row" id="chatInputForm">
-              <input type="text" id="chatInputField" placeholder="Ask your AI Study Buddy anything..." class="chat-input-box" autocomplete="off">
-              <button type="submit" class="btn-chat-send">Send 🚀</button>
-            </form>
+        <!-- SCREEN 3: CHAT - ASK DOUBT -->
+        <div class="flow-screen-panel" id="aiScreen3" data-ai-screen="3">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Ask a Doubt</span>
+          </div>
+          <div class="view-dashboard-card ai-chat-card-wrap">
+            <div class="ai-chat-header-bar">
+              <div class="ai-header-mascot-pill">
+                <span class="ai-live-dot">●</span>
+                <span class="ai-bot-name">RoboBuddy AI</span>
+                <span class="ai-bot-tag">Online</span>
+              </div>
+              <div class="ai-header-actions">
+                <button class="btn-clear-chat" data-ai-nav="8">📜 History</button>
+              </div>
+            </div>
+            <div class="ai-chat-messages-container" id="aiChatMsgContainer">
+              <div class="chat-bubble-row bot-row">
+                <div class="chat-avatar-circ">🤖</div>
+                <div class="chat-speech-bubble bot-bubble">
+                  Hi Aarav! 👋 I'm your AI Study Buddy. Ask me anything about your Maths, Science, or English lessons!
+                </div>
+              </div>
+              <div class="chat-bubble-row user-row">
+                <div class="chat-speech-bubble user-bubble">
+                  What is addition with regrouping?
+                </div>
+                <div class="chat-avatar-circ user-avatar">👦</div>
+              </div>
+              <div class="chat-bubble-row bot-row">
+                <div class="chat-avatar-circ">🤖</div>
+                <div class="chat-speech-bubble bot-bubble">
+                  Great question! 💡 Regrouping (also called "carrying") is when you have 10 or more in one place value column, so you carry the 10 over to the next column!
+                  <div class="chat-example-snippet">
+                    <strong>Example:</strong> 17 + 5<br>
+                    • 7 + 5 = 12 (Write 2, carry 1)<br>
+                    • 1 + 1 = 2 tens<br>
+                    • Total = <strong>22</strong> 🎉
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-prompt-suggestion-chips">
+              <button class="chip-btn" data-ai-nav="4">💡 Show Visual Steps</button>
+              <button class="chip-btn" data-ai-nav="5">🎯 Practice a Problem</button>
+              <button class="chip-btn" data-ai-nav="6">📝 Save as Note</button>
+            </div>
+            <div class="ai-chat-input-bar">
+              <input type="text" class="ai-chat-input" placeholder="Type your doubt or question here..." value="">
+              <button class="ai-send-btn">Send 🚀</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 4: CONCEPT VISUAL EXPLAINER -->
+        <div class="flow-screen-panel" id="aiScreen4" data-ai-screen="4">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="3">Ask Doubt</span><span class="bc-sep">></span><span class="bc-curr">Concept Visual</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Step-by-Step Visual: Addition with Regrouping</h2>
+            <div class="visual-explainer-steps-grid">
+              <div class="visual-step-card">
+                <span class="v-step-num">Step 1</span>
+                <h4 class="v-step-title">Line up the Numbers</h4>
+                <div class="v-math-box"><span class="math-line">Tens | Ones</span><span class="math-line"> 1  |  7</span><span class="math-line">+0  |  5</span></div>
+                <p class="v-step-desc">Always align ones with ones and tens with tens.</p>
+              </div>
+              <div class="visual-step-card highlight-step">
+                <span class="v-step-num">Step 2</span>
+                <h4 class="v-step-title">Add the Ones (Regroup)</h4>
+                <div class="v-math-box"><span class="math-line">7 + 5 = 12</span><span class="math-line font-green">Keep 2, Carry 1 ⬆</span></div>
+                <p class="v-step-desc">12 is 1 ten and 2 ones.</p>
+              </div>
+              <div class="visual-step-card">
+                <span class="v-step-num">Step 3</span>
+                <h4 class="v-step-title">Add the Tens</h4>
+                <div class="v-math-box"><span class="math-line">1 (carry) + 1 = 2</span><span class="math-line font-purple">Final Sum = 22</span></div>
+                <p class="v-step-desc">Combine tens for the complete answer!</p>
+              </div>
+            </div>
+            <div class="card-bottom-actions">
+              <button class="btn-start-quiz-orange" data-ai-nav="5">Try a Practice Problem ▶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 5: PRACTICE QUESTIONS -->
+        <div class="flow-screen-panel" id="aiScreen5" data-ai-screen="5">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Practice Questions</span>
+          </div>
+          <div class="view-dashboard-card">
+            <div class="quiz-question-banner-wrap">
+              <div class="quiz-pill-badge bg-gold-glow"><span>🤖 AI Practice Drill</span></div>
+              <div class="quiz-timer-pill"><span>Q1 of 3</span></div>
+            </div>
+            <div class="question-stem-container">
+              <h2 class="question-stem-text">What is 28 + 15?</h2>
+            </div>
+            <div class="quiz-options-grid-interactive">
+              <button class="quiz-opt-btn" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">A</span><span class="opt-label-text">41</span></button>
+              <button class="quiz-opt-btn correct-opt" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">B</span><span class="opt-label-text">43</span><span class="opt-check-badge">✓</span></button>
+              <button class="quiz-opt-btn" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">C</span><span class="opt-label-text">45</span></button>
+              <button class="quiz-opt-btn" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">D</span><span class="opt-label-text">42</span></button>
+            </div>
+            <div class="ai-hint-box">
+              <span class="hint-ico">💡</span>
+              <span class="hint-txt"><strong>AI Hint:</strong> 8 + 5 = 13 (carry 1). Then 2 + 1 + 1 = 4. So the answer is 43!</span>
+            </div>
+            <div class="quiz-nav-row">
+              <button class="btn-quiz-prev" data-ai-nav="4">‹ Back</button>
+              <button class="btn-quiz-next" data-ai-nav="6">Next Question ›</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 6: QUICK NOTES -->
+        <div class="flow-screen-panel" id="aiScreen6" data-ai-screen="6">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Quick Notes</span>
+          </div>
+          <div class="view-dashboard-card">
+            <div class="notes-header-row">
+              <h2 class="section-title-bold">📝 Revision Sheet: Addition & Place Value</h2>
+              <button class="btn-download-notes">📥 Save PDF</button>
+            </div>
+            <div class="revision-note-sheet">
+              <div class="note-section-box">
+                <h4 class="note-sec-title">🌟 Key Rules to Remember</h4>
+                <ul class="note-bullets">
+                  <li><strong>Order Property:</strong> Changing the order of numbers does not change the sum (e.g. 4 + 3 = 3 + 4 = 7).</li>
+                  <li><strong>Zero Property:</strong> Adding 0 to any number gives the same number (e.g. 9 + 0 = 9).</li>
+                  <li><strong>Regrouping Rule:</strong> Whenever a column totals 10 or more, carry the ten to the left.</li>
+                </ul>
+              </div>
+              <div class="note-section-box highlight-sec">
+                <h4 class="note-sec-title">⚡ Quick Mental Math Tip</h4>
+                <p class="note-text">To add 9 quickly, add 10 and subtract 1! Example: 25 + 9 = 25 + 10 - 1 = 34.</p>
+              </div>
+            </div>
+            <div class="card-bottom-actions">
+              <button class="btn-start-quiz-green" data-ai-nav="7">View My Study Plan ▶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 7: PERSONALIZED STUDY PLAN -->
+        <div class="flow-screen-panel" id="aiScreen7" data-ai-screen="7">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Study Plan</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">📅 AI Personalized Weekly Plan</h2>
+            <div class="study-plan-schedule-grid">
+              <div class="day-plan-card completed-day">
+                <span class="day-name">Monday</span>
+                <span class="day-task">Maths Practice</span>
+                <span class="day-dur">15 mins</span>
+                <span class="day-status font-green">✓ Completed</span>
+              </div>
+              <div class="day-plan-card completed-day">
+                <span class="day-name">Tuesday</span>
+                <span class="day-task">Science Reading</span>
+                <span class="day-dur">20 mins</span>
+                <span class="day-status font-green">✓ Completed</span>
+              </div>
+              <div class="day-plan-card today-day">
+                <span class="day-name">Wednesday</span>
+                <span class="day-task">Quiz Practice</span>
+                <span class="day-dur">15 mins</span>
+                <span class="day-status font-orange">● Today</span>
+              </div>
+              <div class="day-plan-card upcoming-day">
+                <span class="day-name">Thursday</span>
+                <span class="day-task">Live Class Prep</span>
+                <span class="day-dur">20 mins</span>
+                <span class="day-status font-gray">Upcoming</span>
+              </div>
+              <div class="day-plan-card upcoming-day">
+                <span class="day-name">Friday</span>
+                <span class="day-task">Weekly Challenge</span>
+                <span class="day-dur">25 mins</span>
+                <span class="day-status font-gray">Upcoming</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 8: CHAT HISTORY -->
+        <div class="flow-screen-panel" id="aiScreen8" data-ai-screen="8">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="3">Chat</span><span class="bc-sep">></span><span class="bc-curr">Chat History</span>
+          </div>
+          <div class="view-dashboard-card">
+            <h2 class="section-title-bold">Previous Doubt Sessions</h2>
+            <div class="chat-history-list">
+              <div class="chat-history-item" data-ai-nav="3">
+                <div class="hist-icon">💬</div>
+                <div class="hist-info">
+                  <h4 class="hist-title">How does addition regrouping work?</h4>
+                  <p class="hist-meta">Maths • 3 replies • Today, 10:15 AM</p>
+                </div>
+                <button class="btn-cert-view">Resume</button>
+              </div>
+              <div class="chat-history-item" data-ai-nav="3">
+                <div class="hist-icon">🌱</div>
+                <div class="hist-info">
+                  <h4 class="hist-title">Why do plants need sunlight for photosynthesis?</h4>
+                  <p class="hist-meta">Science • 4 replies • 18 Nov 2026</p>
+                </div>
+                <button class="btn-cert-view">Resume</button>
+              </div>
+              <div class="chat-history-item" data-ai-nav="3">
+                <div class="hist-icon">📖</div>
+                <div class="hist-info">
+                  <h4 class="hist-title">Difference between Proper Nouns and Common Nouns</h4>
+                  <p class="hist-meta">English • 2 replies • 15 Nov 2026</p>
+                </div>
+                <button class="btn-cert-view">Resume</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 9: AI LEARNING INSIGHTS & RECOMMENDATIONS -->
+        <div class="flow-screen-panel" id="aiScreen9" data-ai-screen="9">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Insights</span>
+          </div>
+          <div class="view-dashboard-card insights-card-wrap">
+            <h2 class="section-title-bold">🤖 AI Learning Analysis & Recommendations</h2>
+            <div class="insights-body-layout">
+              <div class="insights-bulb-circle"><span class="bulb-giant">📊</span></div>
+              <div class="insights-list-col">
+                <div class="insight-row-item"><span class="check-circ">✓</span><span>Strong mastery in addition and place values (92%)!</span></div>
+                <div class="insight-row-item"><span class="alert-circ">💡</span><span>Recommended practice: 3 word problems on Subtraction.</span></div>
+                <div class="insight-row-item"><span class="check-circ">✓</span><span>Study habit: Peak focus time is 10:00 AM – 11:30 AM.</span></div>
+                <div class="insight-row-item"><span class="check-circ">✓</span><span>Weekly target: Complete Chapter 3 by Friday.</span></div>
+                <button class="btn-start-quiz-orange btn-study-plan-glow" data-ai-nav="5">🚀 Start Recommended Practice ▶</button>
+              </div>
+            </div>
+            <img src="assets/characters/ai_robot_mascot.png" alt="AI Robot" class="quiz-fox-reading-corner">
           </div>
         </div>
       </section>
