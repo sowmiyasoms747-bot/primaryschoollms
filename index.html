@@ -423,89 +423,125 @@
       </section>
 
       <!-- ====================================================================
-           VIEW 3: SUBJECT - CHAPTER LIST (MATHS)
+           VIEW 3: SUBJECT - CHAPTER LIST (MATHS) - HANGING WOODEN LADDER SIGNBOARD
            ==================================================================== -->
       <section class="app-view" id="view-chapter-list">
-        <div class="breadcrumbs-bar">
+        <!-- Breadcrumbs Navigation -->
+        <div class="breadcrumbs-bar syllabus-breadcrumbs">
           <a href="#learning" class="breadcrumb-link" data-route="learning-subjects">My Learning</a>
           <span class="bc-sep">></span>
           <span class="bc-curr">Maths</span>
         </div>
 
-        <div class="chapter-list-card">
-          <div class="chapter-list-header-row">
-            <div class="class-dropdown-pill">
-              <span>Maths - Class 3</span>
-              <span class="dropdown-arrow">▼</span>
-            </div>
-
-            <div class="chapter-overall-progress">
-              <span class="progress-lbl">Overall Progress:</span>
-              <span class="progress-pct">80%</span>
-              <div class="chapter-progress-track">
-                <div class="chapter-progress-fill" style="width: 80%;"></div>
-              </div>
-            </div>
+        <!-- Syllabus Header Bar: Dropdown Pill & Progress Bar -->
+        <div class="syllabus-header-bar">
+          <div class="class-dropdown-pill">
+            <span>Maths - Class 3</span>
+            <span class="dropdown-arrow">▼</span>
           </div>
 
-          <div class="chapters-table-list">
-            <div class="chapter-row completed-row">
-              <div class="chapter-row-left">
-                <span class="ch-play-circle green-play">▶</span>
-                <span class="ch-num">Chapter 1</span>
-                <span class="ch-title">Numbers and Place Value</span>
+          <div class="chapter-overall-progress">
+            <span class="progress-lbl">Overall Progress:</span>
+            <span class="progress-pct">80%</span>
+            <div class="chapter-progress-track">
+              <div class="chapter-progress-fill" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Center Hanging Wooden Ladder Signboard (Matching Reference Image 3) -->
+        <div class="wooden-ladder-signboard-wrapper">
+          <!-- Left and Right Vertical Hanging Ropes -->
+          <div class="ladder-hanging-rope ladder-rope-left"></div>
+          <div class="ladder-hanging-rope ladder-rope-right"></div>
+
+          <div class="wooden-ladder-planks-stack">
+            <!-- Plank 1: Numbers and Place Value (Completed) -->
+            <div class="wooden-plank-row plank-completed" data-chapter="1" title="Chapter 1: Numbers and Place Value (Completed)">
+              <div class="plank-left-group">
+                <img src="assets/mylearning syllabus/play_btn_green.png" alt="Completed" class="plank-play-badge">
+                <span class="plank-chapter-num">Chapter 1</span>
+                <span class="plank-divider-bar">|</span>
+                <span class="plank-chapter-name">Numbers and Place Value</span>
               </div>
-              <div class="chapter-row-right">
-                <span class="status-badge-completed">✓ Completed</span>
+              <div class="plank-right-group">
+                <span class="plank-status-pill pill-completed">✓ Completed</span>
               </div>
             </div>
 
-            <div class="chapter-row active-row">
-              <div class="chapter-row-left">
-                <span class="ch-play-circle orange-play">▶</span>
-                <span class="ch-num">Chapter 2</span>
-                <span class="ch-title">Addition</span>
+            <!-- Plank 2: Addition (Continue - Active) -->
+            <div class="wooden-plank-row plank-active" data-chapter="2" data-route="chapter-journey" title="Chapter 2: Addition (Click to Continue)">
+              <div class="plank-left-group">
+                <img src="assets/mylearning syllabus/play_btn_orange.png" alt="Active" class="plank-play-badge">
+                <span class="plank-chapter-num">Chapter 2</span>
+                <span class="plank-divider-bar">|</span>
+                <span class="plank-chapter-name">Addition</span>
               </div>
-              <div class="chapter-row-right">
-                <button class="btn-chapter-continue" data-route="chapter-journey">
+              <div class="plank-right-group">
+                <button class="plank-btn-continue" data-route="chapter-journey">
                   Continue ▶
                 </button>
               </div>
             </div>
 
-            <div class="chapter-row locked-row">
-              <div class="chapter-row-left">
-                <span class="ch-play-circle grey-play">▶</span>
-                <span class="ch-num">Chapter 3</span>
-                <span class="ch-title">Subtraction</span>
+            <!-- Plank 3: Subtraction (Locked) -->
+            <div class="wooden-plank-row plank-locked" data-chapter="3" title="Chapter 3: Subtraction (Locked)">
+              <div class="plank-left-group">
+                <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                <span class="plank-chapter-num">Chapter 3</span>
+                <span class="plank-divider-bar">|</span>
+                <span class="plank-chapter-name">Subtraction</span>
               </div>
-              <div class="chapter-row-right">
-                <span class="status-badge-locked">🔒 Locked</span>
-              </div>
-            </div>
-
-            <div class="chapter-row locked-row">
-              <div class="chapter-row-left">
-                <span class="ch-play-circle grey-play">▶</span>
-                <span class="ch-num">Chapter 4</span>
-                <span class="ch-title">Multiplication</span>
-              </div>
-              <div class="chapter-row-right">
-                <span class="status-badge-locked">🔒 Locked</span>
+              <div class="plank-right-group">
+                <span class="plank-status-pill pill-locked">
+                  <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                  <span>Locked</span>
+                </span>
               </div>
             </div>
 
-            <div class="chapter-row locked-row">
-              <div class="chapter-row-left">
-                <span class="ch-play-circle grey-play">▶</span>
-                <span class="ch-num">Chapter 5</span>
-                <span class="ch-title">Division</span>
+            <!-- Plank 4: Multiplication (Locked) -->
+            <div class="wooden-plank-row plank-locked" data-chapter="4" title="Chapter 4: Multiplication (Locked)">
+              <div class="plank-left-group">
+                <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                <span class="plank-chapter-num">Chapter 4</span>
+                <span class="plank-divider-bar">|</span>
+                <span class="plank-chapter-name">Multiplication</span>
               </div>
-              <div class="chapter-row-right">
-                <span class="status-badge-locked">🔒 Locked</span>
+              <div class="plank-right-group">
+                <span class="plank-status-pill pill-locked">
+                  <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                  <span>Locked</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Plank 5: Division (Locked) -->
+            <div class="wooden-plank-row plank-locked" data-chapter="5" title="Chapter 5: Division (Locked)">
+              <div class="plank-left-group">
+                <img src="assets/mylearning syllabus/play_btn_grey.png" alt="Locked" class="plank-play-badge">
+                <span class="plank-chapter-num">Chapter 5</span>
+                <span class="plank-divider-bar">|</span>
+                <span class="plank-chapter-name">Division</span>
+              </div>
+              <div class="plank-right-group">
+                <span class="plank-status-pill pill-locked">
+                  <img src="assets/mylearning syllabus/padlock_gold.png" alt="Lock" class="plank-lock-ico">
+                  <span>Locked</span>
+                </span>
               </div>
             </div>
           </div>
+        </div>
+
+        <!-- Fox Mascot in Bottom-Left Reading Book -->
+        <div class="syllabus-fox-mascot-container">
+          <img src="assets/characters/fox_reading.png" alt="Fox Reading" class="syllabus-fox-character">
+        </div>
+
+        <!-- Treehouse in the background on the right -->
+        <div class="syllabus-treehouse-scenery-container">
+          <img src="assets/illustrations/treehouse_exact.png" alt="Treehouse" class="syllabus-treehouse-img">
         </div>
       </section>
 
@@ -559,7 +595,8 @@
           </div>
         </div>
 
-        <div class="journey-main-card">
+        <!-- Chapter Header Intro Card -->
+        <div class="journey-top-intro-card">
           <div class="journey-header-intro">
             <h1 class="journey-heading">Addition</h1>
             <p class="journey-subheading">Learn, Practice, Play and Win Rewards!</p>
@@ -573,66 +610,67 @@
               <span class="notice-text">Start the chapter! Only Theory is available now.</span>
             </div>
           </div>
+        </div>
 
-          <!-- Today's Learning Plan / Addition Chapter Journey: Rolled Parchment Scroll with 3D Floating Islands -->
-          <div class="scroll-banner-wrapper journey-scroll-banner">
-            <!-- Exact Rolled Parchment Scroll Background -->
-            <img src="assets/illustrations/parchment_scroll.png" alt="Scroll Banner" class="parchment-bg-image">
+        <!-- Addition Chapter Journey: Rolled Parchment Scroll with 3D Stepping Islands (Exact Home Page Structure) -->
+        <section class="scroll-banner-wrapper">
+          <!-- Exact Rolled Parchment Scroll Background -->
+          <img src="assets/illustrations/parchment_scroll.png" alt="Scroll Banner" class="parchment-bg-image">
 
-            <div class="scroll-inner-content">
-              <!-- Scroll Header -->
-              <div class="scroll-header-bar">
-                <div class="scroll-title-badge">
-                  <img src="assets/icons/target_dart.png" alt="Target Dart" class="target-dart-icon">
-                  <h2>Addition Chapter Journey</h2>
-                </div>
-
-                <div class="scroll-meter-block">
-                  <div class="custom-progress-bar-wrap">
-                    <img src="assets/illustrations/progress_bar.png" alt="Progress Bar" class="progress-bar-graphic">
-                  </div>
-                  <span class="meter-label" id="journeyProgressLabel">0 of 4 Completed</span>
-                </div>
+          <div class="scroll-inner-content">
+            <!-- Scroll Header -->
+            <div class="scroll-header-bar">
+              <div class="scroll-title-badge">
+                <img src="assets/icons/target_dart.png" alt="Target Dart" class="target-dart-icon">
+                <h2>Addition Chapter Journey</h2>
               </div>
 
-              <!-- Stepping Islands Path with Dotted Trail & Floating Bob Animation -->
-              <div class="islands-stepping-row" id="journeySteppingStonesContainer">
-                <!-- User's Dotted Stepping Wave Path -->
-                <img src="assets/illustrations/dotted_path.png" alt="Stepping Path" class="stepping-path-graphic">
-
-                <!-- Island 1: Theory -->
-                <div class="stepping-island" data-station="theory" id="nodeTheory" title="Theory Lesson (Click to Start)">
-                  <img src="assets/illustrations/island_theory_active.png" alt="Theory Island" class="island-img" id="imgIslandTheory">
-                  <div class="island-halo-pulse pulse-halo-green" id="haloTheory"></div>
+              <div class="scroll-meter-block">
+                <div class="custom-progress-bar-wrap">
+                  <img src="assets/illustrations/progress_bar.png" alt="Progress Bar" class="progress-bar-graphic">
                 </div>
+                <span class="meter-label" id="journeyProgressLabel">0 of 4 Completed</span>
+              </div>
+            </div>
 
-                <!-- Island 2: Video -->
-                <div class="stepping-island" data-station="video" id="nodeVideo" title="Video Lesson">
-                  <img src="assets/illustrations/island_video_locked.png" alt="Video Island" class="island-img" id="imgIslandVideo">
-                  <div class="island-halo-pulse pulse-halo-purple" id="haloVideo" style="display: none;"></div>
-                </div>
+            <!-- Stepping Islands Path with Dotted Trail & Floating Bob Animation -->
+            <div class="islands-stepping-row" id="journeySteppingStonesContainer">
+              <!-- User's Dotted Stepping Wave Path -->
+              <img src="assets/illustrations/dotted_path.png" alt="Stepping Path" class="stepping-path-graphic">
 
-                <!-- Island 3: Game Practice -->
-                <div class="stepping-island" data-station="game" id="nodeGame" title="Game Practice">
-                  <img src="assets/illustrations/island_game_locked.png" alt="Game Practice Island" class="island-img" id="imgIslandGame">
-                  <div class="island-halo-pulse pulse-halo-yellow" id="haloGame" style="display: none;"></div>
-                </div>
+              <!-- Island 1: Theory -->
+              <div class="stepping-island" data-step="theory" data-station="theory" id="nodeTheory" title="Theory Lesson (Click to Start)">
+                <img src="assets/illustrations/island_theory_active.png" alt="Theory Island" class="island-img" id="imgIslandTheory">
+                <div class="island-halo-pulse pulse-halo-green" id="haloTheory"></div>
+              </div>
 
-                <!-- Island 4: Class Challenge -->
-                <div class="stepping-island" data-station="challenge" id="nodeChallenge" title="Class Challenge">
-                  <img src="assets/illustrations/island_challenge_locked.png" alt="Class Challenge Island" class="island-img" id="imgIslandChallenge">
-                  <div class="island-halo-pulse pulse-halo-gold" id="haloChallenge" style="display: none;"></div>
-                </div>
+              <!-- Island 2: Video -->
+              <div class="stepping-island" data-step="video" data-station="video" id="nodeVideo" title="Video Lesson">
+                <img src="assets/illustrations/island_video_locked.png" alt="Video Island" class="island-img" id="imgIslandVideo">
+                <div class="island-halo-pulse pulse-halo-purple" id="haloVideo" style="display: none;"></div>
+              </div>
 
-                <!-- Island 5: Treasure Reward -->
-                <div class="stepping-island" data-station="treasure" id="nodeTreasure" title="Treasure Reward">
-                  <img src="assets/illustrations/island_treasure_locked.png" alt="Treasure Reward Island" class="island-img" id="imgIslandTreasure">
-                  <div class="island-halo-pulse pulse-halo-treasure" id="haloTreasure" style="display: none;"></div>
-                  <div class="treasure-sparkle-fx" id="treasureSparkleFx" style="display: none;"></div>
-                </div>
+              <!-- Island 3: Game Practice -->
+              <div class="stepping-island" data-step="game" data-station="game" id="nodeGame" title="Game Practice">
+                <img src="assets/illustrations/island_game_locked.png" alt="Game Practice Island" class="island-img" id="imgIslandGame">
+                <div class="island-halo-pulse pulse-halo-yellow" id="haloGame" style="display: none;"></div>
+              </div>
+
+              <!-- Island 4: Class Challenge -->
+              <div class="stepping-island" data-step="challenge" data-station="challenge" id="nodeChallenge" title="Class Challenge">
+                <img src="assets/illustrations/island_challenge_locked.png" alt="Class Challenge Island" class="island-img" id="imgIslandChallenge">
+                <div class="island-halo-pulse pulse-halo-gold" id="haloChallenge" style="display: none;"></div>
+              </div>
+
+              <!-- Island 5: Treasure Reward -->
+              <div class="stepping-island" data-step="treasure" data-station="treasure" id="nodeTreasure" title="Treasure Reward">
+                <img src="assets/illustrations/island_treasure_locked.png" alt="Treasure Reward Island" class="island-img" id="imgIslandTreasure">
+                <div class="island-halo-pulse pulse-halo-treasure" id="haloTreasure" style="display: none;"></div>
+                <div class="treasure-sparkle-fx" id="treasureSparkleFx" style="display: none;"></div>
               </div>
             </div>
           </div>
+        </section>
 
           <!-- Stage 9 Celebration Rewards Card (Revealed upon completing Chapter) -->
           <div class="chapter-reward-congrats-card" id="chapterRewardCard" style="display: none;">

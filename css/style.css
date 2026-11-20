@@ -1821,160 +1821,316 @@ body {
 }
 
 /* ==========================================================================
-   VIEW 3: SUBJECT - CHAPTER LIST (MATHS)
+   VIEW 3: SUBJECT - CHAPTER LIST (MATHS) - HANGING WOODEN LADDER SIGNBOARD
    ========================================================================== */
-.chapter-list-card {
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(14px);
-  border: 2px solid #ffffff;
-  border-radius: 26px;
-  padding: 22px 26px;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+#view-chapter-list {
+  position: relative;
+  min-height: calc(100vh - 40px);
+  padding: 10px 20px 40px 20px;
+  overflow: visible;
 }
 
-.chapter-list-header-row {
+.syllabus-breadcrumbs {
+  margin-bottom: 10px;
+}
+
+.syllabus-header-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
 }
 
 .class-dropdown-pill {
-  background: #7c3aed;
+  background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 100%);
   color: #ffffff;
   border-radius: 999px;
-  padding: 8px 18px;
+  padding: 9px 24px;
   font-weight: 800;
   font-family: var(--font-display);
+  font-size: 1.05rem;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+  gap: 10px;
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.35), inset 0 2px 2px rgba(255, 255, 255, 0.4);
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.class-dropdown-pill:hover {
+  transform: scale(1.03);
 }
 
 .chapter-overall-progress {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--font-display);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(8px);
+  padding: 8px 20px;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #ffffff;
+}
+
+.progress-lbl {
   font-weight: 800;
-  color: #1e144a;
+  color: #1e293b;
+  font-size: 0.95rem;
+  font-family: var(--font-display);
+}
+
+.progress-pct {
+  font-weight: 900;
+  color: #16a34a;
+  font-size: 1.05rem;
+  font-family: var(--font-display);
 }
 
 .chapter-progress-track {
-  width: 150px;
+  width: 140px;
   height: 12px;
   background: #e2e8f0;
   border-radius: 999px;
   overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .chapter-progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #22c55e, #16a34a);
+  background: linear-gradient(90deg, #4ade80 0%, #22c55e 100%);
   border-radius: 999px;
 }
 
-.chapters-table-list {
+/* Hanging Wooden Signboard Ladder Container */
+.wooden-ladder-signboard-wrapper {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 10px 0;
+  z-index: 2;
+  animation: ladderSway 6s ease-in-out infinite alternate;
+}
+
+@keyframes ladderSway {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(0.35deg) translateY(-2px); }
+  100% { transform: rotate(-0.35deg) translateY(1px); }
+}
+
+/* Vertical Ropes behind the planks */
+.ladder-hanging-rope {
+  position: absolute;
+  top: -15px;
+  bottom: -15px;
+  width: 28px;
+  background-image: url('../assets/mylearning syllabus/rope_vertical.png');
+  background-repeat: repeat-y;
+  background-size: 28px auto;
+  z-index: 1;
+  pointer-events: none;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.ladder-rope-left {
+  left: 36px;
+}
+
+.ladder-rope-right {
+  right: 36px;
+}
+
+.wooden-ladder-planks-stack {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  position: relative;
+  z-index: 2;
 }
 
-.chapter-row {
+.wooden-plank-row {
+  position: relative;
+  height: 72px;
+  background-image: url('../assets/mylearning syllabus/wooden_plank_with_ropes.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 20px;
-  border-radius: 20px;
-  border: 1.5px solid #edf2f7;
-  background: #ffffff;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  padding: 0 46px 0 42px;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.22));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.25s ease;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.wooden-plank-row:hover {
+  transform: translateY(-3px) scale(1.012);
+  filter: drop-shadow(0 14px 24px rgba(0, 0, 0, 0.32));
+}
+
+.wooden-plank-row.plank-active {
+  filter: drop-shadow(0 10px 20px rgba(234, 88, 12, 0.35)) drop-shadow(0 6px 12px rgba(0, 0, 0, 0.25));
+}
+
+.wooden-plank-row.plank-active:hover {
+  transform: translateY(-4px) scale(1.018);
+  filter: drop-shadow(0 16px 28px rgba(234, 88, 12, 0.45));
+}
+
+.plank-left-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  z-index: 3;
+}
+
+.plank-play-badge {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   transition: transform 0.2s ease;
 }
 
-.chapter-row:hover {
-  transform: translateX(4px);
+.wooden-plank-row:hover .plank-play-badge {
+  transform: scale(1.1) rotate(4deg);
 }
 
-.chapter-row-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.ch-play-circle {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.75rem;
-  font-weight: 900;
-}
-
-.green-play {
-  background: #dcfce7;
-  color: #16a34a;
-}
-
-.orange-play {
-  background: #ffedd5;
-  color: #ea580c;
-}
-
-.grey-play {
-  background: #f1f5f9;
-  color: #94a3b8;
-}
-
-.ch-num {
+.plank-chapter-num {
   font-family: var(--font-display);
+  font-size: 1.25rem;
   font-weight: 900;
-  color: #1e144a;
-  min-width: 90px;
+  color: #ffffff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.9);
+  letter-spacing: 0.5px;
 }
 
-.ch-title {
-  font-weight: 700;
-  color: #475569;
+.plank-divider-bar {
+  font-size: 1.25rem;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.6);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.status-badge-completed {
-  background: #dcfce7;
-  color: #15803d;
-  border-radius: 999px;
-  padding: 6px 14px;
+.plank-chapter-name {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
   font-weight: 800;
-  font-size: 0.85rem;
+  color: #ffffff;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7), 0 1px 2px rgba(0, 0, 0, 0.9);
 }
 
-.btn-chapter-continue {
-  background: linear-gradient(135deg, #f97316, #ea580c);
+.plank-right-group {
+  display: flex;
+  align-items: center;
+  z-index: 3;
+}
+
+.plank-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.plank-status-pill.pill-completed {
+  background: linear-gradient(180deg, #dcfce7 0%, #bbf7d0 100%);
+  color: #166534;
+  box-shadow: 
+    0 4px 10px rgba(22, 101, 52, 0.2),
+    inset 0 2px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.plank-btn-continue {
+  background: linear-gradient(180deg, #fb923c 0%, #f97316 45%, #ea580c 100%);
   color: #ffffff;
   border: none;
   border-radius: 999px;
-  padding: 8px 22px;
-  font-weight: 800;
+  padding: 9px 28px;
   font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 900;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(234, 88, 12, 0.35);
-  transition: transform 0.2s ease;
+  box-shadow: 
+    0 6px 18px rgba(234, 88, 12, 0.55),
+    inset 0 2px 2px rgba(255, 255, 255, 0.7),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  animation: pulseContinue 2.5s ease-in-out infinite;
 }
 
-.btn-chapter-continue:hover {
-  transform: scale(1.05);
+@keyframes pulseContinue {
+  0%, 100% { box-shadow: 0 6px 18px rgba(234, 88, 12, 0.55), inset 0 2px 2px rgba(255, 255, 255, 0.7); }
+  50% { box-shadow: 0 8px 26px rgba(234, 88, 12, 0.8), inset 0 2px 2px rgba(255, 255, 255, 0.9); }
 }
 
-.status-badge-locked {
-  background: #f1f5f9;
-  color: #64748b;
-  border-radius: 999px;
-  padding: 6px 14px;
-  font-weight: 700;
-  font-size: 0.85rem;
+.plank-btn-continue:hover {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(234, 88, 12, 0.75);
+}
+
+.plank-status-pill.pill-locked {
+  background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 100%);
+  color: #475569;
+  box-shadow: 
+    0 4px 10px rgba(0, 0, 0, 0.12),
+    inset 0 2px 2px rgba(255, 255, 255, 0.9),
+    inset 0 -1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.plank-lock-ico {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* Fox mascot sitting and reading at bottom-left */
+.syllabus-fox-mascot-container {
+  position: absolute;
+  bottom: 0px;
+  left: 20px;
+  width: 175px;
+  z-index: 4;
+  pointer-events: none;
+  animation: foxReadBob 4s ease-in-out infinite alternate;
+}
+
+@keyframes foxReadBob {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-6px); }
+}
+
+.syllabus-fox-character {
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 10px 16px rgba(0, 0, 0, 0.25));
+}
+
+/* Treehouse in the background on the right */
+.syllabus-treehouse-scenery-container {
+  position: absolute;
+  right: 0px;
+  top: 140px;
+  width: 190px;
+  pointer-events: none;
+  z-index: 1;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+  opacity: 0.95;
+}
+
+.syllabus-treehouse-img {
+  width: 100%;
+  height: auto;
 }
 
 /* ==========================================================================
@@ -2077,6 +2233,32 @@ body {
   background: #fca5a5;
   color: #991b1b;
   transform: scale(1.05);
+}
+
+/* Journey Top Intro Bar */
+.journey-top-intro-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1.5px solid #ffffff;
+  border-radius: 22px;
+  padding: 14px 28px;
+  margin-bottom: 8px;
+  box-shadow: 
+    0 8px 24px rgba(0, 0, 0, 0.05),
+    inset 0 2px 3px rgba(255, 255, 255, 0.9);
+}
+
+.journey-top-intro-card .journey-header-intro {
+  margin-bottom: 0;
+}
+
+.journey-top-intro-card .journey-banner-slot {
+  margin: 0;
+  min-height: auto;
 }
 
 /* Main Journey Card with Claymorphic Dual Shadows */

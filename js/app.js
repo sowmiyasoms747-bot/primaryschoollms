@@ -287,6 +287,25 @@ function initNav() {
       switchView('chapter-list');
     });
   });
+
+  // Hanging Wooden Signboard Ladder interactions
+  const woodenPlanks = document.querySelectorAll('.wooden-plank-row');
+  woodenPlanks.forEach(plank => {
+    plank.addEventListener('click', (e) => {
+      if (e.target.closest('.plank-btn-continue')) return;
+      const ch = plank.getAttribute('data-chapter');
+      if (ch === '1') {
+        playSound('chime');
+        showModal('✓ Chapter 1 Completed', 'Numbers and Place Value is 100% completed! 50 Stars earned. Review lessons anytime!');
+      } else if (ch === '2') {
+        playSound('pop');
+        setJourneyStage(currentJourneyStage);
+      } else {
+        playSound('pop');
+        showModal('🔒 Chapter Locked', `Chapter ${ch} is locked! Complete Chapter 2: Addition first to unlock this chapter.`);
+      }
+    });
+  });
 }
 
 // ==========================================================================
