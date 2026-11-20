@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLiveClass();
   initFlowFeatures();
   initChapterJourneyFlow();
+  initQuizFlow();
   switchView('home');
 });
 
@@ -319,40 +320,8 @@ function initNav() {
 // 9. MULTI-SCREEN INTERACTIVE FLOW FEATURES
 // ==========================================================================
 function initFlowFeatures() {
-  // 1. Interactive Quiz (Screen 6)
-  const quizTimer = document.getElementById('quizTimerText');
-  let secondsRemaining = 296; // 04:56
-  setInterval(() => {
-    if (secondsRemaining > 0) {
-      secondsRemaining--;
-      const mins = Math.floor(secondsRemaining / 60);
-      const secs = secondsRemaining % 60;
-      if (quizTimer) {
-        quizTimer.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-      }
-    }
-  }, 1000);
-
-  const quizBtns = document.querySelectorAll('.quiz-opt-btn');
-  const quizFeedback = document.getElementById('quizFeedbackBanner');
-  quizBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const val = btn.getAttribute('data-value');
-      if (val === '8') {
-        playSound('celebration');
-        const rect = btn.getBoundingClientRect();
-        triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
-        btn.classList.add('opt-correct-glow');
-        if (quizFeedback) {
-          quizFeedback.style.display = 'block';
-        }
-      } else {
-        playSound('pop');
-        btn.classList.add('opt-shake');
-        setTimeout(() => btn.classList.remove('opt-shake'), 400);
-      }
-    });
-  });
+  // 1. Quizzes 9-Screen Master Flow
+  initQuizFlow();
 
   // 2. Achievements Tab Switcher (Screen 10 & 11)
   const achTabs = document.querySelectorAll('.ach-tab-btn');
@@ -1029,4 +998,137 @@ function renderJourneyStage(stageNum) {
 
     if (rewardCard) rewardCard.style.display = 'flex';
   }
+}
+
+// ==========================================================================
+// QUIZZES 9-SCREEN MASTER FLOW CONTROLLER
+// ==========================================================================
+let currentQuizScreen = 1;
+let quizTimerInterval = null;
+let quizTimeRemaining = 504; // 08:24
+
+function initQuizFlow() {
+  // Navigation pill strip clicks
+  const pills = document.querySelectorAll('.quiz-nav-pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const step = parseInt(pill.getAttribute('data-quiz-step'), 10);
+      playSound('pop');
+      setQuizScreen(step);
+    });
+  });
+
+  // Reset button
+  const btnReset = document.getElementById('btnResetQuizFlow');
+  if (btnReset) {
+    btnReset.addEventListener('click', () => {
+      playSound('pop');
+      setQuizScreen(1);
+    });
+  }
+
+  // Delegated clicks for all elements with [data-quiz-nav]
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-quiz-nav]');
+    if (trigger) {
+      e.preventDefault();
+      const targetScreen = parseInt(trigger.getAttribute('data-quiz-nav'), 10);
+      playSound('pop');
+      setQuizScreen(targetScreen);
+    }
+  });
+
+  // Screen 5: Answer Card selection
+  const ansCards = document.querySelectorAll('.quiz-answer-card');
+  ansCards.forEach(card => {
+    card.addEventListener('click', () => {
+      playSound('pop');
+      ansCards.forEach(c => {
+        c.classList.remove('selected-answer');
+        const badge = c.querySelector('.ans-check-badge');
+        if (badge) badge.remove();
+      });
+      card.classList.add('selected-answer');
+      const badge = document.createElement('span');
+      badge.className = 'ans-check-badge';
+      badge.innerText = '✓';
+      card.appendChild(badge);
+    });
+  });
+
+  // Screen 5: Submit & Proceed
+  const btnProceed = document.getElementById('btnQuizProceed');
+  if (btnProceed) {
+    btnProceed.addEventListener('click', () => {
+      const selected = document.querySelector('.quiz-answer-card.selected-answer');
+      const val = selected ? selected.getAttribute('data-answer-val') : '7';
+      if (val === '7') {
+        playSound('celebration');
+        setQuizScreen(6); // Correct Answer
+      } else {
+        playSound('pop');
+        setQuizScreen(7); // Incorrect Answer
+      }
+    });
+  }
+
+  // Start Live Timer
+  startQuizTimer();
+}
+
+function setQuizScreen(screenNum) {
+  currentQuizScreen = screenNum;
+
+  // Update nav pills
+  document.querySelectorAll('.quiz-nav-pill').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-quiz-step'), 10);
+    if (s === screenNum) {
+      pill.classList.add('active-quiz-stage');
+    } else {
+      pill.classList.remove('active-quiz-stage');
+    }
+  });
+
+  // Toggle active screen panel
+  document.querySelectorAll('.quiz-screen-panel').forEach(panel => {
+    const s = parseInt(panel.getAttribute('data-quiz-screen'), 10);
+    if (s === screenNum) {
+      panel.classList.add('active-quiz-screen');
+    } else {
+      panel.classList.remove('active-quiz-screen');
+    }
+  });
+
+  // Screen-specific triggers
+  if (screenNum === 6) {
+    // Correct feedback: celebration confetti!
+    playSound('celebration');
+    triggerConfetti(window.innerWidth / 2, window.innerHeight / 2 - 50);
+  } else if (screenNum === 8) {
+    // Quiz completed: big celebration!
+    playSound('celebration');
+    triggerConfetti(window.innerWidth / 2 - 100, window.innerHeight / 2);
+    triggerConfetti(window.innerWidth / 2 + 100, window.innerHeight / 2);
+  }
+
+  // Scroll main panel to top smoothly
+  const panel = document.querySelector('.main-dashboard-panel');
+  if (panel) panel.scrollTop = 0;
+}
+
+function startQuizTimer() {
+  if (quizTimerInterval) clearInterval(quizTimerInterval);
+  quizTimeRemaining = 504; // 08:24
+  const timerEl = document.getElementById('quizLiveTimer');
+
+  quizTimerInterval = setInterval(() => {
+    if (quizTimeRemaining > 0) {
+      quizTimeRemaining--;
+      const mins = Math.floor(quizTimeRemaining / 60);
+      const secs = quizTimeRemaining % 60;
+      if (timerEl) {
+        timerEl.innerText = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+      }
+    }
+  }, 1000);
 }

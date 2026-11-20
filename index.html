@@ -1041,56 +1041,469 @@
            STANDALONE QUIZZES VIEW (Sidebar Navigation Item)
            ==================================================================== -->
       <section class="app-view" id="view-quiz">
-        <div class="quiz-top-bar">
-          <div class="quiz-breadcrumbs">
-            <span class="quiz-bc-root">Quizzes</span>
-            <span class="bc-sep">></span>
-            <span class="quiz-bc-sub">Maths - Addition</span>
+        <!-- Quizzes Flow Fast-Jump Strip (Allows 1-Click Preview of all 9 screens) -->
+        <div class="quiz-stage-selector-bar">
+          <div class="stage-selector-title">
+            <span class="stage-icon">🎯</span>
+            <span>Quizzes Flow:</span>
+          </div>
+          <div class="stage-pills-row">
+            <button class="quiz-nav-pill active-quiz-stage" data-quiz-step="1" title="1. Quizzes Dashboard">1. Dashboard</button>
+            <button class="quiz-nav-pill" data-quiz-step="2" title="2. Choose Subject">2. Choose Subject</button>
+            <button class="quiz-nav-pill" data-quiz-step="3" title="3. Select Chapter">3. Select Chapter</button>
+            <button class="quiz-nav-pill" data-quiz-step="4" title="4. Quiz Instructions">4. Instructions</button>
+            <button class="quiz-nav-pill" data-quiz-step="5" title="5. Answer Question">5. Question</button>
+            <button class="quiz-nav-pill" data-quiz-step="6" title="6. Correct Feedback">6. Correct Feedback</button>
+            <button class="quiz-nav-pill" data-quiz-step="7" title="7. Incorrect Feedback">7. Incorrect Feedback</button>
+            <button class="quiz-nav-pill" data-quiz-step="8" title="8. Quiz Result">8. Quiz Result</button>
+            <button class="quiz-nav-pill" data-quiz-step="9" title="9. My Results History">9. My Results</button>
+            <button class="stage-reset-btn" id="btnResetQuizFlow" title="Reset Flow to Screen 1">↺ Reset</button>
+          </div>
+        </div>
+
+        <!-- SCREEN 1: QUIZZES DASHBOARD -->
+        <div class="quiz-screen-panel active-quiz-screen" id="quizScreen1" data-quiz-screen="1">
+          <div class="quiz-dashboard-wood-banner">
+            <img src="assets/illustrations/quiz_wooden_sign.png" alt="Quizzes" class="quiz-wood-title-img">
+            <p class="quiz-wood-tagline">Practice, Learn and Test Your Knowledge!</p>
           </div>
 
-          <div class="quiz-hud-controls">
-            <span class="quiz-q-counter">Q1 of 10</span>
-            <div class="quiz-timer-pill">
-              <span class="timer-clock-icon">⏱</span>
-              <span class="timer-countdown" id="quizTimerText">04:56</span>
+          <div class="quiz-dashboard-body">
+            <div class="quiz-mascot-col">
+              <img src="assets/characters/fox_pencil_mascot.png" alt="Fox with Pencil" class="quiz-mascot-pencil-img">
+            </div>
+
+            <div class="quiz-modes-grid">
+              <!-- Practice Quiz Card -->
+              <div class="quiz-mode-card" data-quiz-nav="2">
+                <div class="quiz-mode-icon-circle bg-purple-glow">
+                  <img src="assets/icons/quiz_mode_practice.png" alt="Practice Quiz" class="quiz-mode-img">
+                </div>
+                <div class="quiz-mode-info">
+                  <h3 class="quiz-mode-title">Practice Quiz</h3>
+                  <p class="quiz-mode-desc">Learn at your own pace</p>
+                </div>
+              </div>
+
+              <!-- Chapter Quiz Card -->
+              <div class="quiz-mode-card" data-quiz-nav="2">
+                <div class="quiz-mode-icon-circle bg-gold-glow">
+                  <img src="assets/icons/quiz_mode_chapter.png" alt="Chapter Quiz" class="quiz-mode-img">
+                </div>
+                <div class="quiz-mode-info">
+                  <h3 class="quiz-mode-title">Chapter Quiz</h3>
+                  <p class="quiz-mode-desc">Test a topic you learned</p>
+                </div>
+              </div>
+
+              <!-- Weekly Challenge Card -->
+              <div class="quiz-mode-card" data-quiz-nav="4">
+                <div class="quiz-mode-icon-circle bg-red-glow">
+                  <img src="assets/icons/quiz_mode_weekly.png" alt="Weekly Challenge" class="quiz-mode-img">
+                </div>
+                <div class="quiz-mode-info">
+                  <h3 class="quiz-mode-title">Weekly Challenge</h3>
+                  <p class="quiz-mode-desc">A new challenge every week</p>
+                </div>
+              </div>
+
+              <!-- My Results Card -->
+              <div class="quiz-mode-card" data-quiz-nav="9">
+                <div class="quiz-mode-icon-circle bg-orange-glow">
+                  <img src="assets/icons/quiz_mode_results.png" alt="My Results" class="quiz-mode-img">
+                </div>
+                <div class="quiz-mode-info">
+                  <h3 class="quiz-mode-title">My Results</h3>
+                  <p class="quiz-mode-desc">View your past scores</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="quiz-stage-card">
-          <div class="quiz-question-box">
-            <h2 class="quiz-question-text">What is 5 + 3 ?</h2>
+        <!-- SCREEN 2: CHOOSE SUBJECT & CHAPTER -->
+        <div class="quiz-screen-panel" id="quizScreen2" data-quiz-screen="2">
+          <div class="quiz-breadcrumbs-bar">
+            <span class="quiz-bc-link" data-quiz-nav="1">Quizzes</span>
+            <span class="bc-sep">></span>
+            <span class="quiz-bc-curr">Chapter Quiz</span>
           </div>
 
-          <div class="quiz-stage-body">
-            <div class="quiz-fox-thinking">
-              <div class="quiz-q-mark-bubble">?</div>
-              <img src="assets/characters/fox_waving.png" alt="Thinking Fox" class="quiz-fox-img">
+          <div class="quiz-choose-subject-card">
+            <h2 class="quiz-section-title">Choose a Subject</h2>
+
+            <div class="quiz-subjects-grid">
+              <!-- Maths -->
+              <div class="quiz-subject-card clay-purple" data-quiz-nav="3">
+                <div class="quiz-subj-icon-box">
+                  <svg class="subj-math-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#a855f7"/><text x="14" y="22" font-size="20" font-weight="900" fill="#fff">+</text><text x="30" y="22" font-size="20" font-weight="900" fill="#fff">−</text><text x="14" y="38" font-size="20" font-weight="900" fill="#fff">×</text><text x="30" y="38" font-size="20" font-weight="900" fill="#fff">÷</text></svg>
+                </div>
+                <span class="quiz-subj-name">Maths</span>
+              </div>
+
+              <!-- English -->
+              <div class="quiz-subject-card clay-orange" data-quiz-nav="3">
+                <div class="quiz-subj-icon-box">
+                  <svg class="subj-english-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#fb923c"/><text x="11" y="32" font-size="20" font-weight="900" fill="#fff">ABC</text></svg>
+                </div>
+                <span class="quiz-subj-name">English</span>
+              </div>
+
+              <!-- EVS -->
+              <div class="quiz-subject-card clay-green" data-quiz-nav="3">
+                <div class="quiz-subj-icon-box">
+                  <svg class="subj-evs-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#4ade80"/><path d="M24 38 C24 24 36 20 36 20 C36 20 36 32 24 38 Z" fill="#15803d"/><path d="M24 38 C24 28 14 26 14 26 C14 26 15 35 24 38 Z" fill="#16a34a"/></svg>
+                </div>
+                <span class="quiz-subj-name">EVS</span>
+              </div>
+
+              <!-- Science -->
+              <div class="quiz-subject-card clay-cyan" data-quiz-nav="3">
+                <div class="quiz-subj-icon-box">
+                  <svg class="subj-science-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#38bdf8"/><path d="M20 12 L28 12 L28 20 L35 34 C36 36 34 38 32 38 L16 38 C14 38 12 36 13 34 L20 20 Z" fill="#fff" opacity="0.9"/></svg>
+                </div>
+                <span class="quiz-subj-name">Science</span>
+              </div>
+
+              <!-- Tamil -->
+              <div class="quiz-subject-card clay-pink" data-quiz-nav="3">
+                <div class="quiz-subj-icon-box">
+                  <svg class="subj-tamil-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#f472b6"/><text x="14" y="34" font-size="24" font-weight="900" fill="#fff">அ</text></svg>
+                </div>
+                <span class="quiz-subj-name">தமிழ்</span>
+              </div>
+
+              <!-- Art & Craft -->
+              <div class="quiz-subject-card clay-yellow" data-quiz-nav="3">
+                <div class="quiz-subj-icon-box">
+                  <svg class="subj-art-svg" viewBox="0 0 48 48"><rect width="48" height="48" rx="14" fill="#facc15"/><circle cx="20" cy="20" r="4" fill="#ef4444"/><circle cx="28" cy="18" r="4" fill="#3b82f6"/><circle cx="34" cy="26" r="4" fill="#22c55e"/><circle cx="26" cy="32" r="4" fill="#a855f7"/></svg>
+                </div>
+                <span class="quiz-subj-name">Art & Craft</span>
+              </div>
             </div>
 
-            <div class="quiz-options-grid">
-              <button class="quiz-opt-btn opt-cyan" data-value="6">
-                <span class="opt-num">6</span>
-              </button>
+            <!-- Bottom Left Fox Mascot -->
+            <img src="assets/characters/fox_reading.png" alt="Fox Reading" class="quiz-fox-reading-corner">
+          </div>
+        </div>
 
-              <button class="quiz-opt-btn opt-orange" data-value="7">
-                <span class="opt-num">7</span>
-              </button>
+        <!-- SCREEN 3: SELECT CHAPTER -->
+        <div class="quiz-screen-panel" id="quizScreen3" data-quiz-screen="3">
+          <div class="quiz-breadcrumbs-bar">
+            <span class="quiz-bc-link" data-quiz-nav="1">Quizzes</span>
+            <span class="bc-sep">></span>
+            <span class="quiz-bc-curr">Maths</span>
+          </div>
 
-              <button class="quiz-opt-btn opt-green correct-answer-btn" data-value="8">
-                <span class="opt-num">8</span>
-                <span class="quiz-check-indicator">✓</span>
-              </button>
+          <div class="quiz-select-chapter-card">
+            <!-- Header Badge -->
+            <div class="quiz-class-badge-pill">
+              <span class="badge-star-icon">⭐</span>
+              <span class="badge-title-text">Maths – Class 3</span>
+            </div>
 
-              <button class="quiz-opt-btn opt-pink" data-value="9">
-                <span class="opt-num">9</span>
-              </button>
+            <!-- Chapters List -->
+            <div class="quiz-chapters-vertical-list">
+              <!-- Chapter 1 -->
+              <div class="quiz-chapter-row ch-completed">
+                <div class="ch-left-info">
+                  <div class="ch-play-circle green-play">▶</div>
+                  <span class="ch-title">Chapter 1 – Numbers and Place Value</span>
+                </div>
+                <span class="ch-status-pill pill-completed">Completed</span>
+              </div>
+
+              <!-- Chapter 2 -->
+              <div class="quiz-chapter-row ch-active">
+                <div class="ch-left-info">
+                  <div class="ch-play-circle orange-play">▶</div>
+                  <span class="ch-title">Chapter 2 – Addition</span>
+                </div>
+                <button class="btn-start-quiz-orange" data-quiz-nav="4">Start Quiz ▶</button>
+              </div>
+
+              <!-- Chapter 3 -->
+              <div class="quiz-chapter-row ch-locked">
+                <div class="ch-left-info">
+                  <div class="ch-play-circle grey-play">🔒</div>
+                  <span class="ch-title">Chapter 3 – Subtraction</span>
+                </div>
+                <span class="ch-status-pill pill-locked">🔒 Locked</span>
+              </div>
+
+              <!-- Chapter 4 -->
+              <div class="quiz-chapter-row ch-locked">
+                <div class="ch-left-info">
+                  <div class="ch-play-circle grey-play">🔒</div>
+                  <span class="ch-title">Chapter 4 – Multiplication</span>
+                </div>
+                <span class="ch-status-pill pill-locked">🔒 Locked</span>
+              </div>
+
+              <!-- Chapter 5 -->
+              <div class="quiz-chapter-row ch-locked">
+                <div class="ch-left-info">
+                  <div class="ch-play-circle grey-play">🔒</div>
+                  <span class="ch-title">Chapter 5 – Division</span>
+                </div>
+                <span class="ch-status-pill pill-locked">🔒 Locked</span>
+              </div>
+            </div>
+
+            <!-- Bottom Right Cheering Fox Mascot -->
+            <img src="assets/characters/fox_cheer_right.png" alt="Cheering Fox" class="quiz-fox-cheer-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 4: QUIZ INSTRUCTIONS -->
+        <div class="quiz-screen-panel" id="quizScreen4" data-quiz-screen="4">
+          <div class="quiz-breadcrumbs-bar">
+            <span class="quiz-bc-link" data-quiz-nav="3">Maths</span>
+            <span class="bc-sep">></span>
+            <span class="quiz-bc-curr">Chapter 2 – Addition</span>
+          </div>
+
+          <div class="quiz-instructions-stage-card">
+            <div class="quiz-instructions-content">
+              <div class="inst-top-header">
+                <img src="assets/icons/quiz_clipboard_3d.png" alt="Quiz Clipboard" class="inst-clipboard-icon">
+                <h2 class="inst-main-title">Chapter Quiz – Addition</h2>
+              </div>
+
+              <div class="inst-details-list">
+                <div class="inst-detail-item">
+                  <span class="inst-item-icon">📋</span>
+                  <span class="inst-item-label">Total Questions :</span>
+                  <span class="inst-item-val">10</span>
+                </div>
+                <div class="inst-detail-item">
+                  <span class="inst-item-icon">⭐</span>
+                  <span class="inst-item-label">Total Marks :</span>
+                  <span class="inst-item-val">10</span>
+                </div>
+                <div class="inst-detail-item">
+                  <span class="inst-item-icon">⏰</span>
+                  <span class="inst-item-label">Time Limit :</span>
+                  <span class="inst-item-val">10 Minutes</span>
+                </div>
+                <div class="inst-detail-item">
+                  <span class="inst-item-icon">☑️</span>
+                  <span class="inst-item-label">Question Type :</span>
+                  <span class="inst-item-val">Multiple Choice</span>
+                </div>
+              </div>
+
+              <button class="btn-start-quiz-green-giant" data-quiz-nav="5">Start Quiz ▶</button>
+            </div>
+
+            <!-- Bottom Left Thumbs Up Fox Mascot -->
+            <img src="assets/characters/fox_thumbs_up.png" alt="Fox Thumbs Up" class="quiz-fox-thumbs-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 5: QUIZ – ANSWER A QUESTION -->
+        <div class="quiz-screen-panel" id="quizScreen5" data-quiz-screen="5">
+          <div class="quiz-hud-top-bar">
+            <div class="hud-subject-pill">Maths – Addition</div>
+            <div class="hud-counter-pill">Q 3 of 10</div>
+            <div class="hud-timer-pill">
+              <span class="timer-icon">⏱</span>
+              <span class="timer-digits" id="quizLiveTimer">08:24</span>
             </div>
           </div>
 
-          <div class="quiz-feedback-banner" id="quizFeedbackBanner" style="display: none;">
-            <span class="feedback-icon">🎉</span>
-            <span class="feedback-text">Correct! Outstanding job, Aarav! 🌟 (+20 Points)</span>
+          <div class="quiz-question-stage-card">
+            <h2 class="quiz-q-title">What is 4 + 3 ?</h2>
+
+            <div class="quiz-answers-row">
+              <button class="quiz-answer-card" data-answer-val="5">5</button>
+              <button class="quiz-answer-card" data-answer-val="6">6</button>
+              <button class="quiz-answer-card correct-target selected-answer" data-answer-val="7">
+                <span>7</span>
+                <span class="ans-check-badge">✓</span>
+              </button>
+              <button class="quiz-answer-card" data-answer-val="8">8</button>
+            </div>
+
+            <div class="quiz-nav-bottom-bar">
+              <button class="btn-quiz-back" data-quiz-nav="4">&lt; Previous</button>
+              <button class="btn-quiz-forward" id="btnQuizProceed" data-quiz-nav="6">Next &gt;</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 6: CORRECT ANSWER – INSTANT FEEDBACK -->
+        <div class="quiz-screen-panel" id="quizScreen6" data-quiz-screen="6">
+          <div class="quiz-feedback-stage-card feedback-correct-bg">
+            <div class="feedback-celebration-particles">✨ 🌟 🎊 🌟 ✨</div>
+
+            <div class="feedback-layout-body">
+              <img src="assets/characters/fox_celebrating.png" alt="Celebrating Fox" class="feedback-fox-img">
+
+              <div class="feedback-content-col">
+                <div class="feedback-badge-giant green-banner">
+                  <span class="badge-icon-circ">✓</span>
+                  <span>Correct!</span>
+                </div>
+
+                <h2 class="feedback-applause-title">Great Job!</h2>
+                <h3 class="feedback-equation-text">4 + 3 = 7</h3>
+
+                <div class="feedback-reward-pill">
+                  <span class="star-icon">⭐</span>
+                  <span class="reward-points">+1 Star</span>
+                </div>
+
+                <button class="btn-feedback-continue-green" data-quiz-nav="8">Next Question &gt;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 7: INCORRECT ANSWER – WITH EXPLANATION -->
+        <div class="quiz-screen-panel" id="quizScreen7" data-quiz-screen="7">
+          <div class="quiz-feedback-stage-card feedback-incorrect-bg">
+            <div class="feedback-layout-body">
+              <img src="assets/characters/fox_puzzled.png" alt="Puzzled Fox" class="feedback-fox-puzzled-img">
+
+              <div class="feedback-content-col">
+                <div class="feedback-badge-giant red-banner">
+                  <span class="badge-icon-circ">✕</span>
+                  <span>Oops! Not Quite.</span>
+                </div>
+
+                <h3 class="feedback-correct-answer-hint">The correct answer is 7</h3>
+
+                <div class="feedback-explanation-clay-card">
+                  <div class="explain-card-header">
+                    <span class="bulb-icon">💡</span>
+                    <span class="explain-title">Explanation:</span>
+                  </div>
+                  <p class="explain-body-text">
+                    4 + 3 means we add 4 and 3.<br>
+                    So, <strong>4 + 3 = 7</strong>
+                  </p>
+                </div>
+
+                <button class="btn-feedback-continue-green" data-quiz-nav="8">Next Question &gt;</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 8: QUIZ COMPLETED – RESULT -->
+        <div class="quiz-screen-panel" id="quizScreen8" data-quiz-screen="8">
+          <div class="quiz-result-stage-card">
+            <!-- Golden Trophy Header -->
+            <div class="result-trophy-banner-wrap">
+              <img src="assets/illustrations/trophy_quiz_completed.png" alt="Quiz Completed" class="trophy-completed-img">
+            </div>
+
+            <div class="result-body-layout">
+              <!-- Left Score Column -->
+              <div class="result-score-col">
+                <img src="assets/characters/fox_result.png" alt="Fox Result" class="fox-result-cheer-img">
+                <div class="result-score-box">
+                  <span class="score-box-sub">Your Score</span>
+                  <h1 class="score-box-big">8 / 10</h1>
+                  <div class="score-stars-row">
+                    <span class="score-star">⭐</span>
+                    <span class="score-star">⭐</span>
+                    <span class="score-star">⭐</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Right Breakdown Column -->
+              <div class="result-stats-col">
+                <div class="result-stat-item item-green">
+                  <div class="stat-left">
+                    <span class="stat-badge green-badge">✓</span>
+                    <span class="stat-name">Correct Answers</span>
+                  </div>
+                  <span class="stat-number">8</span>
+                </div>
+
+                <div class="result-stat-item item-red">
+                  <div class="stat-left">
+                    <span class="stat-badge red-badge">✕</span>
+                    <span class="stat-name">Wrong Answers</span>
+                  </div>
+                  <span class="stat-number">2</span>
+                </div>
+
+                <div class="result-stat-item item-blue">
+                  <div class="stat-left">
+                    <span class="stat-badge blue-badge">⏱</span>
+                    <span class="stat-name">Time Taken</span>
+                  </div>
+                  <span class="stat-number">07:36</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bottom Action Buttons -->
+            <div class="result-actions-row">
+              <button class="btn-result-action btn-review" data-quiz-nav="7">Review Answers</button>
+              <button class="btn-result-action btn-retry" data-quiz-nav="5">Try Again</button>
+              <button class="btn-result-action btn-back-quizzes" data-quiz-nav="1">Back to Quizzes</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 9: MY RESULTS – QUIZ HISTORY -->
+        <div class="quiz-screen-panel" id="quizScreen9" data-quiz-screen="9">
+          <div class="quiz-breadcrumbs-bar">
+            <span class="quiz-bc-link" data-quiz-nav="1">Quizzes</span>
+            <span class="bc-sep">></span>
+            <span class="quiz-bc-curr">My Results</span>
+          </div>
+
+          <div class="quiz-results-history-stage-card">
+            <!-- Wooden Sign Header -->
+            <div class="results-wood-title-wrap">
+              <img src="assets/illustrations/results_wooden_sign.png" alt="My Quiz Results" class="results-wood-title-img">
+            </div>
+
+            <!-- History Table -->
+            <div class="results-table-card">
+              <table class="quiz-history-table">
+                <thead>
+                  <tr>
+                    <th>Quiz</th>
+                    <th>Score</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="quiz-name-cell">Addition – Chapter Quiz</td>
+                    <td><span class="score-pill-badge badge-green-score">8 / 10</span></td>
+                    <td class="date-cell">19 Nov 2026</td>
+                    <td><button class="btn-history-view" data-quiz-nav="8">View ▶</button></td>
+                  </tr>
+                  <tr>
+                    <td class="quiz-name-cell">Numbers – Chapter Quiz</td>
+                    <td><span class="score-pill-badge badge-green-score">10 / 10</span></td>
+                    <td class="date-cell">16 Nov 2026</td>
+                    <td><button class="btn-history-view" data-quiz-nav="8">View ▶</button></td>
+                  </tr>
+                  <tr>
+                    <td class="quiz-name-cell">Weekly Challenge</td>
+                    <td><span class="score-pill-badge badge-orange-score">7 / 10</span></td>
+                    <td class="date-cell">14 Nov 2026</td>
+                    <td><button class="btn-history-view" data-quiz-nav="8">View ▶</button></td>
+                  </tr>
+                  <tr>
+                    <td class="quiz-name-cell">Subtraction – Practice</td>
+                    <td><span class="score-pill-badge badge-green-score">9 / 10</span></td>
+                    <td class="date-cell">12 Nov 2026</td>
+                    <td><button class="btn-history-view" data-quiz-nav="8">View ▶</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </section>
