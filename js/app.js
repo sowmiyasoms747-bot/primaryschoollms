@@ -265,7 +265,12 @@ function initNav() {
       const route = routeTrigger.getAttribute('data-route');
       playSound('pop');
       if (route === 'chapter-journey') {
-        setJourneyStage(currentJourneyStage);
+        if (currentJourneyStage % 2 === 0) {
+          // If returning from lesson stage (2, 4, 6, 8), go to preceding map stage (1, 3, 5, 7)
+          setJourneyStage(Math.max(1, currentJourneyStage - 1));
+        } else {
+          setJourneyStage(currentJourneyStage);
+        }
       } else {
         switchView(route);
       }
@@ -491,7 +496,7 @@ function initFlowFeatures() {
 // 4. JOURNEY STEPPING PATH
 // ==========================================================================
 function initJourneyPath() {
-  const steps = document.querySelectorAll('.stepping-island');
+  const steps = document.querySelectorAll('#view-home .stepping-island');
   steps.forEach(step => {
     step.addEventListener('click', () => {
       const stepType = step.getAttribute('data-step');
