@@ -125,26 +125,32 @@ body {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 9px 16px;
+  padding: 8px 16px;
   border-radius: var(--radius-pill);
-  font-size: 0.94rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: #475569;
+  color: #334155;
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .nav-icon {
-  width: 22px;
-  height: 22px;
-  color: #64748b;
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
   flex-shrink: 0;
+  filter: drop-shadow(0 2.5px 5px rgba(0, 0, 0, 0.14));
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .nav-pill:hover {
-  background: #f1f5f9;
-  color: #1e293b;
+  background: rgba(241, 245, 249, 0.9);
+  color: #1e144a;
   transform: translateX(4px);
+}
+
+.nav-pill:hover .nav-icon {
+  transform: scale(1.18) rotate(3deg);
 }
 
 /* Active Nav Pill: Bright Green 3D Pill */
@@ -156,8 +162,7 @@ body {
 }
 
 .nav-item.active .nav-icon {
-  color: #ffffff;
-  fill: #ffffff;
+  filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.25));
 }
 
 /* Fox Mascot Reading Storybook at Bottom of Sidebar */
