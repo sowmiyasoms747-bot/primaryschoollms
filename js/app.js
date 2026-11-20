@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initModals();
   initLiveClass();
   initFlowFeatures();
+  initChapterJourneyFlow();
 });
 
 // ==========================================================================
@@ -180,7 +181,15 @@ function switchView(targetViewId) {
     const href = link.getAttribute('href') || '';
 
     const isHome = (href === '#home' && normalizedId === 'view-home');
-    const isLearning = (href === '#learning' && ['view-learning-subjects', 'view-chapter-list', 'view-chapter-journey', 'view-theory-lesson'].includes(normalizedId));
+    const isLearning = (href === '#learning' && [
+      'view-learning-subjects',
+      'view-chapter-list',
+      'view-chapter-journey',
+      'view-theory-lesson',
+      'view-video-lesson',
+      'view-game-practice',
+      'view-class-challenge'
+    ].includes(normalizedId));
     const isQuizzes = (href === '#quizzes' && normalizedId === 'view-quiz');
     const isAssignments = (href === '#assignments' && normalizedId === 'view-assignments');
     const isLive = (href === '#live' && normalizedId === 'view-live-classes');
@@ -227,7 +236,11 @@ function initNav() {
       e.preventDefault();
       const route = routeTrigger.getAttribute('data-route');
       playSound('pop');
-      switchView(route);
+      if (route === 'chapter-journey') {
+        setJourneyStage(currentJourneyStage);
+      } else {
+        switchView(route);
+      }
     }
   });
 
@@ -576,5 +589,401 @@ function initLiveClass() {
       playSound('celebration');
       showModal('🎥 Joining Live Class', 'Connecting to Maths – Addition with Ms. Priya... Please ensure your camera and microphone are ready! 👩‍🏫📐');
     });
+  }
+}
+
+// ==========================================================================
+// 10. DYNAMIC 9-STAGE MY LEARNING CHAPTER JOURNEY FLOW CONTROLLER
+// ==========================================================================
+let currentJourneyStage = 1;
+
+function initChapterJourneyFlow() {
+  // Initial render at Stage 1 (Start)
+  renderJourneyStage(1);
+
+  // Fast-jump stage pills (1 to 9)
+  const stagePills = document.querySelectorAll('.stage-nav-pill');
+  stagePills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      const stage = parseInt(pill.getAttribute('data-set-stage'), 10);
+      playSound('pop');
+      setJourneyStage(stage);
+    });
+  });
+
+  // Reset button
+  const resetBtn = document.getElementById('btnResetJourney');
+  if (resetBtn) {
+    resetBtn.addEventListener('click', () => {
+      playSound('pop');
+      setJourneyStage(1);
+      showModal('↺ Journey Reset', 'Chapter Addition has been reset to Step 1 (Start). Have fun learning!');
+    });
+  }
+
+  // Interactive Chapter Nodes (Theory, Video, Game, Challenge, Treasure)
+  const journeyNodes = document.querySelectorAll('#journeySteppingStonesContainer .journey-node');
+  journeyNodes.forEach(node => {
+    node.addEventListener('click', () => {
+      const station = node.getAttribute('data-station');
+      const rect = node.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+
+      if (station === 'theory') {
+        playSound('chime');
+        setJourneyStage(2); // Jump into Theory Lesson
+      } else if (station === 'video') {
+        if (currentJourneyStage < 3) {
+          playSound('pop');
+          showModal('🔒 Video Lesson Locked', 'Please complete the Theory lesson first to unlock this video lesson!');
+        } else {
+          playSound('chime');
+          setJourneyStage(4); // Jump into Video Lesson
+        }
+      } else if (station === 'game') {
+        if (currentJourneyStage < 5) {
+          playSound('pop');
+          showModal('🔒 Game Practice Locked', 'Watch and complete the Video lesson first to unlock Game Practice!');
+        } else {
+          playSound('chime');
+          setJourneyStage(6); // Jump into Game Practice
+        }
+      } else if (station === 'challenge') {
+        if (currentJourneyStage < 7) {
+          playSound('pop');
+          showModal('🔒 Class Challenge Locked', 'Complete the Game Practice first to unlock the Class Challenge!');
+        } else {
+          playSound('chime');
+          setJourneyStage(8); // Jump into Class Challenge Quiz
+        }
+      } else if (station === 'treasure') {
+        if (currentJourneyStage < 9) {
+          playSound('pop');
+          showModal('🔒 Magical Treasure Locked', 'Complete all chapter stages (Theory, Video, Game Practice & Challenge) to unlock the Treasure Chest!');
+        } else {
+          playSound('celebration');
+          triggerConfetti(cx, cy);
+          triggerConfetti(cx - 80, cy - 50);
+          triggerConfetti(cx + 80, cy - 50);
+          openTreasureChestReward();
+        }
+      }
+    });
+  });
+
+  // Step 2 (Theory): "Complete & Continue >"
+  const btnCompleteTheory = document.getElementById('btnCompleteTheory');
+  if (btnCompleteTheory) {
+    btnCompleteTheory.addEventListener('click', () => {
+      playSound('celebration');
+      const rect = btnCompleteTheory.getBoundingClientRect();
+      triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      setJourneyStage(3);
+    });
+  }
+
+  // Step 4 (Video): Center Play button toggle
+  const btnVideoPlayToggle = document.getElementById('btnVideoPlayToggle');
+  const videoPlayIcon = document.getElementById('videoPlayIcon');
+  let isVideoPlaying = false;
+  let videoProgressTimer = null;
+  if (btnVideoPlayToggle) {
+    btnVideoPlayToggle.addEventListener('click', () => {
+      isVideoPlaying = !isVideoPlaying;
+      playSound(isVideoPlaying ? 'pop' : 'click');
+      if (videoPlayIcon) videoPlayIcon.innerText = isVideoPlaying ? '❚❚' : '▶';
+
+      const progressFill = document.getElementById('videoProgressFill');
+      const timeDisplay = document.getElementById('videoTimeDisplay');
+      if (isVideoPlaying) {
+        let p = 51;
+        videoProgressTimer = setInterval(() => {
+          if (p < 100) {
+            p += 2;
+            if (progressFill) progressFill.style.width = p + '%';
+            const totalSecs = 300;
+            const curSecs = Math.floor((p / 100) * totalSecs);
+            const m = Math.floor(curSecs / 60);
+            const s = curSecs % 60;
+            if (timeDisplay) timeDisplay.innerText = `0${m}:${s.toString().padStart(2, '0')} / 05:00`;
+          } else {
+            clearInterval(videoProgressTimer);
+          }
+        }, 300);
+      } else {
+        if (videoProgressTimer) clearInterval(videoProgressTimer);
+      }
+    });
+  }
+
+  // Step 4 (Video): "Mark as Completed"
+  const btnCompleteVideo = document.getElementById('btnCompleteVideo');
+  if (btnCompleteVideo) {
+    btnCompleteVideo.addEventListener('click', () => {
+      playSound('celebration');
+      const rect = btnCompleteVideo.getBoundingClientRect();
+      triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      setJourneyStage(5);
+    });
+  }
+
+  // Step 6 (Game Practice): Interactive Answer Cards 5, 6, 7
+  const gameOptCards = document.querySelectorAll('.game-opt-card');
+  const btnContinueGame = document.getElementById('btnContinueGame');
+  const gameScoreEl = document.getElementById('gamePracticeScore');
+  gameOptCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const ans = card.getAttribute('data-ans');
+      if (ans === '6') {
+        playSound('celebration');
+        const rect = card.getBoundingClientRect();
+        triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        card.classList.add('opt-correct-glow');
+        if (gameScoreEl) gameScoreEl.innerText = 'Score: 3 / 5';
+        if (btnContinueGame) {
+          btnContinueGame.style.display = 'inline-block';
+        }
+      } else {
+        playSound('pop');
+        card.classList.add('opt-shake');
+        setTimeout(() => card.classList.remove('opt-shake'), 400);
+      }
+    });
+  });
+
+  if (btnContinueGame) {
+    btnContinueGame.addEventListener('click', () => {
+      playSound('chime');
+      setJourneyStage(7);
+    });
+  }
+
+  // Step 8 (Class Challenge): Interactive Options 8, 9, 10, 11
+  const challengeOptBtns = document.querySelectorAll('.challenge-opt-btn');
+  let challengeAnswerSelected = false;
+  challengeOptBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const ans = btn.getAttribute('data-ans');
+      if (ans === '10') {
+        playSound('celebration');
+        const rect = btn.getBoundingClientRect();
+        triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+        btn.classList.add('opt-correct-glow');
+        challengeAnswerSelected = true;
+      } else {
+        playSound('pop');
+        btn.classList.add('opt-shake');
+        setTimeout(() => btn.classList.remove('opt-shake'), 400);
+      }
+    });
+  });
+
+  const btnFinishChallenge = document.getElementById('btnFinishChallenge');
+  if (btnFinishChallenge) {
+    btnFinishChallenge.addEventListener('click', () => {
+      playSound('celebration');
+      const rect = btnFinishChallenge.getBoundingClientRect();
+      triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      setJourneyStage(9);
+    });
+  }
+
+  // Step 9 (Chapter Completed): Claim Reward Button
+  const btnClaimChest = document.getElementById('btnClaimChest');
+  if (btnClaimChest) {
+    btnClaimChest.addEventListener('click', () => {
+      playSound('celebration');
+      const rect = btnClaimChest.getBoundingClientRect();
+      triggerConfetti(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      triggerConfetti(window.innerWidth / 2, window.innerHeight / 2);
+      openTreasureChestReward();
+    });
+  }
+}
+
+function openTreasureChestReward() {
+  playSound('celebration');
+  // Update user score displays to 370 Points
+  const userPointsEls = document.querySelectorAll('.user-points-val, #userScoreDisplay, .points-display');
+  userPointsEls.forEach(el => {
+    el.innerText = '370 Points';
+  });
+  showModal(
+    '🎉 Addition Chapter Mastered! 🏆',
+    'Congratulations Aarav! You have successfully completed Theory, Video, Game Practice, and Class Challenge! 🌟\n\n' +
+    '🎁 Rewards Claimed:\n' +
+    '• +50 Bonus Stars (Total: 370 Points)\n' +
+    '• Chapter Badge: Addition Expert 👑\n' +
+    '• Unlocked Chapter 3: Subtraction! 🚀'
+  );
+}
+
+function setJourneyStage(stageNum) {
+  currentJourneyStage = stageNum;
+
+  // Highlight active stage pill
+  document.querySelectorAll('.stage-nav-pill').forEach(pill => {
+    const s = parseInt(pill.getAttribute('data-set-stage'), 10);
+    if (s === stageNum) {
+      pill.classList.add('active-stage');
+    } else {
+      pill.classList.remove('active-stage');
+    }
+  });
+
+  if ([1, 3, 5, 7, 9].includes(stageNum)) {
+    switchView('chapter-journey');
+    renderJourneyStage(stageNum);
+  } else if (stageNum === 2) {
+    switchView('theory-lesson');
+  } else if (stageNum === 4) {
+    switchView('video-lesson');
+  } else if (stageNum === 6) {
+    switchView('game-practice');
+  } else if (stageNum === 8) {
+    switchView('class-challenge');
+  }
+}
+
+function renderJourneyStage(stageNum) {
+  const bannerSlot = document.getElementById('journeyBannerSlot');
+  const rewardCard = document.getElementById('chapterRewardCard');
+
+  const badgeTheory = document.getElementById('badgeTheory');
+  const haloTheory = document.getElementById('haloTheory');
+
+  const badgeVideo = document.getElementById('badgeVideo');
+  const haloVideo = document.getElementById('haloVideo');
+
+  const badgeGame = document.getElementById('badgeGame');
+  const haloGame = document.getElementById('haloGame');
+
+  const badgeChallenge = document.getElementById('badgeChallenge');
+  const haloChallenge = document.getElementById('haloChallenge');
+
+  const badgeTreasure = document.getElementById('badgeTreasure');
+  const haloTreasure = document.getElementById('haloTreasure');
+  const sparkleTreasure = document.getElementById('treasureSparkleFx');
+
+  const conn1 = document.getElementById('conn1');
+  const conn2 = document.getElementById('conn2');
+  const conn3 = document.getElementById('conn3');
+  const conn4 = document.getElementById('conn4');
+
+  if (!bannerSlot) return;
+
+  // Reset halo and badges to locked defaults
+  if (haloTheory) haloTheory.style.display = 'none';
+  if (haloVideo) haloVideo.style.display = 'none';
+  if (haloGame) haloGame.style.display = 'none';
+  if (haloChallenge) haloChallenge.style.display = 'none';
+  if (haloTreasure) haloTreasure.style.display = 'none';
+  if (sparkleTreasure) sparkleTreasure.style.display = 'none';
+
+  if (conn1) conn1.className = 'journey-connector locked-connector';
+  if (conn2) conn2.className = 'journey-connector locked-connector';
+  if (conn3) conn3.className = 'journey-connector locked-connector';
+  if (conn4) conn4.className = 'journey-connector locked-connector';
+
+  if (rewardCard) rewardCard.style.display = 'none';
+
+  if (stageNum === 1) {
+    // 1. Chapter Journey - Start
+    bannerSlot.innerHTML = `
+      <div class="journey-notice-capsule">
+        <span class="notice-icon">ℹ️</span>
+        <span class="notice-text">Start the chapter! Only Theory is available now.</span>
+      </div>
+    `;
+    if (badgeTheory) { badgeTheory.innerText = '📖'; badgeTheory.className = 'node-badge-status status-active'; }
+    if (haloTheory) haloTheory.style.display = 'block';
+
+    if (badgeVideo) { badgeVideo.innerText = '🔒'; badgeVideo.className = 'node-badge-status lock-badge'; }
+    if (badgeGame) { badgeGame.innerText = '🔒'; badgeGame.className = 'node-badge-status lock-badge'; }
+    if (badgeChallenge) { badgeChallenge.innerText = '🔒'; badgeChallenge.className = 'node-badge-status lock-badge'; }
+    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+  } else if (stageNum === 3) {
+    // 3. Theory Completed - Video Unlocked
+    bannerSlot.innerHTML = `
+      <div class="journey-success-capsule">
+        <span class="success-check-badge">✓</span>
+        <span class="success-text">Theory Completed! Video Unlocked!</span>
+      </div>
+    `;
+    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
+    if (badgeVideo) { badgeVideo.innerText = '▶'; badgeVideo.className = 'node-badge-status status-active'; }
+    if (haloVideo) haloVideo.style.display = 'block';
+
+    if (badgeGame) { badgeGame.innerText = '🔒'; badgeGame.className = 'node-badge-status lock-badge'; }
+    if (badgeChallenge) { badgeChallenge.innerText = '🔒'; badgeChallenge.className = 'node-badge-status lock-badge'; }
+    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+
+    if (conn1) conn1.className = 'journey-connector active-connector';
+  } else if (stageNum === 5) {
+    // 5. Video Completed - Game Practice Unlocked
+    bannerSlot.innerHTML = `
+      <div class="journey-success-capsule">
+        <span class="success-check-badge">✓</span>
+        <span class="success-text">Video Completed! Game Practice Unlocked!</span>
+      </div>
+    `;
+    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
+    if (badgeVideo) { badgeVideo.innerText = '✓'; badgeVideo.className = 'node-badge-status green-check'; }
+    if (badgeGame) { badgeGame.innerText = '🎮'; badgeGame.className = 'node-badge-status status-active'; }
+    if (haloGame) haloGame.style.display = 'block';
+
+    if (badgeChallenge) { badgeChallenge.innerText = '🔒'; badgeChallenge.className = 'node-badge-status lock-badge'; }
+    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+
+    if (conn1) conn1.className = 'journey-connector active-connector';
+    if (conn2) conn2.className = 'journey-connector active-connector';
+  } else if (stageNum === 7) {
+    // 7. Game Practice Completed - Class Challenge Unlocked
+    bannerSlot.innerHTML = `
+      <div class="journey-success-capsule">
+        <span class="success-check-badge">✓</span>
+        <span class="success-text">Game Practice Completed! Class Challenge Unlocked!</span>
+      </div>
+    `;
+    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
+    if (badgeVideo) { badgeVideo.innerText = '✓'; badgeVideo.className = 'node-badge-status green-check'; }
+    if (badgeGame) { badgeGame.innerText = '✓'; badgeGame.className = 'node-badge-status green-check'; }
+    if (badgeChallenge) { badgeChallenge.innerText = '🏆'; badgeChallenge.className = 'node-badge-status status-active'; }
+    if (haloChallenge) haloChallenge.style.display = 'block';
+
+    if (badgeTreasure) { badgeTreasure.innerText = '🔒'; badgeTreasure.className = 'node-badge-status lock-badge'; }
+
+    if (conn1) conn1.className = 'journey-connector active-connector';
+    if (conn2) conn2.className = 'journey-connector active-connector';
+    if (conn3) conn3.className = 'journey-connector active-connector';
+  } else if (stageNum === 9) {
+    // 9. Chapter Completed - Treasure Unlocked
+    bannerSlot.innerHTML = `
+      <div class="chapter-completed-ribbon-wrap">
+        <div class="celebration-ribbon-tail left-tail"></div>
+        <div class="celebration-ribbon-body">
+          <span class="ribbon-sparkle">✨</span>
+          <span class="ribbon-text">Chapter Completed!</span>
+          <span class="ribbon-sparkle">🎉</span>
+        </div>
+        <div class="celebration-ribbon-tail right-tail"></div>
+      </div>
+    `;
+    if (badgeTheory) { badgeTheory.innerText = '✓'; badgeTheory.className = 'node-badge-status green-check'; }
+    if (badgeVideo) { badgeVideo.innerText = '✓'; badgeVideo.className = 'node-badge-status green-check'; }
+    if (badgeGame) { badgeGame.innerText = '✓'; badgeGame.className = 'node-badge-status green-check'; }
+    if (badgeChallenge) { badgeChallenge.innerText = '✓'; badgeChallenge.className = 'node-badge-status green-check'; }
+    if (badgeTreasure) { badgeTreasure.innerText = '🎁'; badgeTreasure.className = 'node-badge-status green-check'; }
+
+    if (haloTreasure) haloTreasure.style.display = 'block';
+    if (sparkleTreasure) sparkleTreasure.style.display = 'block';
+
+    if (conn1) conn1.className = 'journey-connector active-connector';
+    if (conn2) conn2.className = 'journey-connector active-connector';
+    if (conn3) conn3.className = 'journey-connector active-connector';
+    if (conn4) conn4.className = 'journey-connector active-connector';
+
+    if (rewardCard) rewardCard.style.display = 'flex';
   }
 }

@@ -510,7 +510,25 @@
       </section>
 
       <!-- ====================================================================
-           VIEW 4: CHAPTER JOURNEY (ADDITION)
+           SHARED SVG ASSETS FOR 3D LEARNING OBJECTS
+           ==================================================================== -->
+      <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" aria-hidden="true">
+        <defs>
+          <radialGradient id="appleRedGrad" cx="35%" cy="30%" r="70%">
+            <stop offset="0%" stop-color="#ff7b7b"/>
+            <stop offset="35%" stop-color="#ef4444"/>
+            <stop offset="85%" stop-color="#b91c1c"/>
+            <stop offset="100%" stop-color="#7f1d1d"/>
+          </radialGradient>
+          <linearGradient id="appleLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#86efac"/>
+            <stop offset="100%" stop-color="#16a34a"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <!-- ====================================================================
+           VIEW 4: CHAPTER JOURNEY (ADDITION) - 9-STAGE INTERACTIVE FLOW
            ==================================================================== -->
       <section class="app-view" id="view-chapter-journey">
         <div class="breadcrumbs-bar">
@@ -521,21 +539,51 @@
           <span class="bc-curr">Addition</span>
         </div>
 
+        <!-- Stage Navigation Strip: Fast-jump & test any of the 9 steps -->
+        <div class="journey-stage-selector-bar">
+          <div class="stage-selector-title">
+            <span class="stage-icon">🗺️</span>
+            <span>Chapter Journey Flow:</span>
+          </div>
+          <div class="stage-pills-row">
+            <button class="stage-nav-pill active-stage" data-set-stage="1" title="1. Start Chapter">1. Start</button>
+            <button class="stage-nav-pill" data-set-stage="2" title="2. Theory Lesson">2. Theory</button>
+            <button class="stage-nav-pill" data-set-stage="3" title="3. Video Unlocked">3. Video Unlocked</button>
+            <button class="stage-nav-pill" data-set-stage="4" title="4. Watch Video">4. Video Lesson</button>
+            <button class="stage-nav-pill" data-set-stage="5" title="5. Game Practice Unlocked">5. Game Unlocked</button>
+            <button class="stage-nav-pill" data-set-stage="6" title="6. Practice Game">6. Practice Game</button>
+            <button class="stage-nav-pill" data-set-stage="7" title="7. Challenge Unlocked">7. Challenge Unlocked</button>
+            <button class="stage-nav-pill" data-set-stage="8" title="8. Challenge Quiz">8. Challenge Quiz</button>
+            <button class="stage-nav-pill" data-set-stage="9" title="9. Chapter Completed">9. Treasure Unlocked</button>
+            <button class="stage-reset-btn" id="btnResetJourney" title="Reset Progression to Step 1">↺ Reset</button>
+          </div>
+        </div>
+
         <div class="journey-main-card">
           <div class="journey-header-intro">
             <h1 class="journey-heading">Addition</h1>
             <p class="journey-subheading">Learn, Practice, Play and Win Rewards!</p>
           </div>
 
+          <!-- Dynamic Notification / Completion Banner Slot -->
+          <div class="journey-banner-slot" id="journeyBannerSlot">
+            <!-- Default (Stage 1): Notice capsule -->
+            <div class="journey-notice-capsule">
+              <span class="notice-icon">ℹ️</span>
+              <span class="notice-text">Start the chapter! Only Theory is available now.</span>
+            </div>
+          </div>
+
           <div class="journey-stage-canvas">
             <div class="journey-fox-guide">
-              <img src="assets/characters/fox_waving.png" alt="Fox Guide" class="journey-fox-img">
+              <img src="assets/characters/fox_waving.png" alt="Fox Guide" class="journey-fox-img" id="journeyFoxGuideImg">
             </div>
 
-            <div class="journey-stepping-stones">
-              <!-- Node 1: Theory (Completed) -->
-              <div class="journey-node completed-node" data-route="theory-lesson" title="Click to view Theory Lesson">
-                <div class="node-badge-status green-check">✓</div>
+            <div class="journey-stepping-stones" id="journeySteppingStonesContainer">
+              <!-- Station 1: Theory -->
+              <div class="journey-node active-pulse-node" id="nodeTheory" data-station="theory" title="Theory Lesson">
+                <div class="node-badge-status status-active" id="badgeTheory">📖</div>
+                <div class="node-pulse-halo pulse-halo-green" id="haloTheory"></div>
                 <div class="node-icon-wrapper">
                   <img src="assets/learning_plan/icon_book.png" alt="Theory" class="node-icon-img">
                 </div>
@@ -544,70 +592,97 @@
                 </div>
               </div>
 
-              <div class="journey-connector active-connector"></div>
+              <div class="journey-connector locked-connector" id="conn1"></div>
 
-              <!-- Node 2: Video (Completed) -->
-              <div class="journey-node completed-node" title="Video Lesson Completed">
-                <div class="node-badge-status green-check">✓</div>
+              <!-- Station 2: Video -->
+              <div class="journey-node locked-node" id="nodeVideo" data-station="video" title="Video Lesson">
+                <div class="node-badge-status lock-badge" id="badgeVideo">🔒</div>
+                <div class="node-pulse-halo pulse-halo-purple" id="haloVideo" style="display: none;"></div>
                 <div class="node-icon-wrapper">
                   <img src="assets/learning_plan/icon_video.png" alt="Video" class="node-icon-img">
                 </div>
-                <div class="node-stone-base green-stone">
+                <div class="node-stone-base purple-stone">
                   <span>Video</span>
                 </div>
               </div>
 
-              <div class="journey-connector active-connector"></div>
+              <div class="journey-connector locked-connector" id="conn2"></div>
 
-              <!-- Node 3: Game Practice (Active) -->
-              <div class="journey-node current-node" data-route="quiz" title="Practice Game Challenge">
-                <div class="node-badge-status blue-unlock">🎮</div>
+              <!-- Station 3: Game Practice -->
+              <div class="journey-node locked-node" id="nodeGame" data-station="game" title="Game Practice">
+                <div class="node-badge-status lock-badge" id="badgeGame">🔒</div>
+                <div class="node-pulse-halo pulse-halo-yellow" id="haloGame" style="display: none;"></div>
                 <div class="node-icon-wrapper">
                   <img src="assets/learning_plan/icon_gamepad.png" alt="Game Practice" class="node-icon-img">
                 </div>
-                <div class="node-stone-base blue-stone">
+                <div class="node-stone-base yellow-stone">
                   <span>Game Practice</span>
                 </div>
               </div>
 
-              <div class="journey-connector locked-connector"></div>
+              <div class="journey-connector locked-connector" id="conn3"></div>
 
-              <!-- Node 4: Class Challenge (Locked) -->
-              <div class="journey-node locked-node">
-                <div class="node-badge-status lock-badge">🔒</div>
+              <!-- Station 4: Class Challenge -->
+              <div class="journey-node locked-node" id="nodeChallenge" data-station="challenge" title="Class Challenge">
+                <div class="node-badge-status lock-badge" id="badgeChallenge">🔒</div>
+                <div class="node-pulse-halo pulse-halo-gold" id="haloChallenge" style="display: none;"></div>
                 <div class="node-icon-wrapper">
                   <img src="assets/learning_plan/icon_trophy.png" alt="Class Challenge" class="node-icon-img">
                 </div>
-                <div class="node-stone-base grey-stone">
+                <div class="node-stone-base gold-stone">
                   <span>Class Challenge</span>
                 </div>
               </div>
 
-              <div class="journey-connector locked-connector"></div>
+              <div class="journey-connector locked-connector" id="conn4"></div>
 
-              <!-- Node 5: Treasure Reward (Locked) -->
-              <div class="journey-node locked-node">
-                <div class="node-badge-status lock-badge">🔒</div>
+              <!-- Station 5: Treasure -->
+              <div class="journey-node locked-node" id="nodeTreasure" data-station="treasure" title="Treasure Reward">
+                <div class="node-badge-status lock-badge" id="badgeTreasure">🔒</div>
+                <div class="node-pulse-halo pulse-halo-treasure" id="haloTreasure" style="display: none;"></div>
+                <div class="treasure-sparkle-fx" id="treasureSparkleFx" style="display: none;"></div>
                 <div class="node-icon-wrapper">
-                  <img src="assets/learning_plan/icon_chest.png" alt="Treasure Reward" class="node-icon-img">
+                  <img src="assets/learning_plan/icon_chest.png" alt="Treasure" class="node-icon-img">
                 </div>
-                <div class="node-stone-base purple-stone">
-                  <span>Treasure Reward</span>
+                <div class="node-stone-base red-stone">
+                  <span>Treasure</span>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <!-- Stage 9 Celebration Rewards Card (Revealed upon completing Chapter) -->
+          <div class="chapter-reward-congrats-card" id="chapterRewardCard" style="display: none;">
+            <div class="reward-card-left">
+              <span class="gift-box-icon">🎁</span>
+              <div class="reward-text-group">
+                <h4 class="reward-title">Congratulations! You've completed the Addition chapter!</h4>
+                <p class="reward-sub">You earned bonus stars and unlocked a new chapter mastery badge!</p>
+              </div>
+            </div>
+            <div class="reward-card-badges">
+              <div class="reward-badge-capsule stars-capsule">
+                <span class="star-icon">⭐</span>
+                <span>+50 Stars</span>
+              </div>
+              <div class="reward-badge-capsule trophy-capsule">
+                <span class="trophy-icon">👑</span>
+                <span>Chapter Badge (Addition Expert)</span>
+              </div>
+              <button class="btn-claim-chest" id="btnClaimChest">Open Treasure 📦✨</button>
             </div>
           </div>
         </div>
       </section>
 
       <!-- ====================================================================
-           VIEW 5: THEORY / LESSON PAGE
+           STEP 2: THEORY - LEARNING PAGE
            ==================================================================== -->
       <section class="app-view" id="view-theory-lesson">
         <div class="lesson-page-header">
           <div class="lesson-header-left">
             <span class="lesson-star-badge">⭐</span>
-            <h1 class="lesson-page-title">Addition - Theory</h1>
+            <h1 class="lesson-page-title">Addition &gt; Theory</h1>
           </div>
           <button class="btn-back-journey" data-route="chapter-journey">
             ← Back to Journey
@@ -631,7 +706,7 @@
             </div>
             <div class="stepper-item">
               <span class="step-icon">🏆</span>
-              <span class="step-label">Challenge</span>
+              <span class="step-label">Class Challenge</span>
             </div>
             <div class="stepper-item">
               <span class="step-icon">🎁</span>
@@ -646,20 +721,21 @@
               <p class="lesson-desc">Addition means putting two or more numbers together.</p>
             </div>
 
+            <!-- 3D Glossy Apples Equation with Specular Highlights -->
             <div class="lesson-interactive-formula">
               <div class="apple-group">
-                <span class="apple-emoji">🍎</span>
-                <span class="apple-emoji">🍎</span>
+                <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
+                <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
               </div>
               <span class="math-op-sign">+</span>
               <div class="apple-group">
-                <span class="apple-emoji">🍎</span>
+                <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
               </div>
               <span class="math-op-sign">=</span>
               <div class="apple-group">
-                <span class="apple-emoji">🍎</span>
-                <span class="apple-emoji">🍎</span>
-                <span class="apple-emoji">🍎</span>
+                <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
+                <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
+                <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
               </div>
             </div>
 
@@ -679,7 +755,266 @@
               <button class="btn-lesson-prev" data-route="chapter-journey">
                 &lt; Previous
               </button>
-              <button class="btn-lesson-next" data-route="quiz">
+              <button class="btn-complete-continue" id="btnCompleteTheory">
+                Complete &amp; Continue &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           STEP 4: VIDEO - WATCH LESSON PAGE
+           ==================================================================== -->
+      <section class="app-view" id="view-video-lesson">
+        <div class="lesson-page-header">
+          <div class="lesson-header-left">
+            <span class="lesson-star-badge">⭐</span>
+            <h1 class="lesson-page-title">Addition &gt; Video</h1>
+          </div>
+          <button class="btn-back-journey" data-route="chapter-journey">
+            ← Back to Journey
+          </button>
+        </div>
+
+        <div class="lesson-page-body">
+          <!-- Left Mini Stepper with Checkmark on Theory -->
+          <div class="lesson-stepper-panel">
+            <div class="stepper-item completed-step">
+              <span class="step-icon">✓</span>
+              <span class="step-label">Theory</span>
+            </div>
+            <div class="stepper-item active-step">
+              <span class="step-icon">📹</span>
+              <span class="step-label">Video</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🎮</span>
+              <span class="step-label">Game Practice</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🏆</span>
+              <span class="step-label">Class Challenge</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🎁</span>
+              <span class="step-label">Treasure</span>
+            </div>
+          </div>
+
+          <!-- Main Video Lesson Card -->
+          <div class="lesson-content-card video-lesson-card">
+            <div class="video-lesson-title-bar">
+              <h2 class="video-lesson-heading">Addition – Video Lesson</h2>
+            </div>
+
+            <!-- Stylized Clay Video Player Frame with Deep Inner Well -->
+            <div class="video-player-frame" id="videoPlayerFrame">
+              <div class="video-screen-canvas">
+                <div class="video-apples-graphic">
+                  <div class="video-apples-row">
+                    <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
+                    <svg class="apple-3d-svg" viewBox="0 0 64 64"><path d="M32 16 C25 11 13 16 13 29 C13 46 24 55 32 55 C40 55 51 46 51 29 C51 16 39 11 32 16 Z" fill="url(#appleRedGrad)"/><ellipse cx="23" cy="25" rx="5" ry="9" transform="rotate(-24 23 25)" fill="#fff" opacity="0.48"/><path d="M32 16 Q34 7 38 5" stroke="#5c2e0b" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M34 11 Q43 7 45 14 Q38 16 34 11 Z" fill="url(#appleLeafGrad)"/></svg>
+                  </div>
+                  <div class="video-equation-text">2 + 1 = 3</div>
+                </div>
+
+                <!-- Center Play / Pause Button with Pulsing Halo -->
+                <button class="video-center-play-btn" id="btnVideoPlayToggle" title="Play / Pause Video Lesson">
+                  <div class="play-btn-circle">
+                    <span class="play-icon-triangle" id="videoPlayIcon">▶</span>
+                  </div>
+                </button>
+
+                <!-- Teacher Fox on Right -->
+                <div class="video-teacher-fox">
+                  <img src="assets/characters/fox_reading.png" alt="Teacher Fox" class="video-fox-img">
+                </div>
+              </div>
+
+              <!-- Video Scrubber Track with Deep Inner Shadow -->
+              <div class="video-player-controls-bar">
+                <div class="video-scrubber-track">
+                  <div class="video-scrubber-progress" id="videoProgressFill" style="width: 51%;"></div>
+                </div>
+                <div class="video-controls-row">
+                  <div class="video-time-indicator" id="videoTimeDisplay">02:34 / 05:00</div>
+                  <div class="video-mini-actions">
+                    <span class="video-act-icon">🔊</span>
+                    <span class="video-act-icon">⛶</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="video-footer-actions">
+              <button class="btn-complete-continue" id="btnCompleteVideo">
+                ✓ Mark as Completed
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           STEP 6: GAME PRACTICE - PLAY & LEARN
+           ==================================================================== -->
+      <section class="app-view" id="view-game-practice">
+        <div class="lesson-page-header">
+          <div class="lesson-header-left">
+            <span class="lesson-star-badge">⭐</span>
+            <h1 class="lesson-page-title">Addition &gt; Game Practice</h1>
+          </div>
+          <button class="btn-back-journey" data-route="chapter-journey">
+            ← Back to Journey
+          </button>
+        </div>
+
+        <div class="lesson-page-body">
+          <!-- Left Mini Stepper with Checkmarks on Theory and Video -->
+          <div class="lesson-stepper-panel">
+            <div class="stepper-item completed-step">
+              <span class="step-icon">✓</span>
+              <span class="step-label">Theory</span>
+            </div>
+            <div class="stepper-item completed-step">
+              <span class="step-icon">✓</span>
+              <span class="step-label">Video</span>
+            </div>
+            <div class="stepper-item active-step">
+              <span class="step-icon">🎮</span>
+              <span class="step-label">Game Practice</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🏆</span>
+              <span class="step-label">Class Challenge</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🎁</span>
+              <span class="step-label">Treasure</span>
+            </div>
+          </div>
+
+          <!-- Main Game Practice Card -->
+          <div class="lesson-content-card game-practice-card">
+            <div class="game-top-hud">
+              <div class="game-hud-pill badge-practice-title">
+                <span class="hud-icon">🎮</span>
+                <span>Addition Practice</span>
+              </div>
+              <div class="game-hud-pill badge-practice-score">
+                <span class="hud-icon">⭐</span>
+                <span id="gamePracticeScore">Score: 2 / 5</span>
+              </div>
+            </div>
+
+            <div class="game-question-area">
+              <div class="game-question-title">What is 4 + 2 ?</div>
+
+              <div class="game-interactive-row">
+                <div class="game-fox-thinking">
+                  <img src="assets/characters/fox_waving.png" alt="Thinking Fox" class="game-fox-img">
+                </div>
+
+                <div class="game-options-trio">
+                  <button class="game-opt-card" data-ans="5">
+                    <span class="opt-text">5</span>
+                  </button>
+                  <button class="game-opt-card" data-ans="6" id="gameOptCorrect">
+                    <span class="opt-text">6</span>
+                    <span class="opt-check-badge">✓</span>
+                  </button>
+                  <button class="game-opt-card" data-ans="7">
+                    <span class="opt-text">7</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-practice-footer" id="gameFooterActions">
+              <button class="btn-complete-continue" id="btnContinueGame" style="display: none;">
+                Continue to Challenge &gt;
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           STEP 8: CLASS CHALLENGE - QUIZ
+           ==================================================================== -->
+      <section class="app-view" id="view-class-challenge">
+        <div class="lesson-page-header">
+          <div class="lesson-header-left">
+            <span class="lesson-star-badge">⭐</span>
+            <h1 class="lesson-page-title">Addition &gt; Class Challenge</h1>
+          </div>
+          <button class="btn-back-journey" data-route="chapter-journey">
+            ← Back to Journey
+          </button>
+        </div>
+
+        <div class="lesson-page-body">
+          <!-- Left Mini Stepper with Checkmarks on Theory, Video, Game Practice -->
+          <div class="lesson-stepper-panel">
+            <div class="stepper-item completed-step">
+              <span class="step-icon">✓</span>
+              <span class="step-label">Theory</span>
+            </div>
+            <div class="stepper-item completed-step">
+              <span class="step-icon">✓</span>
+              <span class="step-label">Video</span>
+            </div>
+            <div class="stepper-item completed-step">
+              <span class="step-icon">✓</span>
+              <span class="step-label">Game Practice</span>
+            </div>
+            <div class="stepper-item active-step">
+              <span class="step-icon">🏆</span>
+              <span class="step-label">Class Challenge</span>
+            </div>
+            <div class="stepper-item">
+              <span class="step-icon">🎁</span>
+              <span class="step-label">Treasure</span>
+            </div>
+          </div>
+
+          <!-- Main Class Challenge Quiz Card -->
+          <div class="lesson-content-card challenge-quiz-card">
+            <div class="challenge-top-hud">
+              <div class="challenge-hud-pill badge-challenge-title">
+                <span class="hud-icon">🏆</span>
+                <span>Class Challenge</span>
+              </div>
+              <div class="challenge-hud-pill badge-challenge-timer">
+                <span class="hud-icon">⏱</span>
+                <span id="challengeTimer">Time: 04:59</span>
+              </div>
+            </div>
+
+            <div class="challenge-question-area">
+              <div class="challenge-question-text">Q1. What is 7 + 3 ?</div>
+
+              <div class="challenge-body-grid">
+                <div class="challenge-options-row">
+                  <button class="challenge-opt-btn" data-ans="8">8</button>
+                  <button class="challenge-opt-btn" data-ans="9">9</button>
+                  <button class="challenge-opt-btn" data-ans="10" id="challengeOptCorrect">
+                    <span>10</span>
+                    <span class="challenge-check-mark">✓</span>
+                  </button>
+                  <button class="challenge-opt-btn" data-ans="11">11</button>
+                </div>
+
+                <div class="challenge-fox-corner">
+                  <img src="assets/characters/fox_waving.png" alt="Cheering Fox" class="challenge-fox-img">
+                </div>
+              </div>
+            </div>
+
+            <div class="challenge-footer-hud">
+              <span class="challenge-q-status">Question 1 of 10</span>
+              <button class="btn-complete-continue" id="btnFinishChallenge">
                 Next &gt;
               </button>
             </div>
@@ -688,7 +1023,7 @@
       </section>
 
       <!-- ====================================================================
-           VIEW 6: QUIZ - PRACTICE / CHALLENGE
+           STANDALONE QUIZZES VIEW (Sidebar Navigation Item)
            ==================================================================== -->
       <section class="app-view" id="view-quiz">
         <div class="quiz-top-bar">
