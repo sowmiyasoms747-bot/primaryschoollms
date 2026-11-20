@@ -151,7 +151,7 @@ function triggerConfetti(originX, originY) {
 // 3. NAVIGATION & VIEW ROUTING CONTROLLER (12-SCREEN MASTER FLOW)
 // ==========================================================================
 function switchView(targetViewId) {
-  const viewport = document.querySelector('.dashboard-viewport');
+  const viewport = document.querySelector('.lms-screen-container') || document.querySelector('.dashboard-viewport');
   const allViews = document.querySelectorAll('.app-view');
   const navItems = document.querySelectorAll('.nav-item');
 
@@ -167,14 +167,16 @@ function switchView(targetViewId) {
   allViews.forEach(v => v.classList.remove('active'));
   targetEl.classList.add('active');
 
-  // Handle right sidebar visibility
-  if (normalizedId === 'view-home') {
-    viewport.classList.remove('subview-active');
-  } else {
-    viewport.classList.add('subview-active');
+  // Handle right sidebar visibility & 2-column grid expansion
+  if (viewport) {
+    if (normalizedId === 'view-home') {
+      viewport.classList.remove('subview-active');
+    } else {
+      viewport.classList.add('subview-active');
+    }
   }
 
-  // Update Left Sidebar active nav item
+  // Update Left Sidebar active nav item (adds green pill .active to the selected nav item)
   navItems.forEach(item => {
     const link = item.querySelector('a');
     if (!link) return;
@@ -209,6 +211,30 @@ function switchView(targetViewId) {
 }
 
 function initNav() {
+  // Delegated click handler on sidebar nav for 100% reliable clicks
+  const sidebarNav = document.querySelector('.sidebar-nav');
+  if (sidebarNav) {
+    sidebarNav.addEventListener('click', (e) => {
+      const item = e.target.closest('.nav-item');
+      if (!item) return;
+      const link = item.querySelector('a');
+      if (!link) return;
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      playSound('pop');
+
+      if (href === '#home') switchView('home');
+      else if (href === '#learning') switchView('learning-subjects');
+      else if (href === '#quizzes') switchView('quiz');
+      else if (href === '#assignments') switchView('assignments');
+      else if (href === '#live') switchView('live-classes');
+      else if (href === '#progress') switchView('progress');
+      else if (href === '#achievements') switchView('achievements');
+      else if (href === '#ai-buddy') switchView('ai-buddy');
+    });
+  }
+
+  // Direct click handler fallback on each nav link
   const navItems = document.querySelectorAll('.nav-item');
   navItems.forEach(item => {
     const link = item.querySelector('a');

@@ -1612,10 +1612,17 @@ body {
 }
 
 /* Subview Expansion Canvas: Hide right sidebar and expand main content */
+.lms-screen-container.subview-active,
+.dashboard-viewport.subview-active {
+  grid-template-columns: 240px 1fr !important;
+}
+
+.lms-screen-container.subview-active .right-stats-panel,
 .dashboard-viewport.subview-active .right-stats-panel {
   display: none !important;
 }
 
+.lms-screen-container.subview-active .main-dashboard-panel,
 .dashboard-viewport.subview-active .main-dashboard-panel {
   flex: 1 !important;
   max-width: 100% !important;
