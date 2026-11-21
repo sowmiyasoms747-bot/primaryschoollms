@@ -406,11 +406,11 @@ body {
 .scroll-banner-wrapper {
   position: relative;
   width: 100%;
-  height: 350px;
+  height: 325px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 6px 0 16px 0;
+  margin: 4px 0 8px 0;
 }
 
 .parchment-bg-image {
@@ -603,26 +603,27 @@ body {
   border-radius: var(--radius-card);
   border: 2px solid var(--border-card);
   box-shadow: var(--shadow-card);
-  padding: 14px 20px 18px 20px;
+  padding: 12px 20px 14px 20px;
+  margin-bottom: 14px;
 }
 
 .subjects-header-row {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .subjects-title-icon {
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
 }
 
 .subjects-header-row h2 {
   font-family: var(--font-display);
-  font-size: 1.40rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--color-purple);
   letter-spacing: -0.3px;
@@ -631,21 +632,21 @@ body {
 .subjects-grid-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 14px;
+  gap: 12px;
 }
 
 .subject-card-box {
-  border-radius: 22px;
-  padding: 12px 6px 14px 6px;
+  border-radius: 20px;
+  padding: 10px 6px 12px 6px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   border: 2px solid transparent;
-  min-height: 126px;
+  min-height: 114px;
 }
 
 .subject-card-box:hover {
