@@ -431,7 +431,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 50px 14px 12px 14px;
+  padding: 50px 14px 22px 14px;
 }
 
 .scroll-header-bar {
@@ -496,7 +496,8 @@ body {
   position: relative;
   padding: 0 4px;
   flex: 1;
-  margin-top: 2px;
+  margin-top: -16px;
+  margin-bottom: 24px;
 }
 
 .stepping-path-graphic {
@@ -516,8 +517,8 @@ body {
   z-index: 2;
   cursor: pointer;
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  width: 215px;
-  height: 190px;
+  width: 205px;
+  height: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -554,8 +555,8 @@ body {
 .stepping-island[data-step="treasure"] {
   --base-y: 4px;
   animation-delay: 2.0s;
-  width: 225px;
-  height: 200px;
+  width: 215px;
+  height: 190px;
 }
 
 .island-halo-pulse {
@@ -12431,6 +12432,8 @@ body {
   .islands-stepping-row {
     min-width: 520px !important;
     gap: 4px !important;
+    margin-top: -6px !important;
+    margin-bottom: 14px !important;
   }
 
   .stepping-island {
