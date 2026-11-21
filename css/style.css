@@ -406,7 +406,7 @@ body {
 .scroll-banner-wrapper {
   position: relative;
   width: 100%;
-  height: 330px;
+  height: 350px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -431,7 +431,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 38px 14px 10px 14px;
+  padding: 50px 14px 12px 14px;
 }
 
 .scroll-header-bar {
@@ -439,7 +439,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 8px;
-  margin-top: 14px;
+  margin-top: 26px;
 }
 
 .scroll-title-badge {
@@ -12394,7 +12394,7 @@ body {
 
   /* 2. Today Learning Plan Parchment Scroll on Mobile */
   .scroll-banner-wrapper {
-    height: 255px !important;
+    height: 265px !important;
     margin: 4px 0 12px 0 !important;
     position: relative !important;
   }
@@ -12402,13 +12402,13 @@ body {
   .scroll-inner-content {
     width: calc(100% - 36px) !important;
     height: 100% !important;
-    padding: 24px 6px 4px 6px !important;
+    padding: 34px 6px 4px 6px !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
   }
 
   .scroll-header-bar {
-    margin-top: 8px !important;
+    margin-top: 14px !important;
   }
 
   .scroll-title-badge h2 {
