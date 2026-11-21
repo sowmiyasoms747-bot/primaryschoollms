@@ -542,7 +542,7 @@ function initFoxInteractions() {
   if (readingFox) {
     readingFox.addEventListener('click', () => {
       playSound('chime');
-      showModal('🦊 Reading Fox', 'Shh! I am reading "The Secret of the Treehouse"! Want to join our book club? 📖✨');
+      showModal('🦊 Friendly Fox Mascot', 'Ready to write, learn, and explore exciting new adventures today! ✏️🎒🌟');
     });
   }
 
