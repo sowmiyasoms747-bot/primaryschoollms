@@ -439,6 +439,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0 8px;
+  margin-top: 12px;
 }
 
 .scroll-title-badge {
@@ -12404,6 +12405,10 @@ body {
     padding: 12px 6px 4px 6px !important;
     overflow-x: auto !important;
     -webkit-overflow-scrolling: touch !important;
+  }
+
+  .scroll-header-bar {
+    margin-top: 6px !important;
   }
 
   .scroll-title-badge h2 {
