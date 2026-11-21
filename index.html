@@ -2251,195 +2251,346 @@
         </div>
       </section>
 
-<!-- ====================================================================
-           VIEW 10: ACHIEVEMENTS (9-SCREEN COMPREHENSIVE FLOW)
+      <!-- ====================================================================
+           VIEW 5: ACHIEVEMENTS & REWARDS (EXACT 9-SCREEN MASTER FLOW)
            ==================================================================== -->
       <section class="app-view" id="view-achievements">
 
         <!-- SCREEN 1: ACHIEVEMENTS DASHBOARD -->
         <div class="flow-screen-panel active-screen" id="achScreen1" data-ach-screen="1">
-          <div class="view-dashboard-card">
+          <div class="view-dashboard-card ach-main-stage-card">
             <div class="view-wood-header">
               <img src="assets/illustrations/achievements_wooden_sign.png" alt="Achievements" class="wood-sign-img">
-              <p class="wood-header-tagline">Celebrate your learning milestones, earn badges and climb the ranks!</p>
+              <p class="wood-header-tagline">Celebrate Your Learning Journey!<br>Earn badges, collect rewards, and level up!</p>
             </div>
-            <div class="view-dashboard-body">
-              <div class="view-mascot-col">
-                <img src="assets/characters/fox_with_trophy.png" alt="Fox with Trophy" class="mascot-img-pencil">
+
+            <div class="view-dashboard-body ach-dashboard-body-grid">
+              <div class="view-mascot-col ach-hero-mascot-col">
+                <img src="assets/characters/fox_with_trophy.png" alt="Fox with Trophy" class="mascot-img-pencil ach-mascot-trophy">
               </div>
-              <div class="quiz-modes-grid">
-                <div class="quiz-mode-card" data-ach-nav="3">
-                  <div class="quiz-mode-icon-circle bg-gold-glow"><img src="assets/icons/achievements/ach_star.png" alt="Badges" class="asg-card-icon-img"></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">My Badges</h3><p class="quiz-mode-desc">View all 12 badges</p></div>
+
+              <div class="quiz-modes-grid ach-modes-2x2-grid">
+                <div class="quiz-mode-card ach-mode-card" data-ach-nav="2">
+                  <div class="quiz-mode-icon-circle bg-gold-glow">
+                    <img src="assets/icons/achievements/ach_mode_badges.png" alt="My Badges" class="asg-mode-3d-img">
+                  </div>
+                  <div class="quiz-mode-info">
+                    <h3 class="quiz-mode-title">My Badges</h3>
+                    <p class="quiz-mode-desc">View all 12 badges</p>
+                  </div>
                 </div>
-                <div class="quiz-mode-card" data-ach-nav="5">
-                  <div class="quiz-mode-icon-circle bg-purple-glow"><img src="assets/icons/achievements/ach_barchart.png" alt="Points" class="asg-card-icon-img"></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">My Points</h3><p class="quiz-mode-desc">Level 5 • 1,250 XP</p></div>
+
+                <div class="quiz-mode-card ach-mode-card" data-ach-nav="5">
+                  <div class="quiz-mode-icon-circle bg-orange-glow">
+                    <img src="assets/icons/achievements/ach_mode_points.png" alt="My Points" class="asg-mode-3d-img">
+                  </div>
+                  <div class="quiz-mode-info">
+                    <h3 class="quiz-mode-title">My Points</h3>
+                    <p class="quiz-mode-desc">Level 5 • 1,250 XP</p>
+                  </div>
                 </div>
-                <div class="quiz-mode-card" data-ach-nav="6">
-                  <div class="quiz-mode-icon-circle bg-orange-glow"><img src="assets/icons/achievements/ach_document.png" alt="Certificates" class="asg-card-icon-img"></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Certificates</h3><p class="quiz-mode-desc">Official certificates</p></div>
+
+                <div class="quiz-mode-card ach-mode-card" data-ach-nav="6">
+                  <div class="quiz-mode-icon-circle bg-purple-glow">
+                    <img src="assets/icons/achievements/ach_mode_certificates.png" alt="Certificates" class="asg-mode-3d-img">
+                  </div>
+                  <div class="quiz-mode-info">
+                    <h3 class="quiz-mode-title">Certificates</h3>
+                    <p class="quiz-mode-desc">3 Earned so far</p>
+                  </div>
                 </div>
-                <div class="quiz-mode-card" data-ach-nav="7">
-                  <div class="quiz-mode-icon-circle bg-green-glow"><img src="assets/icons/achievements/ach_trophy.png" alt="Leaderboard" class="asg-card-icon-img"></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Leaderboard</h3><p class="quiz-mode-desc">Rank #3 in Class</p></div>
+
+                <div class="quiz-mode-card ach-mode-card" data-ach-nav="7">
+                  <div class="quiz-mode-icon-circle bg-gold-glow">
+                    <img src="assets/icons/achievements/ach_mode_leaderboard.png" alt="Leaderboard" class="asg-mode-3d-img">
+                  </div>
+                  <div class="quiz-mode-info">
+                    <h3 class="quiz-mode-title">Leaderboard</h3>
+                    <p class="quiz-mode-desc">Rank #3 in class</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SCREEN 2: CATEGORIES -->
+        <!-- SCREEN 2: ACHIEVEMENT CATEGORIES -->
         <div class="flow-screen-panel" id="achScreen2" data-ach-screen="2">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Categories</span>
+            <span class="bc-link" data-ach-nav="1">⭐ Achievements</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">Categories</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">Choose an Achievement Category</h2>
+
+          <div class="view-dashboard-card ach-categories-stage-card">
+            <h2 class="section-title-bold ach-section-title">Choose an Achievement Category</h2>
+
             <div class="ach-categories-grid">
-              <div class="quiz-mode-card" data-ach-nav="3">
-                <div class="quiz-mode-icon-circle bg-purple-glow"><img src="assets/icons/achievements/ach_book.png" alt="Learning Badges" class="asg-card-icon-img"></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Learning Badges</h3><p class="quiz-mode-desc">4 Badges • 2 Unlocked</p></div>
+              <div class="ach-cat-card" data-ach-nav="3">
+                <div class="ach-cat-icon-squircle bg-purple-glow">
+                  <img src="assets/icons/achievements/badge_cat_learning.png" alt="Learning Badges" class="ach-cat-shield-img">
+                </div>
+                <h3 class="ach-cat-title">Learning<br>Badges</h3>
               </div>
-              <div class="quiz-mode-card" data-ach-nav="3">
-                <div class="quiz-mode-icon-circle bg-gold-glow"><img src="assets/icons/target_bullseye_dart.png" alt="Quiz Badges" class="asg-card-icon-img"></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Quiz Badges</h3><p class="quiz-mode-desc">3 Badges • 2 Unlocked</p></div>
+
+              <div class="ach-cat-card" data-ach-nav="3">
+                <div class="ach-cat-icon-squircle bg-yellow-glow">
+                  <img src="assets/icons/achievements/badge_cat_quiz.png" alt="Quiz Badges" class="ach-cat-shield-img">
+                </div>
+                <h3 class="ach-cat-title">Quiz<br>Badges</h3>
               </div>
-              <div class="quiz-mode-card" data-ach-nav="3">
-                <div class="quiz-mode-icon-circle bg-blue-glow"><img src="assets/icons/achievements/ach_clipboard_blue.png" alt="Assignment Badges" class="asg-card-icon-img"></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Assignment Badges</h3><p class="quiz-mode-desc">3 Badges • 1 Unlocked</p></div>
+
+              <div class="ach-cat-card" data-ach-nav="3">
+                <div class="ach-cat-icon-squircle bg-blue-glow">
+                  <img src="assets/icons/achievements/badge_cat_assignment.png" alt="Assignment Badges" class="ach-cat-shield-img">
+                </div>
+                <h3 class="ach-cat-title">Assignment<br>Badges</h3>
               </div>
-              <div class="quiz-mode-card" data-ach-nav="3">
-                <div class="quiz-mode-icon-circle bg-purple-glow"><img src="assets/icons/nav_live_classes_3d.png" alt="Live Class Badges" class="asg-card-icon-img"></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Live Class Badges</h3><p class="quiz-mode-desc">2 Badges • 1 Unlocked</p></div>
+
+              <div class="ach-cat-card" data-ach-nav="3">
+                <div class="ach-cat-icon-squircle bg-pink-glow">
+                  <img src="assets/icons/achievements/badge_cat_live.png" alt="Live Class Badges" class="ach-cat-shield-img">
+                </div>
+                <h3 class="ach-cat-title">Live Class<br>Badges</h3>
               </div>
-              <div class="quiz-mode-card" data-ach-nav="3">
-                <div class="quiz-mode-icon-circle bg-red-glow"><img src="assets/icons/flame_wood_streak.png" alt="Streak Badges" class="asg-card-icon-img"></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Streak Badges</h3><p class="quiz-mode-desc">3 Badges • 1 Unlocked</p></div>
+
+              <div class="ach-cat-card" data-ach-nav="3">
+                <div class="ach-cat-icon-squircle bg-red-glow">
+                  <img src="assets/icons/achievements/badge_cat_streak.png" alt="Streak Badges" class="ach-cat-shield-img">
+                </div>
+                <h3 class="ach-cat-title">Streak<br>Badges</h3>
               </div>
-              <div class="quiz-mode-card" data-ach-nav="3">
-                <div class="quiz-mode-icon-circle bg-gold-glow"><img src="assets/icons/stat_crown_3d.png" alt="Special Badges" class="asg-card-icon-img"></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Special Badges</h3><p class="quiz-mode-desc">3 Badges • 1 Unlocked</p></div>
+
+              <div class="ach-cat-card" data-ach-nav="3">
+                <div class="ach-cat-icon-squircle bg-gold-glow">
+                  <img src="assets/icons/achievements/badge_cat_special.png" alt="Special Badges" class="ach-cat-shield-img">
+                </div>
+                <h3 class="ach-cat-title">Special<br>Badges</h3>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SCREEN 3: BADGES COLLECTION -->
+        <!-- SCREEN 3: BADGES - COLLECTION -->
         <div class="flow-screen-panel" id="achScreen3" data-ach-screen="3">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">My Badges</span>
+            <span class="bc-link" data-ach-nav="1">⭐ Achievements</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">My Badges</span>
           </div>
-          <div class="view-dashboard-card">
+
+          <div class="view-dashboard-card ach-badges-stage-card">
             <div class="ach-badges-header-row">
-              <h2 class="section-title-bold">Badges Collection</h2>
               <div class="ach-filter-pills-row">
-                <button class="ach-filter-pill active"><img src="assets/icons/achievements/ach_star.png" class="pill-icon-inline" alt="Star"> All Badges</button>
-                <button class="ach-filter-pill"><img src="assets/icons/achievements/ach_green_check.png" class="pill-icon-inline" alt="Check"> Earned</button>
-                <button class="ach-filter-pill"><img src="assets/icons/achievements/ach_lock.png" class="pill-icon-inline" alt="Lock"> Locked</button>
+                <button class="ach-filter-pill active" data-ach-filter="all">
+                  <span class="pill-star-emoji">⭐</span> All Badges
+                </button>
+                <button class="ach-filter-pill pill-earned" data-ach-filter="earned">
+                  <img src="assets/icons/achievements/ach_circle_check.png" class="pill-icon-inline" alt="✓"> Earned
+                </button>
+                <button class="ach-filter-pill pill-locked" data-ach-filter="locked">
+                  <img src="assets/icons/achievements/ach_padlock_silver.png" class="pill-icon-inline" alt="🔒"> Locked
+                </button>
               </div>
             </div>
+
             <div class="badges-showcase-grid-8">
+              <!-- Row 1: Earned Badges -->
               <div class="badge-item-card earned-badge" data-ach-nav="4">
-                <div class="badge-icon-bubble bg-gold-glow"><img src="assets/icons/badge_quick_learner_3d.png" alt="Quick Learner" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_cat_learning.png" alt="Quick Learner" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_circle_check.png" class="badge-corner-badge" alt="✓">
+                </div>
                 <h4 class="badge-card-name">Quick Learner</h4>
-                <span class="badge-status-pill earned-pill"><img src="assets/icons/achievements/ach_green_check.png" class="status-icon-inline" alt="✓"> Earned</span>
               </div>
+
               <div class="badge-item-card earned-badge" data-ach-nav="4">
-                <div class="badge-icon-bubble bg-purple-glow"><img src="assets/icons/badge_quiz_champ_3d.png" alt="Quiz Master" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_cat_quiz.png" alt="Quiz Master" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_circle_check.png" class="badge-corner-badge" alt="✓">
+                </div>
                 <h4 class="badge-card-name">Quiz Master</h4>
-                <span class="badge-status-pill earned-pill"><img src="assets/icons/achievements/ach_green_check.png" class="status-icon-inline" alt="✓"> Earned</span>
               </div>
+
               <div class="badge-item-card earned-badge" data-ach-nav="4">
-                <div class="badge-icon-bubble bg-green-glow"><img src="assets/icons/badge_explorer_3d.png" alt="Task Completer" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_cat_assignment.png" alt="Task Completer" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_circle_check.png" class="badge-corner-badge" alt="✓">
+                </div>
                 <h4 class="badge-card-name">Task Completer</h4>
-                <span class="badge-status-pill earned-pill"><img src="assets/icons/achievements/ach_green_check.png" class="status-icon-inline" alt="✓"> Earned</span>
               </div>
+
               <div class="badge-item-card earned-badge" data-ach-nav="4">
-                <div class="badge-icon-bubble bg-blue-glow"><img src="assets/icons/badge_creative_star_3d.png" alt="Class Star" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_cat_live.png" alt="Class Star" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_circle_check.png" class="badge-corner-badge" alt="✓">
+                </div>
                 <h4 class="badge-card-name">Class Star</h4>
-                <span class="badge-status-pill earned-pill"><img src="assets/icons/achievements/ach_green_check.png" class="status-icon-inline" alt="✓"> Earned</span>
               </div>
+
+              <!-- Row 2: Locked Badges -->
               <div class="badge-item-card locked-badge">
-                <div class="badge-icon-bubble bg-red-glow"><img src="assets/icons/flame_wood_streak.png" alt="7 Day Streak" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_locked_streak.png" alt="7 Day Streak" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_padlock_silver.png" class="badge-corner-badge" alt="🔒">
+                </div>
                 <h4 class="badge-card-name">7 Day Streak</h4>
-                <span class="badge-status-pill locked-pill"><img src="assets/icons/achievements/ach_lock.png" class="status-icon-inline" alt="🔒"> Locked</span>
               </div>
+
               <div class="badge-item-card locked-badge">
-                <div class="badge-icon-bubble bg-gray-glow"><img src="assets/icons/achievements/ach_lock.png" alt="Subject Expert" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_locked_expert.png" alt="Subject Expert" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_padlock_silver.png" class="badge-corner-badge" alt="🔒">
+                </div>
                 <h4 class="badge-card-name">Subject Expert</h4>
-                <span class="badge-status-pill locked-pill"><img src="assets/icons/achievements/ach_lock.png" class="status-icon-inline" alt="🔒"> Locked</span>
               </div>
+
               <div class="badge-item-card locked-badge">
-                <div class="badge-icon-bubble bg-gray-glow"><img src="assets/icons/achievements/ach_trophy.png" alt="Top Performer" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_locked_performer.png" alt="Top Performer" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_padlock_silver.png" class="badge-corner-badge" alt="🔒">
+                </div>
                 <h4 class="badge-card-name">Top Performer</h4>
-                <span class="badge-status-pill locked-pill"><img src="assets/icons/achievements/ach_lock.png" class="status-icon-inline" alt="🔒"> Locked</span>
               </div>
+
               <div class="badge-item-card locked-badge">
-                <div class="badge-icon-bubble bg-gray-glow"><img src="assets/icons/stat_crown_3d.png" alt="Learning Legend" class="badge-showcase-img"></div>
+                <div class="badge-card-icon-wrap">
+                  <img src="assets/icons/achievements/badge_locked_legend.png" alt="Learning Legend" class="badge-showcase-img">
+                  <img src="assets/icons/achievements/ach_padlock_silver.png" class="badge-corner-badge" alt="🔒">
+                </div>
                 <h4 class="badge-card-name">Learning Legend</h4>
-                <span class="badge-status-pill locked-pill"><img src="assets/icons/achievements/ach_lock.png" class="status-icon-inline" alt="🔒"> Locked</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SCREEN 4: BADGE DETAILS -->
+        <!-- SCREEN 4: EARNED BADGE - DETAILS -->
         <div class="flow-screen-panel" id="achScreen4" data-ach-screen="4">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="3">Badges</span><span class="bc-sep">></span><span class="bc-curr">Badge Details</span>
+            <span class="bc-link" data-ach-nav="3">⭐ Achievements &gt; Badges</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">Badge Details</span>
           </div>
-          <div class="view-dashboard-card badge-detail-wrap">
-            <div class="badge-detail-col">
-              <div class="badge-giant-icon-ring bg-gold-glow">
-                <img src="assets/icons/badge_quick_learner_3d.png" alt="Quick Learner Badge" class="badge-giant-icon-img">
+
+          <div class="view-dashboard-card ach-badge-detail-card">
+            <div class="ach-badge-detail-body">
+              <div class="ach-detail-left-badge">
+                <img src="assets/icons/achievements/badge_quick_learner_3d.png" alt="Quick Learner 3D Badge" class="badge-wreath-giant-img">
               </div>
-              <h2 class="badge-detail-title">Quick Learner</h2>
-              <div class="badge-earned-tag"><img src="assets/icons/achievements/ach_green_check.png" class="pill-icon-inline" alt="✓"> Earned</div>
-              <p class="badge-detail-desc">Awarded for completing your first chapter!</p>
-              <div class="badge-detail-stats-row">
-                <div class="b-stat"><img src="assets/icons/achievements/ach_calendar.png" class="b-stat-icon-img" alt="Date"><span class="b-stat-lbl">Earned On:</span><span class="b-stat-val">19 Nov 2026</span></div>
-                <div class="b-stat"><img src="assets/icons/achievements/ach_star.png" class="b-stat-icon-img" alt="Points"><span class="b-stat-lbl">Points:</span><span class="b-stat-val font-green">+50</span></div>
+
+              <div class="ach-detail-right-info">
+                <div class="ach-detail-header-row">
+                  <h2 class="ach-detail-badge-name">Quick Learner</h2>
+                  <span class="ach-earned-badge-pill">
+                    <img src="assets/icons/achievements/ach_circle_check.png" class="status-icon-inline" alt="✓"> Earned
+                  </span>
+                </div>
+
+                <p class="ach-detail-desc">Awarded for completing your first chapter!</p>
+
+                <div class="ach-detail-meta-box">
+                  <div class="meta-row-item">
+                    <span class="meta-item-ico">📅</span>
+                    <span class="meta-item-lbl">Earned On :</span>
+                    <span class="meta-item-val">19 Nov 2026</span>
+                  </div>
+                  <div class="meta-row-item">
+                    <span class="meta-item-ico">⭐</span>
+                    <span class="meta-item-lbl">Points :</span>
+                    <span class="meta-item-val">+50</span>
+                  </div>
+                </div>
+
+                <div class="ach-detail-actions-row">
+                  <button class="btn-ach-action-purple" data-ach-nav="3">← Back to Badges</button>
+                  <button class="btn-ach-action-green" data-ach-nav="5">View My Points ▶</button>
+                </div>
               </div>
-              <button class="btn-start-quiz-green" data-ach-nav="3">Back to Badges</button>
             </div>
-            <img src="assets/characters/fox_with_trophy.png" alt="Fox Trophy" class="quiz-fox-reading-corner">
           </div>
         </div>
 
         <!-- SCREEN 5: POINTS & LEVEL -->
         <div class="flow-screen-panel" id="achScreen5" data-ach-screen="5">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">My Points</span>
+            <span class="bc-link" data-ach-nav="1">⭐ Achievements</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">My Points</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">Points & Level</h2>
-            <div class="level-progress-banner-clay">
-              <div class="level-shield-col">
-                <img src="assets/icons/stat_crown_3d.png" alt="Level 5" class="level-shield-crown-img">
-                <div class="level-shield-title">Level 5</div>
+
+          <div class="view-dashboard-card ach-points-stage-card">
+            <div class="ach-points-top-grid">
+              <div class="points-badge-col">
+                <img src="assets/icons/achievements/badge_star_level_3d.png" alt="Level 5 Badge" class="points-level-shield-img">
               </div>
-              <div class="level-info-col">
-                <div class="level-header-row">
-                  <span class="level-title"><img src="assets/icons/achievements/ach_star.png" class="pill-icon-inline" alt="Star"> Total Points: <strong>1,250</strong></span>
-                  <span class="level-xp-text">Next Level (Level 6): 1,500 Points</span>
+
+              <div class="points-progress-col">
+                <div class="points-total-capsule">
+                  <img src="assets/icons/achievements/star_gold.png" class="stat-star-ico" alt="⭐">
+                  <div class="capsule-text">
+                    <span class="capsule-lbl">Total Points</span>
+                    <span class="capsule-val">1,250</span>
+                  </div>
                 </div>
-                <div class="level-bar-track"><div class="level-bar-fill" style="width: 83%;"></div></div>
-                <span class="level-sub-tip">83% complete • 250 Points needed to level up!</span>
+
+                <div class="level-goal-row">
+                  <span class="goal-lbl">Next Level (Level 6)</span>
+                  <span class="goal-val">1,500 Points</span>
+                </div>
+
+                <div class="level-progress-track-green">
+                  <div class="level-bar-fill-green" style="width: 83%;"></div>
+                  <span class="progress-pct-badge">83%</span>
+                </div>
               </div>
             </div>
-            <div class="level-milestone-path-row">
-              <div class="path-node completed"><img src="assets/icons/achievements/ach_green_check.png" class="node-icon-img" alt="✓"><span class="node-lbl">Lv 1</span></div>
-              <div class="path-connector completed"></div>
-              <div class="path-node completed"><img src="assets/icons/achievements/ach_green_check.png" class="node-icon-img" alt="✓"><span class="node-lbl">Lv 2</span></div>
-              <div class="path-connector completed"></div>
-              <div class="path-node completed"><img src="assets/icons/achievements/ach_green_check.png" class="node-icon-img" alt="✓"><span class="node-lbl">Lv 3</span></div>
-              <div class="path-connector completed"></div>
-              <div class="path-node completed"><img src="assets/icons/achievements/ach_green_check.png" class="node-icon-img" alt="✓"><span class="node-lbl">Lv 4</span></div>
-              <div class="path-connector completed"></div>
-              <div class="path-node current-node"><img src="assets/icons/achievements/ach_star.png" class="node-icon-img" alt="⭐"><span class="node-lbl">Lv 5</span></div>
-              <div class="path-connector"></div>
-              <div class="path-node locked-node"><img src="assets/icons/achievements/ach_lock.png" class="node-icon-img" alt="🔒"><span class="node-lbl">Lv 6</span></div>
+
+            <!-- Milestone Level Stepper -->
+            <div class="ach-milestone-track-box">
+              <div class="m-track-line"></div>
+              <div class="m-track-nodes-row">
+                <div class="m-track-node completed">
+                  <div class="node-circle-green">
+                    <img src="assets/icons/achievements/ach_circle_check.png" alt="✓" class="node-ico">
+                  </div>
+                  <span class="node-caption">Lv 1</span>
+                </div>
+
+                <div class="m-track-node completed">
+                  <div class="node-circle-green">
+                    <img src="assets/icons/achievements/ach_circle_check.png" alt="✓" class="node-ico">
+                  </div>
+                  <span class="node-caption">Lv 2</span>
+                </div>
+
+                <div class="m-track-node completed">
+                  <div class="node-circle-green">
+                    <img src="assets/icons/achievements/ach_circle_check.png" alt="✓" class="node-ico">
+                  </div>
+                  <span class="node-caption">Lv 3</span>
+                </div>
+
+                <div class="m-track-node completed">
+                  <div class="node-circle-green">
+                    <img src="assets/icons/achievements/ach_circle_check.png" alt="✓" class="node-ico">
+                  </div>
+                  <span class="node-caption">Lv 4</span>
+                </div>
+
+                <div class="m-track-node current">
+                  <div class="node-circle-purple-glow">
+                    <img src="assets/icons/achievements/milestone_star_purple.png" alt="Lv 5" class="node-ico star-ico">
+                  </div>
+                  <span class="node-caption current-caption">Lv 5</span>
+                </div>
+
+                <div class="m-track-node locked">
+                  <div class="node-circle-grey">
+                    <img src="assets/icons/achievements/ach_padlock_silver.png" alt="🔒" class="node-ico">
+                  </div>
+                  <span class="node-caption">Lv 6</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -2447,48 +2598,53 @@
         <!-- SCREEN 6: CERTIFICATES -->
         <div class="flow-screen-panel" id="achScreen6" data-ach-screen="6">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Certificates</span>
+            <span class="bc-link" data-ach-nav="1">⭐ Achievements</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">Certificates</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">My Certificates</h2>
+
+          <div class="view-dashboard-card ach-certificates-stage-card">
+            <h2 class="section-title-bold ach-section-title">My Certificates</h2>
+
             <div class="certificates-two-col-layout">
               <div class="cert-left-showcase">
-                <img src="assets/icons/achievements/ach_document.png" alt="Certificate" class="cert-showcase-giant-img">
-                <h3 class="cert-showcase-title">Official LMS Certificates</h3>
-                <p class="cert-showcase-desc">Earn certificates by completing subject chapters and scoring 80%+ on quizzes!</p>
+                <img src="assets/illustrations/certificate_large.png" alt="Official Certificate" class="cert-showcase-giant-img">
               </div>
+
               <div class="certificates-list-stack">
                 <div class="cert-item-card">
-                  <div class="cert-icon-border"><img src="assets/icons/achievements/ach_document.png" alt="Cert" class="cert-item-icon-img"></div>
+                  <img src="assets/icons/achievements/ach_mode_certificates.png" alt="Cert" class="cert-item-icon-img">
                   <div class="cert-info">
                     <h3 class="cert-title">Maths – Chapter Completion</h3>
-                    <p class="cert-meta">Issued on: 19 Nov 2026</p>
+                    <p class="cert-meta">Issued on : 19 Nov 2026</p>
                   </div>
                   <div class="cert-actions">
-                    <button class="btn-cert-view">👁 View</button>
-                    <button class="btn-cert-download">📥</button>
+                    <button class="btn-cert-view" data-cert-title="Maths – Chapter Completion" data-cert-date="19 Nov 2026">👁 View</button>
+                    <button class="btn-cert-download" title="Download Certificate">⬇</button>
                   </div>
                 </div>
+
                 <div class="cert-item-card">
-                  <div class="cert-icon-border"><img src="assets/icons/achievements/ach_document.png" alt="Cert" class="cert-item-icon-img"></div>
+                  <img src="assets/icons/achievements/ach_mode_certificates.png" alt="Cert" class="cert-item-icon-img">
                   <div class="cert-info">
                     <h3 class="cert-title">Quiz Excellence</h3>
-                    <p class="cert-meta">Issued on: 16 Nov 2026</p>
+                    <p class="cert-meta">Issued on : 16 Nov 2026</p>
                   </div>
                   <div class="cert-actions">
-                    <button class="btn-cert-view">👁 View</button>
-                    <button class="btn-cert-download">📥</button>
+                    <button class="btn-cert-view" data-cert-title="Quiz Excellence" data-cert-date="16 Nov 2026">👁 View</button>
+                    <button class="btn-cert-download" title="Download Certificate">⬇</button>
                   </div>
                 </div>
+
                 <div class="cert-item-card">
-                  <div class="cert-icon-border"><img src="assets/icons/achievements/ach_document.png" alt="Cert" class="cert-item-icon-img"></div>
+                  <img src="assets/icons/achievements/ach_mode_certificates.png" alt="Cert" class="cert-item-icon-img">
                   <div class="cert-info">
                     <h3 class="cert-title">Assignment Star</h3>
-                    <p class="cert-meta">Issued on: 12 Nov 2026</p>
+                    <p class="cert-meta">Issued on : 12 Nov 2026</p>
                   </div>
                   <div class="cert-actions">
-                    <button class="btn-cert-view">👁 View</button>
-                    <button class="btn-cert-download">📥</button>
+                    <button class="btn-cert-view" data-cert-title="Assignment Star" data-cert-date="12 Nov 2026">👁 View</button>
+                    <button class="btn-cert-download" title="Download Certificate">⬇</button>
                   </div>
                 </div>
               </div>
@@ -2499,130 +2655,234 @@
         <!-- SCREEN 7: LEADERBOARD -->
         <div class="flow-screen-panel" id="achScreen7" data-ach-screen="7">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Leaderboard</span>
+            <span class="bc-link" data-ach-nav="1">⭐ Achievements</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">Leaderboard</span>
           </div>
-          <div class="view-dashboard-card">
+
+          <div class="view-dashboard-card ach-leaderboard-stage-card">
             <div class="leaderboard-header-row">
-              <h2 class="section-title-bold"><img src="assets/icons/achievements/ach_trophy.png" class="pill-icon-inline" alt="🏆"> Class Leaderboard <img src="assets/icons/achievements/ach_trophy.png" class="pill-icon-inline" alt="🏆"></h2>
+              <h2 class="section-title-bold ach-lb-title">
+                <span class="lb-title-trophy">🏆</span> Class Leaderboard <span class="lb-title-trophy">🏆</span>
+              </h2>
               <div class="lb-scope-tabs">
                 <button class="lb-tab active">My Class</button>
                 <button class="lb-tab">My School</button>
                 <button class="lb-tab">All Students</button>
               </div>
             </div>
+
             <div class="leaderboard-table-clay">
               <div class="lb-row-header">
                 <span class="lb-col-rank">Rank</span>
                 <span class="lb-col-name">Student</span>
                 <span class="lb-col-pts">Points</span>
               </div>
+
+              <!-- Rank 1 -->
               <div class="lb-row rank-1">
-                <span class="lb-col-rank"><img src="assets/icons/stat_crown_3d.png" class="rank-medal-img" alt="1"> 1</span>
-                <span class="lb-col-name"><span class="avatar-circle">👦</span> Arjun K.</span>
+                <span class="lb-col-rank">
+                  <img src="assets/icons/achievements/medal_rank_1.png" class="lb-rank-medal-img" alt="1st">
+                </span>
+                <div class="lb-col-name">
+                  <img src="assets/icons/achievements/avatar_arjun.png" class="lb-avatar-coin" alt="Arjun K.">
+                  <span class="lb-student-name">Arjun K.</span>
+                </div>
                 <span class="lb-col-pts">1,450</span>
               </div>
+
+              <!-- Rank 2 -->
               <div class="lb-row rank-2">
-                <span class="lb-col-rank"><span class="rank-circle silver">2</span></span>
-                <span class="lb-col-name"><span class="avatar-circle">👧</span> Hasmitha R.</span>
+                <span class="lb-col-rank">
+                  <img src="assets/icons/achievements/medal_rank_2.png" class="lb-rank-medal-img" alt="2nd">
+                </span>
+                <div class="lb-col-name">
+                  <img src="assets/icons/achievements/avatar_hasmitha.png" class="lb-avatar-coin" alt="Hasmitha R.">
+                  <span class="lb-student-name">Hasmitha R.</span>
+                </div>
                 <span class="lb-col-pts">1,320</span>
               </div>
+
+              <!-- Rank 3 -->
               <div class="lb-row rank-3">
-                <span class="lb-col-rank"><span class="rank-circle bronze">3</span></span>
-                <span class="lb-col-name"><span class="avatar-circle">👦</span> Kavin S.</span>
+                <span class="lb-col-rank">
+                  <img src="assets/icons/achievements/medal_rank_3.png" class="lb-rank-medal-img" alt="3rd">
+                </span>
+                <div class="lb-col-name">
+                  <img src="assets/icons/achievements/avatar_kavin.png" class="lb-avatar-coin" alt="Kavin S.">
+                  <span class="lb-student-name">Kavin S.</span>
+                </div>
                 <span class="lb-col-pts">1,250</span>
               </div>
-              <div class="lb-row">
-                <span class="lb-col-rank"><span class="rank-circle">4</span></span>
-                <span class="lb-col-name"><span class="avatar-circle">👧</span> Divya M.</span>
+
+              <!-- Rank 4 -->
+              <div class="lb-row rank-4">
+                <span class="lb-col-rank"><span class="rank-num-circle">4</span></span>
+                <div class="lb-col-name">
+                  <img src="assets/icons/achievements/avatar_divya.png" class="lb-avatar-coin" alt="Divya M.">
+                  <span class="lb-student-name">Divya M.</span>
+                </div>
                 <span class="lb-col-pts">1,180</span>
               </div>
-              <div class="lb-row">
-                <span class="lb-col-rank"><span class="rank-circle">5</span></span>
-                <span class="lb-col-name"><span class="avatar-circle">👦</span> Rohit P.</span>
+
+              <!-- Rank 5 -->
+              <div class="lb-row rank-5">
+                <span class="lb-col-rank"><span class="rank-num-circle">5</span></span>
+                <div class="lb-col-name">
+                  <img src="assets/icons/achievements/avatar_rohit.png" class="lb-avatar-coin" alt="Rohit P.">
+                  <span class="lb-student-name">Rohit P.</span>
+                </div>
                 <span class="lb-col-pts">1,100</span>
               </div>
-            </div>
-            <div class="my-leaderboard-rank-strip">
-              <span class="my-rank-badge"><img src="assets/characters/aarav_avatar_clean.png" class="my-rank-avatar" alt="Aarav"> My Rank : 3</span>
-              <span class="my-rank-score">1,250 Points</span>
-            </div>
-          </div>
-        </div>
 
-        <!-- SCREEN 8: MILESTONES -->
-        <div class="flow-screen-panel" id="achScreen8" data-ach-screen="8">
-          <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ach-nav="1">Achievements</span><span class="bc-sep">></span><span class="bc-curr">Rewards</span>
-          </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">Learning Milestones</h2>
-            <div class="milestones-path-clay">
-              <div class="m-node completed"><img src="assets/icons/achievements/ach_green_check.png" class="node-icon-img" alt="✓"><span class="m-node-lbl">5 Chapters</span></div>
-              <div class="m-connector completed"></div>
-              <div class="m-node completed"><img src="assets/icons/achievements/ach_green_check.png" class="node-icon-img" alt="✓"><span class="m-node-lbl">10 Chapters</span></div>
-              <div class="m-connector completed"></div>
-              <div class="m-node current-node"><img src="assets/icons/achievements/ach_star.png" class="node-icon-img" alt="⭐"><span class="m-node-lbl">20 Chapters<br><small>(Current)</small></span></div>
-              <div class="m-connector"></div>
-              <div class="m-node locked-node"><img src="assets/icons/achievements/ach_lock.png" class="node-icon-img" alt="🔒"><span class="m-node-lbl">30 Chapters</span></div>
-              <div class="m-connector"></div>
-              <div class="m-node locked-node"><img src="assets/icons/achievements/ach_lock.png" class="node-icon-img" alt="🔒"><span class="m-node-lbl">50 Chapters</span></div>
-            </div>
-            <div class="next-reward-banner-card">
-              <img src="assets/icons/achievements/ach_gift_box.png" alt="Gift Box" class="reward-gift-box-img">
-              <div class="next-reward-info">
-                <span class="reward-tag">Next Reward</span>
-                <h3 class="reward-title">Complete 30 Chapters to earn "Chapter Champion" Badge!</h3>
+              <!-- Highlight User Rank Row -->
+              <div class="lb-user-sticky-card">
+                <img src="assets/icons/achievements/avatar_kavin.png" class="lb-avatar-coin" alt="My Avatar">
+                <div class="lb-user-rank-info">
+                  <span class="user-rank-highlight-title">My Rank : 3</span>
+                </div>
+                <span class="user-rank-highlight-pts">1,250 Points</span>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SCREEN 9: SUMMARY / CELEBRATION -->
-        <div class="flow-screen-panel" id="achScreen9" data-ach-screen="9">
-          <div class="view-dashboard-card milestone-celebration-card">
-            <div class="ach-summary-ribbon-wrap">
-              <div class="ach-summary-ribbon"><span class="ribbon-text">My Achievement Summary</span></div>
+        <!-- SCREEN 8: REWARDS / MILESTONES -->
+        <div class="flow-screen-panel" id="achScreen8" data-ach-screen="8">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="1">⭐ Achievements</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">Rewards</span>
+          </div>
+
+          <div class="view-dashboard-card ach-rewards-stage-card">
+            <h2 class="section-title-bold ach-section-title">Learning Milestones</h2>
+
+            <div class="ach-milestone-track-box">
+              <div class="m-track-line"></div>
+              <div class="m-track-nodes-row">
+                <div class="m-track-node completed">
+                  <div class="node-circle-green">
+                    <img src="assets/icons/achievements/ach_circle_check.png" alt="✓" class="node-ico">
+                  </div>
+                  <span class="node-caption">5 Chapters</span>
+                </div>
+
+                <div class="m-track-node completed">
+                  <div class="node-circle-green">
+                    <img src="assets/icons/achievements/ach_circle_check.png" alt="✓" class="node-ico">
+                  </div>
+                  <span class="node-caption">10 Chapters</span>
+                </div>
+
+                <div class="m-track-node current">
+                  <div class="node-circle-purple-glow">
+                    <img src="assets/icons/achievements/milestone_star_purple.png" alt="20" class="node-ico star-ico">
+                  </div>
+                  <span class="node-caption current-caption">20 Chapters<br>(Current)</span>
+                </div>
+
+                <div class="m-track-node locked">
+                  <div class="node-circle-grey">
+                    <img src="assets/icons/achievements/ach_padlock_silver.png" alt="🔒" class="node-ico">
+                  </div>
+                  <span class="node-caption">30 Chapters</span>
+                </div>
+
+                <div class="m-track-node locked">
+                  <div class="node-circle-grey">
+                    <img src="assets/icons/achievements/ach_padlock_silver.png" alt="🔒" class="node-ico">
+                  </div>
+                  <span class="node-caption">50 Chapters</span>
+                </div>
+              </div>
             </div>
+
+            <!-- Next Reward Banner -->
+            <div class="next-reward-banner-card">
+              <img src="assets/icons/achievements/ach_gift_box_purple.png" alt="Gift Box" class="reward-gift-box-img">
+              <div class="next-reward-info">
+                <span class="reward-badge-tag">Next Reward</span>
+                <h3 class="reward-card-title">Complete 30 Chapters to earn “Chapter Champion” Badge!</h3>
+              </div>
+              <button class="btn-claim-reward-gold" data-ach-nav="9">View Summary ▶</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SCREEN 9: ACHIEVEMENT SUMMARY -->
+        <div class="flow-screen-panel" id="achScreen9" data-ach-screen="9">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ach-nav="8">⭐ Achievements &gt; Rewards</span>
+            <span class="bc-sep">&gt;</span>
+            <span class="bc-curr">Summary</span>
+          </div>
+
+          <div class="view-dashboard-card ach-summary-stage-card">
+            <!-- Ribbon Header Banner -->
+            <div class="ach-summary-ribbon-wrap">
+              <div class="ach-summary-ribbon-container">
+                <img src="assets/illustrations/summary_banner_ribbon.png" alt="Ribbon" class="ribbon-banner-bg-img">
+                <h2 class="ribbon-overlay-title">My Achievement Summary</h2>
+              </div>
+            </div>
+
             <div class="summary-body-layout">
               <div class="summary-mascot-col">
                 <img src="assets/characters/fox_celebrating.png" alt="Fox Celebrating" class="summary-fox-img">
               </div>
+
               <div class="summary-stats-grid">
+                <!-- 1. Badges Earned -->
                 <div class="summary-stat-box">
-                  <img src="assets/icons/achievements/ach_star.png" class="sum-stat-icon-img" alt="Badges">
+                  <img src="assets/icons/achievements/star_gold.png" class="sum-stat-icon-img" alt="Badges">
                   <div class="sum-stat-val">12</div>
                   <div class="sum-stat-lbl">Badges Earned</div>
                 </div>
+
+                <!-- 2. Certificates -->
                 <div class="summary-stat-box">
-                  <img src="assets/icons/achievements/ach_document.png" class="sum-stat-icon-img" alt="Certificates">
+                  <img src="assets/icons/achievements/ach_mode_certificates.png" class="sum-stat-icon-img" alt="Certificates">
                   <div class="sum-stat-val">3</div>
                   <div class="sum-stat-lbl">Certificates</div>
                 </div>
+
+                <!-- 3. Total Points -->
                 <div class="summary-stat-box">
-                  <img src="assets/icons/achievements/ach_star.png" class="sum-stat-icon-img" alt="Points">
+                  <img src="assets/icons/achievements/star_gold.png" class="sum-stat-icon-img" alt="Points">
                   <div class="sum-stat-val">1,250</div>
                   <div class="sum-stat-lbl">Total Points</div>
                 </div>
+
+                <!-- 4. Current Level -->
                 <div class="summary-stat-box">
-                  <img src="assets/icons/stat_crown_3d.png" class="sum-stat-icon-img" alt="Level">
+                  <img src="assets/icons/achievements/badge_cat_special.png" class="sum-stat-icon-img" alt="Level">
                   <div class="sum-stat-val">Level 5</div>
                   <div class="sum-stat-lbl">Current Level</div>
                 </div>
+
+                <!-- 5. Learning Streak -->
                 <div class="summary-stat-box">
-                  <img src="assets/icons/flame_wood_streak.png" class="sum-stat-icon-img" alt="Streak">
+                  <img src="assets/icons/achievements/badge_cat_streak.png" class="sum-stat-icon-img" alt="Streak">
                   <div class="sum-stat-val">7 Days</div>
                   <div class="sum-stat-lbl">Learning Streak</div>
                 </div>
+
+                <!-- 6. Overall Progress -->
                 <div class="summary-stat-box">
-                  <img src="assets/icons/target_bullseye_dart.png" class="sum-stat-icon-img" alt="Progress">
+                  <img src="assets/icons/achievements/ach_mode_points.png" class="sum-stat-icon-img" alt="Progress">
                   <div class="sum-stat-val">83%</div>
                   <div class="sum-stat-lbl">Overall Progress</div>
                 </div>
               </div>
             </div>
-            <button class="btn-start-quiz-green-giant" data-ach-nav="1">Back to Achievements ▶</button>
+
+            <div class="ach-summary-footer-actions">
+              <button class="btn-ach-action-purple" data-ach-nav="1">Back to Achievements</button>
+            </div>
           </div>
         </div>
+
       </section>
 
 <!-- ====================================================================

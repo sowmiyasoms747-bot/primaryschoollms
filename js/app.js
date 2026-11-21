@@ -1316,6 +1316,70 @@ function initAchievementsFlow() {
       setAchievementsScreen(targetScreen);
     }
   });
+
+  // Badge Filter Pills (All / Earned / Locked)
+  document.querySelectorAll('[data-ach-filter]').forEach(pill => {
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('[data-ach-filter]').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.getAttribute('data-ach-filter');
+      document.querySelectorAll('#achScreen3 .badge-item-card').forEach(card => {
+        if (filter === 'all') {
+          card.style.display = 'flex';
+        } else if (filter === 'earned') {
+          card.style.display = card.classList.contains('earned-badge') ? 'flex' : 'none';
+        } else if (filter === 'locked') {
+          card.style.display = card.classList.contains('locked-badge') ? 'flex' : 'none';
+        }
+      });
+      if (typeof playSound === 'function') playSound('pop');
+    });
+  });
+
+  // Leaderboard Scope Tabs
+  document.querySelectorAll('.lb-scope-tabs .lb-tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      document.querySelectorAll('.lb-scope-tabs .lb-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      if (typeof playSound === 'function') playSound('pop');
+    });
+  });
+
+  // Certificate View Modal & Download
+  document.querySelectorAll('.btn-cert-view').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const title = btn.getAttribute('data-cert-title') || 'Certificate of Completion';
+      const date = btn.getAttribute('data-cert-date') || '19 Nov 2026';
+      const modalBackdrop = document.getElementById('modalBackdrop');
+      const modalBody = document.getElementById('modalBody');
+      if (modalBackdrop && modalBody) {
+        modalBody.innerHTML = `
+          <div style="text-align:center; padding: 10px;">
+            <img src="assets/illustrations/certificate_large.png" alt="Certificate" style="width: 100%; max-width: 320px; height: auto; margin-bottom: 16px;">
+            <h3 style="font-family: var(--font-display); font-size: 1.3rem; color: #1e1b4b; margin-bottom: 6px;">${title}</h3>
+            <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 12px;">Awarded to <strong>Kavin S.</strong> • Issued on ${date}</p>
+            <button class="btn-primary" id="btnCloseCertModal" style="padding: 8px 24px; border-radius: 999px;">Close</button>
+          </div>
+        `;
+        modalBackdrop.classList.add('active');
+        document.getElementById('btnCloseCertModal')?.addEventListener('click', () => {
+          modalBackdrop.classList.remove('active');
+        });
+        if (typeof playSound === 'function') playSound('celebration');
+      }
+    });
+  });
+
+  document.querySelectorAll('.btn-cert-download').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (typeof playSound === 'function') playSound('celebration');
+      alert('Certificate downloaded successfully!');
+    });
+  });
 }
 
 // 5. AI STUDY BUDDY FLOW
