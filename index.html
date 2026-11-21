@@ -3331,12 +3331,12 @@
 
         <!-- Notification Bell -->
         <button class="bell-btn" title="Notifications">
-          <img src="assets/icons/bell_notification.png" alt="Bell">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="#f59e0b"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/></svg>
         </button>
 
         <!-- Student Profile Capsule -->
         <div class="student-profile-capsule" title="Aarav's Profile">
-          <img src="assets/characters/aarav_avatar.png" alt="Aarav S." class="profile-pic">
+          <img src="assets/characters/aarav_avatar_clean.png" alt="Aarav S." class="profile-pic">
           <div class="profile-names">
             <span class="p-name">Aarav S.</span>
             <span class="p-pts">⭐ 320 Points <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span>
@@ -3348,7 +3348,7 @@
       <section class="stats-panel-widget widget-progress">
         <div class="widget-title-row">
           <div class="widget-title-left">
-            <img src="assets/icons/target_bullseye_dart.png" alt="Target" class="widget-heading-icon">
+            <span class="widget-emoji-icon">🎯</span>
             <h3>My Progress</h3>
           </div>
           <span class="overall-progress-tag">Overall : <strong>65%</strong></span>
@@ -3441,7 +3441,7 @@
       <section class="stats-panel-widget widget-streak">
         <div class="widget-title-row">
           <div class="widget-title-left">
-            <img src="assets/icons/icon-streak-flame.svg" alt="Flame" class="title-flame-icon">
+            <span class="widget-emoji-icon">🔥</span>
             <h3>My Streak</h3>
           </div>
         </div>
@@ -3449,7 +3449,8 @@
         <div class="streak-details-body">
           <!-- 3D Flame graphic on wooden slice with "5 Days" -->
           <div class="streak-flame-badge-wrap">
-            <img src="assets/icons/flame_wood_streak.png" alt="5 Days Streak" class="streak-flame-3d-img">
+            <img src="assets/icons/stat_flame_3d.png" alt="5 Days Streak" class="streak-flame-3d-img">
+            <span class="streak-flame-label">5 Days Streak</span>
           </div>
 
           <!-- Inset 7-Day Tracker Pill Box (Mon-Fri Checked, Sat-Sun Pending) -->
@@ -3509,23 +3510,26 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="#eab308"><path d="M19 5h-2V3H7v2H5c-1.1 0-2 .9-2 2v1c0 2.55 1.92 4.63 4.39 4.94A5.01 5.01 0 0011 15.9V19H7v2h10v-2h-4v-3.1a5.01 5.01 0 003.61-2.96C19.08 12.63 21 10.55 21 8V7c0-1.1-.9-2-2-2zM5 8V7h2v3.82C5.84 10.4 5 9.3 5 8zm14 0c0 1.3-.84 2.4-2 2.82V7h2v1z"/></svg>
             <h3>My Achievements</h3>
           </div>
-          <a href="#view-all" class="view-all-achievements-btn">View All ›</a>
+          <a href="#view-all" class="view-all-achievements-btn" data-route="achievements">View All ›</a>
         </div>
 
         <div class="badges-capsules-grid">
           <!-- Quick Learner -->
-          <div class="badge-card-item" title="Quick Learner Badge">
-            <img src="assets/icons/card_quick_learner.png" alt="Quick Learner" class="badge-card-sticker">
+          <div class="badge-card-item" title="Quick Learner Badge" data-route="achievements">
+            <img src="assets/icons/badge_quick_learner_3d.png" alt="Quick Learner" class="badge-card-sticker">
+            <span class="badge-card-title-sub">Quick Learner</span>
           </div>
 
           <!-- Maths Star -->
-          <div class="badge-card-item" title="Maths Star Badge">
-            <img src="assets/icons/card_maths_star.png" alt="Maths Star" class="badge-card-sticker">
+          <div class="badge-card-item" title="Maths Star Badge" data-route="achievements">
+            <img src="assets/icons/badge_maths_star_3d.png" alt="Maths Star" class="badge-card-sticker">
+            <span class="badge-card-title-sub">Maths Star</span>
           </div>
 
           <!-- Quiz Champ -->
-          <div class="badge-card-item" title="Quiz Champ Badge">
-            <img src="assets/icons/card_quiz_champ.png" alt="Quiz Champ" class="badge-card-sticker">
+          <div class="badge-card-item" title="Quiz Champ Badge" data-route="achievements">
+            <img src="assets/icons/badge_quiz_champ_3d.png" alt="Quiz Champ" class="badge-card-sticker">
+            <span class="badge-card-title-sub">Quiz Champ</span>
           </div>
         </div>
       </section>

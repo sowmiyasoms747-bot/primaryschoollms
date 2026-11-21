@@ -11703,7 +11703,6 @@ body {
   margin-top: 24px;
 }
 
-
 /* ==========================================================================
    RESPONSIVE DESIGN SYSTEM - UNIVERSAL DEVICE COMPATIBILITY
    Supports 4K, Desktops, Laptops, Tablets (iPad / Galaxy Tab), and Mobile
@@ -11868,7 +11867,7 @@ body {
     min-height: 100vh !important;
   }
 
-  /* 1. Show Mobile Sticky Top Bar */
+  /* 1. Mobile Sticky Top Header */
   .mobile-top-header {
     display: flex !important;
     align-items: center;
@@ -11880,11 +11879,9 @@ body {
     z-index: 950;
     height: 58px;
     padding: 0 16px;
-    background: rgba(255, 255, 255, 0.94);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    background: #ffffff !important;
+    border-bottom: 2px solid #e2e8f0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .mobile-menu-toggle {
@@ -11977,10 +11974,10 @@ body {
     display: block !important;
     position: fixed;
     inset: 0;
-    background: rgba(15, 23, 42, 0.45);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    z-index: 998;
+    background: rgba(15, 23, 42, 0.65) !important;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 9998 !important;
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.3s ease;
@@ -11991,28 +11988,68 @@ body {
     pointer-events: auto !important;
   }
 
-  /* 3. Left Sidebar as Slide-out Drawer */
+  /* 3. Left Sidebar as SOLID OPAQUE Slide-out Drawer */
   .sidebar-panel {
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     bottom: 0 !important;
-    width: 280px !important;
-    max-width: 85vw !important;
+    width: 290px !important;
+    max-width: 86vw !important;
     height: 100vh !important;
     height: 100dvh !important;
-    z-index: 999 !important;
-    background: rgba(255, 255, 255, 0.98) !important;
-    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.22) !important;
+    z-index: 9999 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    opacity: 1 !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: 12px 0 40px rgba(0, 0, 0, 0.35) !important;
     transform: translateX(-105%) !important;
     transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1) !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     border-radius: 0 24px 24px 0 !important;
+    border-right: 2px solid #e2e8f0 !important;
+    padding: 24px 16px 20px 16px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    gap: 14px !important;
   }
 
   .sidebar-panel.mobile-open {
     transform: translateX(0) !important;
+  }
+
+  .sidebar-panel .brand-header {
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 14px;
+    margin-bottom: 6px;
+  }
+
+  .sidebar-panel .nav-pill {
+    background: #f8fafc !important;
+    color: #1e144a !important;
+    font-weight: 800 !important;
+    border: 1.5px solid #edf2f7;
+    margin-bottom: 3px;
+  }
+
+  .sidebar-panel .nav-item.active .nav-pill {
+    background: linear-gradient(135deg, #22c55e, #16a34a) !important;
+    color: #ffffff !important;
+    border-color: #16a34a !important;
+  }
+
+  .sidebar-panel .sidebar-reading-fox {
+    margin-top: auto !important;
+    padding-top: 14px !important;
+    border-top: 1.5px solid #f1f5f9 !important;
+  }
+
+  .sidebar-panel .reading-fox-img {
+    width: 140px !important;
   }
 
   .mobile-sidebar-close {
@@ -12020,18 +12057,20 @@ body {
     position: absolute;
     top: 14px;
     right: 14px;
-    width: 34px;
-    height: 34px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     background: #f1f5f9;
     border: 1.5px solid #cbd5e1;
-    color: #475569;
-    font-size: 1.4rem;
+    color: #334155;
+    font-size: 1.6rem;
     line-height: 1;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     transition: all 0.2s ease;
+    z-index: 10;
   }
 
   .mobile-sidebar-close:active {
@@ -12160,27 +12199,30 @@ body {
 
   /* 1. Mobile Home Welcome Banner */
   .banner-section {
+    position: relative !important;
     flex-direction: column !important;
     align-items: center !important;
-    padding: 16px 14px !important;
+    padding: 20px 14px 14px 14px !important;
     min-height: auto !important;
-    gap: 12px !important;
+    gap: 8px !important;
     text-align: center !important;
   }
 
   .waving-fox-anchor {
     position: static !important;
-    width: 95px !important;
-    height: 105px !important;
-    margin: 0 auto !important;
+    width: 105px !important;
+    height: 115px !important;
+    margin: 0 auto 4px auto !important;
+    display: block !important;
   }
 
   .treehouse-anchor {
     position: absolute !important;
-    top: -12px !important;
+    top: -16px !important;
     right: 8px !important;
-    transform: scale(0.6) !important;
+    transform: scale(0.65) !important;
     transform-origin: top right !important;
+    z-index: 12 !important;
   }
 
   .banner-right-content {
@@ -12190,44 +12232,66 @@ body {
   }
 
   .banner-heading {
-    font-size: 1.35rem !important;
+    font-size: 1.38rem !important;
     line-height: 1.2 !important;
+    margin-bottom: 2px !important;
   }
 
   .banner-subheading {
     font-size: 0.88rem !important;
-    margin-top: 4px !important;
+    margin-top: 2px !important;
   }
 
+  /* Quick stats grid on mobile: 4 clean columns so NOTHING overflows */
   .banner-streak-badge {
-    justify-content: center !important;
-    flex-wrap: wrap !important;
-    gap: 6px !important;
-    margin-top: 10px !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 6px 4px !important;
+    gap: 2px !important;
+    margin-top: 8px !important;
+    overflow: hidden !important;
   }
 
   .stat-unit {
-    padding: 4px 8px !important;
+    padding: 4px 4px !important;
+    gap: 3px !important;
+    justify-content: center !important;
   }
 
   .stat-unit img,
   .stat-unit-icon {
-    width: 26px !important;
-    height: 26px !important;
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .stat-unit-info {
+    text-align: center !important;
   }
 
   .stat-num {
-    font-size: 0.98rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1 !important;
   }
 
   .stat-txt {
-    font-size: 0.65rem !important;
+    font-size: 0.60rem !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+  }
+
+  .stat-sep {
+    display: none !important;
   }
 
   /* 2. Today Learning Plan Parchment Scroll on Mobile */
   .scroll-banner-wrapper {
-    height: 250px !important;
+    height: 255px !important;
     margin: 4px 0 12px 0 !important;
+    position: relative !important;
   }
 
   .scroll-inner-content {
@@ -12256,13 +12320,13 @@ body {
   }
 
   .islands-stepping-row {
-    min-width: 500px !important;
+    min-width: 520px !important;
     gap: 4px !important;
   }
 
   .stepping-island {
-    width: 115px !important;
-    height: 115px !important;
+    width: 110px !important;
+    height: 110px !important;
   }
 
   /* 3. Subjects Grid: 2 columns on Mobile */
@@ -12299,6 +12363,12 @@ body {
   .tri-widget-card {
     min-height: auto !important;
     padding: 12px 14px !important;
+    overflow: visible !important;
+  }
+
+  .leaderboard-podium-wrap {
+    overflow: visible !important;
+    max-width: 100% !important;
   }
 
   /* 5. Subviews Common Cards & Flow Screens */
@@ -12372,7 +12442,117 @@ body {
     flex-wrap: wrap !important;
   }
 
-  /* 7. Questions, Options, & Forms */
+  /* 7. Right Stats Panel widgets on Mobile */
+  .stats-panel-widget {
+    padding: 14px 12px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .widget-heading-icon,
+  .title-flame-icon,
+  .widget-emoji-icon {
+    font-size: 1.3rem !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  /* Streak vertical stack on Mobile */
+  .streak-details-body {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+  }
+
+  .streak-flame-badge-wrap {
+    width: 100% !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+
+  .streak-flame-3d-img {
+    width: 58px !important;
+    height: 58px !important;
+    object-fit: contain !important;
+  }
+
+  .streak-flame-label {
+    font-family: var(--font-display) !important;
+    font-size: 1.05rem !important;
+    font-weight: 900 !important;
+    color: #ea580c !important;
+  }
+
+  .streak-days-pill-box {
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 10px 6px !important;
+    gap: 3px !important;
+    justify-content: space-between !important;
+  }
+
+  .streak-day-item {
+    flex: 1 !important;
+    align-items: center !important;
+  }
+
+  .day-bubble {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .day-bubble svg {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  .day-label-txt {
+    font-size: 0.70rem !important;
+  }
+
+  /* Achievements Badges Card on Mobile */
+  .badges-capsules-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .badge-card-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 6px !important;
+    background: #ffffff !important;
+    border: 1.5px solid #ede9fe !important;
+    border-radius: 16px !important;
+    padding: 10px 4px !important;
+    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.1) !important;
+    text-align: center !important;
+  }
+
+  .badge-card-sticker {
+    width: 54px !important;
+    height: 54px !important;
+    object-fit: contain !important;
+  }
+
+  .badge-card-title-sub {
+    font-family: var(--font-display) !important;
+    font-size: 0.72rem !important;
+    font-weight: 800 !important;
+    color: #4c1d95 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* 8. Questions, Options, & Forms */
   .question-card-box {
     padding: 14px 12px !important;
     border-radius: 18px !important;
@@ -12391,26 +12571,6 @@ body {
     padding: 10px 14px !important;
     font-size: 0.95rem !important;
     min-height: 48px !important;
-  }
-
-  /* 8. Leaderboard & Summary Tables */
-  .leaderboard-table-container,
-  .leaderboard-table-wrap {
-    overflow-x: auto !important;
-    -webkit-overflow-scrolling: touch !important;
-    width: 100% !important;
-  }
-
-  .leaderboard-table th,
-  .leaderboard-table td {
-    padding: 8px 6px !important;
-    font-size: 0.82rem !important;
-  }
-
-  .leaderboard-podium-wrap {
-    transform: scale(0.85) !important;
-    transform-origin: center top !important;
-    margin: 0 auto 12px auto !important;
   }
 
   /* 9. Live Classes Meeting Screen on Mobile */
