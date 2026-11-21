@@ -2628,253 +2628,310 @@
 <!-- ====================================================================
            VIEW 11: AI STUDY BUDDY (9-SCREEN COMPREHENSIVE FLOW)
            ==================================================================== -->
-      <section class="app-view" id="view-ai-buddy">
+            <section class="app-view" id="view-ai-buddy">
 
         <!-- SCREEN 1: AI BUDDY HOME -->
         <div class="flow-screen-panel active-screen" id="aiScreen1" data-ai-screen="1">
           <div class="view-dashboard-card">
             <div class="view-wood-header">
               <img src="assets/illustrations/ai_buddy_wooden_sign.png" alt="AI Study Buddy" class="wood-sign-img">
-              <p class="wood-header-tagline">Ask questions, clear doubts, and master any topic with your 24/7 AI tutor!</p>
+              <p class="wood-header-tagline">Your Smart Learning Friend!</p>
             </div>
             <div class="view-dashboard-body">
               <div class="view-mascot-col">
-                <img src="assets/characters/ai_robot_mascot.png" alt="AI Robot Mascot" class="mascot-img-pencil">
+                <img src="assets/characters/ai_robot_reading.png" alt="AI Robot Reading" class="mascot-img-laptop">
               </div>
-              <div class="quiz-modes-grid">
-                <div class="quiz-mode-card" data-ai-nav="3">
-                  <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">💬</span></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Ask a Doubt</h3><p class="quiz-mode-desc">Chat & get instant answers</p></div>
+              <div class="ai-home-features-card">
+                <div class="ai-features-list">
+                  <div class="ai-feature-row"><img src="assets/icons/ai_buddy/icon_check_green.png" class="ai-check-icon" alt="✓"><span>Ask Doubts Anytime</span></div>
+                  <div class="ai-feature-row"><img src="assets/icons/ai_buddy/icon_check_green.png" class="ai-check-icon" alt="✓"><span>Get Easy Explanations</span></div>
+                  <div class="ai-feature-row"><img src="assets/icons/ai_buddy/icon_check_green.png" class="ai-check-icon" alt="✓"><span>Practice Questions</span></div>
+                  <div class="ai-feature-row"><img src="assets/icons/ai_buddy/icon_check_green.png" class="ai-check-icon" alt="✓"><span>Learn with Examples</span></div>
                 </div>
-                <div class="quiz-mode-card" data-ai-nav="4">
-                  <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">💡</span></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Concept Explainer</h3><p class="quiz-mode-desc">Visual step-by-step guides</p></div>
-                </div>
-                <div class="quiz-mode-card" data-ai-nav="5">
-                  <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">🎯</span></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Practice Questions</h3><p class="quiz-mode-desc">AI generated drills</p></div>
-                </div>
-                <div class="quiz-mode-card" data-ai-nav="6">
-                  <div class="quiz-mode-icon-circle bg-orange-glow"><span class="card-emoji-icon">📝</span></div>
-                  <div class="quiz-mode-info"><h3 class="quiz-mode-title">Quick Notes</h3><p class="quiz-mode-desc">Summary & revision sheets</p></div>
-                </div>
+                <button class="btn-start-chat-purple" data-ai-nav="2">Start Chat ▶</button>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- SCREEN 2: HELP OPTIONS / TOPICS -->
+        <!-- SCREEN 2: CHOOSE A HELP OPTION -->
         <div class="flow-screen-panel" id="aiScreen2" data-ai-screen="2">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="1">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Help Options</span>
+            <span class="bc-link" data-ai-nav="1">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Get Help</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">What do you want help with today?</h2>
-            <div class="quiz-modes-grid">
-              <div class="quiz-mode-card" data-ai-nav="3">
-                <div class="quiz-mode-icon-circle bg-purple-glow"><span class="card-emoji-icon">➕</span></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Maths Homework</h3><p class="quiz-mode-desc">Addition, subtraction & tables</p></div>
+          <div class="view-dashboard-card ai-help-options-card">
+            <div class="ai-help-body-split">
+              <div class="ai-help-mascot-col">
+                <img src="assets/characters/ai_robot_pointing.png" alt="AI Robot Pointing" class="ai-help-robot-img">
               </div>
-              <div class="quiz-mode-card" data-ai-nav="3">
-                <div class="quiz-mode-icon-circle bg-gold-glow"><span class="card-emoji-icon">🌱</span></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Science Concepts</h3><p class="quiz-mode-desc">Plants, animals, and weather</p></div>
-              </div>
-              <div class="quiz-mode-card" data-ai-nav="3">
-                <div class="quiz-mode-icon-circle bg-orange-glow"><span class="card-emoji-icon">📖</span></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">English Grammar</h3><p class="quiz-mode-desc">Nouns, verbs and sentences</p></div>
-              </div>
-              <div class="quiz-mode-card" data-ai-nav="7">
-                <div class="quiz-mode-icon-circle bg-green-glow"><span class="card-emoji-icon">📅</span></div>
-                <div class="quiz-mode-info"><h3 class="quiz-mode-title">Create Study Plan</h3><p class="quiz-mode-desc">Personalized timetable</p></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- SCREEN 3: CHAT - ASK DOUBT -->
-        <div class="flow-screen-panel" id="aiScreen3" data-ai-screen="3">
-          <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Ask a Doubt</span>
-          </div>
-          <div class="view-dashboard-card ai-chat-card-wrap">
-            <div class="ai-chat-header-bar">
-              <div class="ai-header-mascot-pill">
-                <span class="ai-live-dot">●</span>
-                <span class="ai-bot-name">RoboBuddy AI</span>
-                <span class="ai-bot-tag">Online</span>
-              </div>
-              <div class="ai-header-actions">
-                <button class="btn-clear-chat" data-ai-nav="8">📜 History</button>
-              </div>
-            </div>
-            <div class="ai-chat-messages-container" id="aiChatMsgContainer">
-              <div class="chat-bubble-row bot-row">
-                <div class="chat-avatar-circ">🤖</div>
-                <div class="chat-speech-bubble bot-bubble">
-                  Hi Aarav! 👋 I'm your AI Study Buddy. Ask me anything about your Maths, Science, or English lessons!
-                </div>
-              </div>
-              <div class="chat-bubble-row user-row">
-                <div class="chat-speech-bubble user-bubble">
-                  What is addition with regrouping?
-                </div>
-                <div class="chat-avatar-circ user-avatar">👦</div>
-              </div>
-              <div class="chat-bubble-row bot-row">
-                <div class="chat-avatar-circ">🤖</div>
-                <div class="chat-speech-bubble bot-bubble">
-                  Great question! 💡 Regrouping (also called "carrying") is when you have 10 or more in one place value column, so you carry the 10 over to the next column!
-                  <div class="chat-example-snippet">
-                    <strong>Example:</strong> 17 + 5<br>
-                    • 7 + 5 = 12 (Write 2, carry 1)<br>
-                    • 1 + 1 = 2 tens<br>
-                    • Total = <strong>22</strong> 🎉
+              <div class="ai-help-content-col">
+                <h2 class="ai-help-main-title">How can I help you today?</h2>
+                <div class="ai-options-grid-3x2">
+                  <div class="ai-option-tile" data-ai-nav="3">
+                    <img src="assets/icons/ai_buddy/icon_ask_doubt.png" class="ai-opt-3d-ico" alt="Ask a Doubt">
+                    <span class="ai-opt-name">Ask a Doubt</span>
+                  </div>
+                  <div class="ai-option-tile" data-ai-nav="4">
+                    <img src="assets/icons/ai_buddy/icon_explain_concept.png" class="ai-opt-3d-ico" alt="Explain a Concept">
+                    <span class="ai-opt-name">Explain a Concept</span>
+                  </div>
+                  <div class="ai-option-tile" data-ai-nav="5">
+                    <img src="assets/icons/ai_buddy/icon_practice_questions.png" class="ai-opt-3d-ico" alt="Practice Questions">
+                    <span class="ai-opt-name">Practice Questions</span>
+                  </div>
+                  <div class="ai-option-tile" data-ai-nav="6">
+                    <img src="assets/icons/ai_buddy/icon_summarize_notes.png" class="ai-opt-3d-ico" alt="Summarize / Notes">
+                    <span class="ai-opt-name">Summarize / Notes</span>
+                  </div>
+                  <div class="ai-option-tile" data-ai-nav="4">
+                    <img src="assets/icons/ai_buddy/icon_examples.png" class="ai-opt-3d-ico" alt="Examples">
+                    <span class="ai-opt-name">Examples</span>
+                  </div>
+                  <div class="ai-option-tile" data-ai-nav="7">
+                    <img src="assets/icons/ai_buddy/icon_study_plan.png" class="ai-opt-3d-ico" alt="Study Plan">
+                    <span class="ai-opt-name">Study Plan</span>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="ai-prompt-suggestion-chips">
-              <button class="chip-btn" data-ai-nav="4">💡 Show Visual Steps</button>
-              <button class="chip-btn" data-ai-nav="5">🎯 Practice a Problem</button>
-              <button class="chip-btn" data-ai-nav="6">📝 Save as Note</button>
-            </div>
-            <div class="ai-chat-input-bar">
-              <input type="text" class="ai-chat-input" placeholder="Type your doubt or question here..." value="">
-              <button class="ai-send-btn">Send 🚀</button>
-            </div>
+            <img src="assets/characters/fox_reading_sitting.png" alt="Fox Reading" class="quiz-fox-reading-corner">
           </div>
         </div>
 
-        <!-- SCREEN 4: CONCEPT VISUAL EXPLAINER -->
+        <!-- SCREEN 3: CHAT WITH AI - ASK A DOUBT -->
+        <div class="flow-screen-panel" id="aiScreen3" data-ai-screen="3">
+          <div class="flow-breadcrumbs-bar">
+            <span class="bc-link" data-ai-nav="2">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Chat</span>
+          </div>
+          <div class="view-dashboard-card ai-chat-interface-card">
+            <div class="ai-chat-thread-stream">
+              <!-- User Message -->
+              <div class="ai-msg-row user-side">
+                <div class="ai-msg-bubble user-bubble-purple">
+                  <span class="ai-bubble-text">Why does it rain?</span>
+                </div>
+                <img src="assets/characters/aarav_avatar.png" class="chat-avatar-user" alt="Aarav">
+              </div>
+              <div class="msg-timestamp-row">10:24 AM</div>
+
+              <!-- AI Bot Message -->
+              <div class="ai-msg-row bot-side">
+                <img src="assets/characters/ai_robot_avatar.png" class="chat-avatar-robot" alt="AI Robot">
+                <div class="ai-msg-bubble bot-bubble-card">
+                  <p class="bot-text-paragraph">It rains because tiny water droplets in the clouds join together, become heavy, and fall down as rain. 🌧️</p>
+                  <div class="ai-msg-diagram-wrap">
+                    <img src="assets/illustrations/ai_visual_rain_cycle.png" alt="Rain Cycle Diagram" class="ai-visual-diagram-img">
+                  </div>
+                  <div class="ai-msg-reactions-bar">
+                    <div class="reaction-icons-group">
+                      <button class="btn-reaction-ico" title="Helpful">👍</button>
+                      <button class="btn-reaction-ico" title="Not helpful">👎</button>
+                      <button class="btn-reaction-ico" title="Copy">📋</button>
+                    </div>
+                    <button class="btn-listen-speech"><img src="assets/icons/ai_buddy/icon_speaker_audio.png" class="pill-mini-ico" alt="Listen"> Listen</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <div class="ai-chat-input-row">
+              <span class="ai-attach-clip">📎</span>
+              <input type="text" class="ai-input-message-box" placeholder="Ask another question..." value="">
+              <button class="btn-ai-send-round"><img src="assets/icons/ai_buddy/btn_chat_send_pill.png" class="send-pill-ico" alt="Send"></button>
+            </div>
+            <img src="assets/characters/fox_reading_sitting.png" alt="Fox Reading" class="quiz-fox-reading-corner">
+          </div>
+        </div>
+
+        <!-- SCREEN 4: CONCEPT EXPLANATION (WITH VISUAL) -->
         <div class="flow-screen-panel" id="aiScreen4" data-ai-screen="4">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="3">Ask Doubt</span><span class="bc-sep">></span><span class="bc-curr">Concept Visual</span>
+            <span class="bc-link" data-ai-nav="2">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Explain a Concept</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">Step-by-Step Visual: Addition with Regrouping</h2>
-            <div class="visual-explainer-steps-grid">
-              <div class="visual-step-card">
-                <span class="v-step-num">Step 1</span>
-                <h4 class="v-step-title">Line up the Numbers</h4>
-                <div class="v-math-box"><span class="math-line">Tens | Ones</span><span class="math-line"> 1  |  7</span><span class="math-line">+0  |  5</span></div>
-                <p class="v-step-desc">Always align ones with ones and tens with tens.</p>
+          <div class="view-dashboard-card ai-chat-interface-card">
+            <div class="ai-chat-thread-stream">
+              <!-- User Message -->
+              <div class="ai-msg-row user-side">
+                <div class="ai-msg-bubble user-bubble-purple">
+                  <span class="ai-bubble-text">Explain Photosynthesis in simple words.</span>
+                </div>
+                <img src="assets/characters/aarav_avatar.png" class="chat-avatar-user" alt="Aarav">
               </div>
-              <div class="visual-step-card highlight-step">
-                <span class="v-step-num">Step 2</span>
-                <h4 class="v-step-title">Add the Ones (Regroup)</h4>
-                <div class="v-math-box"><span class="math-line">7 + 5 = 12</span><span class="math-line font-green">Keep 2, Carry 1 ⬆</span></div>
-                <p class="v-step-desc">12 is 1 ten and 2 ones.</p>
-              </div>
-              <div class="visual-step-card">
-                <span class="v-step-num">Step 3</span>
-                <h4 class="v-step-title">Add the Tens</h4>
-                <div class="v-math-box"><span class="math-line">1 (carry) + 1 = 2</span><span class="math-line font-purple">Final Sum = 22</span></div>
-                <p class="v-step-desc">Combine tens for the complete answer!</p>
+
+              <!-- AI Bot Message -->
+              <div class="ai-msg-row bot-side">
+                <img src="assets/characters/ai_robot_avatar.png" class="chat-avatar-robot" alt="AI Robot">
+                <div class="ai-msg-bubble bot-bubble-card">
+                  <p class="bot-text-paragraph">Photosynthesis is the process by which green plants make their own food using sunlight, water and carbon dioxide.</p>
+                  
+                  <!-- Photosynthesis Visual Diagram -->
+                  <div class="ai-photosynthesis-diagram-box">
+                    <div class="diagram-elements-row">
+                      <div class="diag-element-col">
+                        <img src="assets/illustrations/ai_sun.png" class="diag-element-img" alt="Sunlight">
+                        <span class="diag-element-lbl">Sunlight</span>
+                      </div>
+                      <span class="diag-op-plus">+</span>
+                      <div class="diag-element-col">
+                        <img src="assets/illustrations/ai_water_drop.png" class="diag-element-img" alt="Water">
+                        <span class="diag-element-lbl">Water</span>
+                      </div>
+                      <span class="diag-op-arrow">➔</span>
+                      <div class="diag-element-col leaf-highlight">
+                        <img src="assets/illustrations/ai_leaf.png" class="diag-element-img leaf-img" alt="Leaf">
+                        <span class="diag-element-lbl font-green-bold">Photosynthesis</span>
+                      </div>
+                      <span class="diag-op-plus">+</span>
+                      <div class="diag-element-col">
+                        <div class="co2-pill-badge">CO₂<br><small>(Carbon Dioxide)</small></div>
+                      </div>
+                      <span class="diag-op-arrow">➔</span>
+                      <div class="diag-element-col">
+                        <img src="assets/illustrations/ai_plant_food.png" class="diag-element-img" alt="Food">
+                        <span class="diag-element-lbl">Food (for Plant)</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="ai-msg-reactions-bar">
+                    <div class="reaction-icons-group">
+                      <button class="btn-reaction-ico" title="Helpful">👍</button>
+                      <button class="btn-reaction-ico" title="Not helpful">👎</button>
+                      <button class="btn-reaction-ico" title="Copy">📋</button>
+                    </div>
+                    <button class="btn-listen-speech"><img src="assets/icons/ai_buddy/icon_speaker_audio.png" class="pill-mini-ico" alt="Listen"> Listen</button>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card-bottom-actions">
-              <button class="btn-start-quiz-orange" data-ai-nav="5">Try a Practice Problem ▶</button>
+
+            <!-- Chat Input Bar -->
+            <div class="ai-chat-input-row">
+              <span class="ai-attach-clip">📎</span>
+              <input type="text" class="ai-input-message-box" placeholder="Ask another question..." value="">
+              <button class="btn-ai-send-round"><img src="assets/icons/ai_buddy/btn_chat_send_pill.png" class="send-pill-ico" alt="Send"></button>
             </div>
+            <img src="assets/characters/fox_reading_sitting.png" alt="Fox Reading" class="quiz-fox-reading-corner">
           </div>
         </div>
 
         <!-- SCREEN 5: PRACTICE QUESTIONS -->
         <div class="flow-screen-panel" id="aiScreen5" data-ai-screen="5">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Practice Questions</span>
+            <span class="bc-link" data-ai-nav="2">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Practice Questions</span>
           </div>
-          <div class="view-dashboard-card">
-            <div class="quiz-question-banner-wrap">
-              <div class="quiz-pill-badge bg-gold-glow"><span>🤖 AI Practice Drill</span></div>
-              <div class="quiz-timer-pill"><span>Q1 of 3</span></div>
+          <div class="view-dashboard-card ai-practice-stage-card">
+            <div class="ai-practice-hud-pill">
+              <img src="assets/icons/ai_buddy/icon_calculator.png" class="hud-inline-ico" alt="Calculator">
+              <span>Practice – Addition (Class 3)</span>
             </div>
-            <div class="question-stem-container">
-              <h2 class="question-stem-text">What is 28 + 15?</h2>
+
+            <div class="ai-practice-body-layout">
+              <div class="ai-practice-q-col">
+                <h3 class="ai-q-title">Q1. What is 245 + 132 ?</h3>
+                <div class="ai-q-options-list">
+                  <div class="ai-option-btn-row"><span class="opt-alpha-badge">A</span><span class="opt-val-text">367</span></div>
+                  <div class="ai-option-btn-row correct-active"><span class="opt-alpha-badge">B</span><span class="opt-val-text">377</span><img src="assets/icons/ai_buddy/icon_check_green.png" class="opt-check-badge" alt="✓"></div>
+                  <div class="ai-option-btn-row"><span class="opt-alpha-badge">C</span><span class="opt-val-text">347</span></div>
+                  <div class="ai-option-btn-row"><span class="opt-alpha-badge">D</span><span class="opt-val-text">387</span></div>
+                </div>
+                <div class="ai-q-bottom-nav">
+                  <span class="ai-q-progress-lbl">2 of 5 Questions</span>
+                  <div class="ai-q-progress-bar"><div class="progress-bar-fill" style="width: 40%;"></div></div>
+                </div>
+              </div>
+
+              <!-- AI Robot Praise Callout -->
+              <div class="ai-robot-praise-col">
+                <div class="ai-praise-speech-bubble">
+                  <strong>Great!</strong><br>That's the correct answer! 🎉
+                </div>
+                <img src="assets/characters/ai_robot_thumbs_up.png" alt="AI Robot Thumbs Up" class="ai-praise-robot-img">
+                <button class="btn-ai-next-purple" data-ai-nav="6">Next ▶</button>
+              </div>
             </div>
-            <div class="quiz-options-grid-interactive">
-              <button class="quiz-opt-btn" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">A</span><span class="opt-label-text">41</span></button>
-              <button class="quiz-opt-btn correct-opt" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">B</span><span class="opt-label-text">43</span><span class="opt-check-badge">✓</span></button>
-              <button class="quiz-opt-btn" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">C</span><span class="opt-label-text">45</span></button>
-              <button class="quiz-opt-btn" onclick="this.classList.toggle('selected-opt')"><span class="opt-key-badge">D</span><span class="opt-label-text">42</span></button>
-            </div>
-            <div class="ai-hint-box">
-              <span class="hint-ico">💡</span>
-              <span class="hint-txt"><strong>AI Hint:</strong> 8 + 5 = 13 (carry 1). Then 2 + 1 + 1 = 4. So the answer is 43!</span>
-            </div>
-            <div class="quiz-nav-row">
-              <button class="btn-quiz-prev" data-ai-nav="4">‹ Back</button>
-              <button class="btn-quiz-next" data-ai-nav="6">Next Question ›</button>
-            </div>
+            <img src="assets/characters/fox_reading_sitting.png" alt="Fox Reading" class="quiz-fox-reading-corner">
           </div>
         </div>
 
-        <!-- SCREEN 6: QUICK NOTES -->
+        <!-- SCREEN 6: SUMMARIZE / QUICK NOTES -->
         <div class="flow-screen-panel" id="aiScreen6" data-ai-screen="6">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Quick Notes</span>
+            <span class="bc-link" data-ai-nav="2">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Summarize Notes</span>
           </div>
-          <div class="view-dashboard-card">
-            <div class="notes-header-row">
-              <h2 class="section-title-bold">📝 Revision Sheet: Addition & Place Value</h2>
-              <button class="btn-download-notes">📥 Save PDF</button>
-            </div>
-            <div class="revision-note-sheet">
-              <div class="note-section-box">
-                <h4 class="note-sec-title">🌟 Key Rules to Remember</h4>
-                <ul class="note-bullets">
-                  <li><strong>Order Property:</strong> Changing the order of numbers does not change the sum (e.g. 4 + 3 = 3 + 4 = 7).</li>
-                  <li><strong>Zero Property:</strong> Adding 0 to any number gives the same number (e.g. 9 + 0 = 9).</li>
-                  <li><strong>Regrouping Rule:</strong> Whenever a column totals 10 or more, carry the ten to the left.</li>
-                </ul>
+          <div class="view-dashboard-card ai-notes-stage-card">
+            <!-- Spiral Notepad Container -->
+            <div class="spiral-notepad-container">
+              <div class="notepad-spiral-rings">
+                <span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span><span class="spiral-ring"></span>
               </div>
-              <div class="note-section-box highlight-sec">
-                <h4 class="note-sec-title">⚡ Quick Mental Math Tip</h4>
-                <p class="note-text">To add 9 quickly, add 10 and subtract 1! Example: 25 + 9 = 25 + 10 - 1 = 34.</p>
+              <div class="notepad-inner-sheet">
+                <div class="notepad-content-layout">
+                  <div class="notepad-notes-col">
+                    <h2 class="notepad-main-title">Quick Notes – Addition</h2>
+                    <div class="notepad-bullet-item"><img src="assets/icons/ai_buddy/icon_check_green.png" class="notepad-check-ico" alt="✓"><span>Addition means finding the total.</span></div>
+                    <div class="notepad-bullet-item"><img src="assets/icons/ai_buddy/icon_check_green.png" class="notepad-check-ico" alt="✓"><span>Use the + (plus) sign.</span></div>
+                    <div class="notepad-bullet-item"><img src="assets/icons/ai_buddy/icon_check_green.png" class="notepad-check-ico" alt="✓"><span>We add two or more numbers.</span></div>
+                    <div class="notepad-bullet-item"><img src="assets/icons/ai_buddy/icon_check_green.png" class="notepad-check-ico" alt="✓"><span>The answer is called the sum.</span></div>
+                    <div class="notepad-example-box">
+                      <strong>Example:</strong><br>
+                      <span class="example-math">245 + 132 = 377</span>
+                    </div>
+                  </div>
+                  <div class="notepad-robot-col">
+                    <img src="assets/characters/ai_robot_reading.png" alt="AI Robot Reading" class="notepad-robot-img">
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="card-bottom-actions">
-              <button class="btn-start-quiz-green" data-ai-nav="7">View My Study Plan ▶</button>
+
+            <div class="notepad-bottom-actions-row">
+              <button class="btn-notepad-purple"><img src="assets/icons/ai_buddy/icon_download.png" class="pill-mini-ico" alt="Download"> Download Notes</button>
+              <button class="btn-notepad-outline"><img src="assets/icons/ai_buddy/icon_bookmark.png" class="pill-mini-ico" alt="Save"> Save to My Learning</button>
             </div>
+            <img src="assets/characters/fox_reading_sitting.png" alt="Fox Reading" class="quiz-fox-reading-corner">
           </div>
         </div>
 
-        <!-- SCREEN 7: PERSONALIZED STUDY PLAN -->
+        <!-- SCREEN 7: STUDY PLAN (PERSONALIZED) -->
         <div class="flow-screen-panel" id="aiScreen7" data-ai-screen="7">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Study Plan</span>
+            <span class="bc-link" data-ai-nav="2">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Study Plan</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">📅 AI Personalized Weekly Plan</h2>
-            <div class="study-plan-schedule-grid">
-              <div class="day-plan-card completed-day">
-                <span class="day-name">Monday</span>
-                <span class="day-task">Maths Practice</span>
-                <span class="day-dur">15 mins</span>
-                <span class="day-status font-green">✓ Completed</span>
+          <div class="view-dashboard-card ai-plan-stage-card">
+            <div class="ai-plan-layout">
+              <div class="ai-plan-mascot-col">
+                <img src="assets/characters/ai_robot_thumbs_up.png" alt="AI Robot Study Buddy" class="ai-plan-robot-img">
               </div>
-              <div class="day-plan-card completed-day">
-                <span class="day-name">Tuesday</span>
-                <span class="day-task">Science Reading</span>
-                <span class="day-dur">20 mins</span>
-                <span class="day-status font-green">✓ Completed</span>
-              </div>
-              <div class="day-plan-card today-day">
-                <span class="day-name">Wednesday</span>
-                <span class="day-task">Quiz Practice</span>
-                <span class="day-dur">15 mins</span>
-                <span class="day-status font-orange">● Today</span>
-              </div>
-              <div class="day-plan-card upcoming-day">
-                <span class="day-name">Thursday</span>
-                <span class="day-task">Live Class Prep</span>
-                <span class="day-dur">20 mins</span>
-                <span class="day-status font-gray">Upcoming</span>
-              </div>
-              <div class="day-plan-card upcoming-day">
-                <span class="day-name">Friday</span>
-                <span class="day-task">Weekly Challenge</span>
-                <span class="day-dur">25 mins</span>
-                <span class="day-status font-gray">Upcoming</span>
+              <div class="ai-plan-items-col">
+                <div class="ai-plan-header-title">
+                  <img src="assets/icons/ai_buddy/icon_calendar.png" class="plan-header-ico" alt="Calendar">
+                  <h2>My Study Plan</h2>
+                </div>
+                <div class="ai-plan-list">
+                  <div class="ai-plan-card-row">
+                    <img src="assets/icons/ai_buddy/icon_explain_concept.png" class="plan-ico-3d" alt="Book">
+                    <div class="plan-info"><span class="plan-name">Learn – Addition & Subtraction</span></div>
+                    <span class="plan-time-tag">20 min</span>
+                  </div>
+                  <div class="ai-plan-card-row">
+                    <img src="assets/icons/ai_buddy/icon_study_plan.png" class="plan-ico-3d" alt="Target">
+                    <div class="plan-info"><span class="plan-name">Practice – 10 Questions</span></div>
+                    <span class="plan-time-tag">15 min</span>
+                  </div>
+                  <div class="ai-plan-card-row">
+                    <img src="assets/icons/ai_buddy/icon_summarize_notes.png" class="plan-ico-3d" alt="Clipboard">
+                    <div class="plan-info"><span class="plan-name">Revise – Key Formulas</span></div>
+                    <span class="plan-time-tag">10 min</span>
+                  </div>
+                  <div class="ai-plan-card-row">
+                    <img src="assets/icons/ai_buddy/icon_trophy.png" class="plan-ico-3d" alt="Trophy">
+                    <div class="plan-info"><span class="plan-name">Quiz – Quick Test</span></div>
+                    <span class="plan-time-tag">10 min</span>
+                  </div>
+                </div>
+                <button class="btn-start-plan-green" data-ai-nav="5">Start Plan ▶</button>
               </div>
             </div>
           </div>
@@ -2883,57 +2940,94 @@
         <!-- SCREEN 8: CHAT HISTORY -->
         <div class="flow-screen-panel" id="aiScreen8" data-ai-screen="8">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="3">Chat</span><span class="bc-sep">></span><span class="bc-curr">Chat History</span>
+            <span class="bc-link" data-ai-nav="2">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Chat History</span>
           </div>
-          <div class="view-dashboard-card">
-            <h2 class="section-title-bold">Previous Doubt Sessions</h2>
-            <div class="chat-history-list">
-              <div class="chat-history-item" data-ai-nav="3">
-                <div class="hist-icon">💬</div>
-                <div class="hist-info">
-                  <h4 class="hist-title">How does addition regrouping work?</h4>
-                  <p class="hist-meta">Maths • 3 replies • Today, 10:15 AM</p>
-                </div>
-                <button class="btn-cert-view">Resume</button>
+          <div class="view-dashboard-card ai-history-stage-card">
+            <div class="ai-history-header-bar">
+              <h2 class="ai-history-title">My conversations</h2>
+              <button class="btn-trash-history"><img src="assets/icons/ai_buddy/icon_trash_red.png" class="trash-icon-img" alt="Delete History"></button>
+            </div>
+            <div class="ai-history-cards-list">
+              <div class="ai-hist-card-row" data-ai-nav="3">
+                <img src="assets/icons/ai_buddy/icon_bubble_purple.png" class="hist-bubble-ico" alt="Chat">
+                <span class="hist-query-text">Why does it rain?</span>
+                <span class="hist-time-stamp">Today, 10:24 AM</span>
+                <span class="hist-arrow-chevron">></span>
               </div>
-              <div class="chat-history-item" data-ai-nav="3">
-                <div class="hist-icon">🌱</div>
-                <div class="hist-info">
-                  <h4 class="hist-title">Why do plants need sunlight for photosynthesis?</h4>
-                  <p class="hist-meta">Science • 4 replies • 18 Nov 2026</p>
-                </div>
-                <button class="btn-cert-view">Resume</button>
+              <div class="ai-hist-card-row" data-ai-nav="4">
+                <img src="assets/icons/ai_buddy/icon_bubble_purple.png" class="hist-bubble-ico" alt="Chat">
+                <span class="hist-query-text">Explain Photosynthesis</span>
+                <span class="hist-time-stamp">Today, 09:30 AM</span>
+                <span class="hist-arrow-chevron">></span>
               </div>
-              <div class="chat-history-item" data-ai-nav="3">
-                <div class="hist-icon">📖</div>
-                <div class="hist-info">
-                  <h4 class="hist-title">Difference between Proper Nouns and Common Nouns</h4>
-                  <p class="hist-meta">English • 2 replies • 15 Nov 2026</p>
-                </div>
-                <button class="btn-cert-view">Resume</button>
+              <div class="ai-hist-card-row" data-ai-nav="5">
+                <img src="assets/icons/ai_buddy/icon_bubble_green.png" class="hist-bubble-ico" alt="Chat">
+                <span class="hist-query-text">Practice – Addition</span>
+                <span class="hist-time-stamp">Yesterday, 05:15 PM</span>
+                <span class="hist-arrow-chevron">></span>
+              </div>
+              <div class="ai-hist-card-row" data-ai-nav="6">
+                <img src="assets/icons/ai_buddy/icon_bubble_purple.png" class="hist-bubble-ico" alt="Chat">
+                <span class="hist-query-text">Give me short notes on Division</span>
+                <span class="hist-time-stamp">Yesterday, 04:20 PM</span>
+                <span class="hist-arrow-chevron">></span>
               </div>
             </div>
+            <img src="assets/characters/fox_reading_sitting.png" alt="Fox Reading" class="quiz-fox-reading-corner">
           </div>
         </div>
 
-        <!-- SCREEN 9: AI LEARNING INSIGHTS & RECOMMENDATIONS -->
+        <!-- SCREEN 9: LEARNING INSIGHTS -->
         <div class="flow-screen-panel" id="aiScreen9" data-ai-screen="9">
           <div class="flow-breadcrumbs-bar">
-            <span class="bc-link" data-ai-nav="1">AI Buddy</span><span class="bc-sep">></span><span class="bc-curr">Insights</span>
+            <span class="bc-link" data-ai-nav="1">AI Study Buddy</span><span class="bc-sep">></span><span class="bc-curr">Insights</span>
           </div>
-          <div class="view-dashboard-card insights-card-wrap">
-            <h2 class="section-title-bold">🤖 AI Learning Analysis & Recommendations</h2>
-            <div class="insights-body-layout">
-              <div class="insights-bulb-circle"><span class="bulb-giant">📊</span></div>
-              <div class="insights-list-col">
-                <div class="insight-row-item"><span class="check-circ">✓</span><span>Strong mastery in addition and place values (92%)!</span></div>
-                <div class="insight-row-item"><span class="alert-circ">💡</span><span>Recommended practice: 3 word problems on Subtraction.</span></div>
-                <div class="insight-row-item"><span class="check-circ">✓</span><span>Study habit: Peak focus time is 10:00 AM – 11:30 AM.</span></div>
-                <div class="insight-row-item"><span class="check-circ">✓</span><span>Weekly target: Complete Chapter 3 by Friday.</span></div>
-                <button class="btn-start-quiz-orange btn-study-plan-glow" data-ai-nav="5">🚀 Start Recommended Practice ▶</button>
+          <div class="view-dashboard-card ai-insights-stage-card">
+            <div class="ai-insights-header-title">
+              <img src="assets/icons/ai_buddy/icon_barchart.png" class="insights-bar-ico" alt="Insights">
+              <h2>AI Learning Insights</h2>
+            </div>
+
+            <div class="ai-insights-body-grid">
+              <div class="insights-gauge-col">
+                <div class="gauge-center-box">
+                  <img src="assets/illustrations/ai_gauge_85.png" class="ai-gauge-85-img" alt="85% AI Practice Score">
+                </div>
+                <img src="assets/characters/ai_robot_thumbs_up.png" class="ai-insights-robot-mascot" alt="AI Robot Thumbs Up">
+              </div>
+
+              <div class="insights-metrics-col">
+                <div class="insight-metric-card">
+                  <img src="assets/icons/ai_buddy/icon_check_green.png" class="metric-check-ico" alt="✓">
+                  <span class="metric-label">Doubts Asked</span>
+                  <span class="metric-count-badge">12</span>
+                </div>
+                <div class="insight-metric-card">
+                  <img src="assets/icons/ai_buddy/icon_check_green.png" class="metric-check-ico" alt="✓">
+                  <span class="metric-label">Concepts Learned</span>
+                  <span class="metric-count-badge">8</span>
+                </div>
+                <div class="insight-metric-card">
+                  <img src="assets/icons/ai_buddy/icon_practice_questions.png" class="metric-check-ico" alt="Practice">
+                  <span class="metric-label">Practice Questions</span>
+                  <span class="metric-count-badge">25</span>
+                </div>
+                <div class="insight-metric-card">
+                  <img src="assets/icons/ai_buddy/icon_summarize_notes.png" class="metric-check-ico" alt="Plan">
+                  <span class="metric-label">Study Plans Completed</span>
+                  <span class="metric-count-badge">3</span>
+                </div>
               </div>
             </div>
-            <img src="assets/characters/ai_robot_mascot.png" alt="AI Robot" class="quiz-fox-reading-corner">
+
+            <!-- Suggestion Banner -->
+            <div class="ai-suggestion-box">
+              <div class="sug-bulb-ico">💡</div>
+              <div class="sug-text-wrap">
+                <strong>Suggestion:</strong><br>
+                <span>Revise 'Multiplication' next to improve your score!</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
