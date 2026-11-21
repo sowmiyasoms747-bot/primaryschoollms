@@ -1270,8 +1270,21 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  width: 86px;
+  width: 96px;
   flex-shrink: 0;
+}
+
+.subject-progress-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.bar-line-item:hover .subject-progress-icon {
+  transform: scale(1.15) rotate(3deg);
 }
 
 .subject-mini-squircle {
@@ -12942,6 +12955,16 @@ body {
     padding: 14px 12px !important;
     border-radius: 20px !important;
     overflow: hidden !important;
+  }
+
+  .subject-info-col {
+    width: 92px !important;
+    gap: 6px !important;
+  }
+
+  .subject-progress-icon {
+    width: 24px !important;
+    height: 24px !important;
   }
 
   .widget-heading-icon,
