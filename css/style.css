@@ -966,6 +966,8 @@ body {
   max-height: 84px;
   object-fit: contain;
 }
+
+.asg-mini-icon {
   width: 28px;
   height: 28px;
   flex-shrink: 0;
