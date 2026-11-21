@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initProgressFlow();
   initAchievementsFlow();
   initAiBuddyFlow();
+  initMobileNavigation();
   switchView('home');
 });
 
@@ -319,6 +320,73 @@ function initNav() {
       }
     });
   });
+}
+
+// ==========================================================================
+// 3B. MOBILE NAVIGATION & DRAWER CONTROLLER
+// ==========================================================================
+function initMobileNavigation() {
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  const closeBtn = document.getElementById('mobileSidebarClose');
+  const backdrop = document.getElementById('mobileSidebarBackdrop');
+  const sidebar = document.getElementById('mainSidebarPanel') || document.querySelector('.sidebar-panel');
+  const soundBtn = document.getElementById('mobileSoundBtn');
+
+  function openSidebar() {
+    if (sidebar) sidebar.classList.add('mobile-open');
+    if (backdrop) backdrop.classList.add('active');
+    document.body.classList.add('drawer-open');
+    playSound('pop');
+  }
+
+  function closeSidebar() {
+    if (sidebar) sidebar.classList.remove('mobile-open');
+    if (backdrop) backdrop.classList.remove('active');
+    document.body.classList.remove('drawer-open');
+  }
+
+  if (menuBtn) {
+    menuBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      openSidebar();
+    });
+  }
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      closeSidebar();
+    });
+  }
+
+  if (backdrop) {
+    backdrop.addEventListener('click', () => {
+      closeSidebar();
+    });
+  }
+
+  // Auto-close drawer when navigation links are clicked on tablet/mobile
+  const navLinks = document.querySelectorAll('.sidebar-nav .nav-pill');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 992) {
+        closeSidebar();
+      }
+    });
+  });
+
+  // Sound toggle on mobile header
+  if (soundBtn) {
+    soundBtn.addEventListener('click', () => {
+      playSound('chime');
+      const isMuted = soundBtn.textContent.trim() === '🔇';
+      soundBtn.textContent = isMuted ? '🔊' : '🔇';
+      const desktopSound = document.querySelector('.sound-toggle-btn');
+      if (desktopSound) {
+        desktopSound.textContent = soundBtn.textContent;
+      }
+    });
+  }
 }
 
 // ==========================================================================

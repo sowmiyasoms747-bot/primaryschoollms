@@ -11702,3 +11702,830 @@ body {
   justify-content: center;
   margin-top: 24px;
 }
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM - UNIVERSAL DEVICE COMPATIBILITY
+   Supports 4K, Desktops, Laptops, Tablets (iPad / Galaxy Tab), and Mobile
+   ========================================================================== */
+
+/* 1. Mobile Header & Drawer Overlay (Hidden on Desktop by default) */
+.mobile-top-header {
+  display: none;
+}
+
+.mobile-sidebar-backdrop {
+  display: none;
+}
+
+.mobile-sidebar-close {
+  display: none;
+}
+
+/* ==========================================================================
+   BREAKPOINT 1: LARGE LAPTOPS & DESKTOPS (max-width: 1280px)
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .lms-screen-container {
+    grid-template-columns: 210px minmax(0, 1fr) 320px;
+    gap: 12px;
+    padding: 10px 14px;
+  }
+
+  .lms-screen-container.subview-active,
+  .dashboard-viewport.subview-active {
+    grid-template-columns: 210px minmax(0, 1fr) !important;
+  }
+
+  .banner-section {
+    padding: 14px 180px 14px 150px;
+  }
+
+  .waving-fox-anchor {
+    width: 135px;
+    height: 150px;
+  }
+
+  .treehouse-anchor {
+    transform: scale(0.85);
+    top: -34px;
+    right: 6px;
+    transform-origin: top right;
+  }
+
+  .subjects-grid-row {
+    gap: 10px;
+  }
+
+  .subject-card-box {
+    padding: 10px 4px 12px 4px;
+    min-height: 116px;
+  }
+
+  .subject-card-icon img {
+    width: 52px;
+    height: 52px;
+  }
+
+  .subject-card-title {
+    font-size: 0.98rem;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 2: MEDIUM SCREENS & SMALL LAPTOPS (max-width: 1100px)
+   ========================================================================== */
+@media (max-width: 1100px) {
+  .lms-screen-container {
+    grid-template-columns: 195px minmax(0, 1fr) 290px;
+    gap: 10px;
+    padding: 8px 10px;
+  }
+
+  .lms-screen-container.subview-active,
+  .dashboard-viewport.subview-active {
+    grid-template-columns: 195px minmax(0, 1fr) !important;
+  }
+
+  .nav-pill {
+    padding: 7px 12px;
+    font-size: 0.88rem;
+    gap: 8px;
+  }
+
+  .nav-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .brand-titles {
+    font-size: 0.95rem;
+  }
+
+  .brand-logo {
+    width: 40px;
+    height: 38px;
+  }
+
+  .banner-section {
+    padding: 12px 140px 12px 130px;
+    min-height: 120px;
+  }
+
+  .waving-fox-anchor {
+    width: 115px;
+    height: 130px;
+  }
+
+  .treehouse-anchor {
+    transform: scale(0.72);
+    top: -28px;
+    right: 2px;
+  }
+
+  .banner-heading {
+    font-size: 1.5rem;
+  }
+
+  .banner-subheading {
+    font-size: 0.92rem;
+  }
+
+  .subjects-grid-row {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+
+  .scroll-banner-wrapper {
+    height: 290px;
+  }
+
+  .scroll-inner-content {
+    width: calc(100% - 70px);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .islands-stepping-row {
+    min-width: 580px;
+  }
+
+  .view-dashboard-body {
+    grid-template-columns: 160px 1fr;
+    gap: 16px;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 3: TABLETS & IPADS (max-width: 992px)
+   Switches from fixed desktop columns to smooth fluid responsive layout
+   ========================================================================== */
+@media (max-width: 992px) {
+  html, body {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    height: auto !important;
+    min-height: 100vh !important;
+  }
+
+  /* 1. Show Mobile Sticky Top Bar */
+  .mobile-top-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 950;
+    height: 58px;
+    padding: 0 16px;
+    background: rgba(255, 255, 255, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    border: 2px solid #8b5cf6;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(139, 92, 246, 0.25);
+    transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .mobile-menu-toggle:active {
+    transform: scale(0.92);
+  }
+
+  .hamburger-bar {
+    width: 22px;
+    height: 3px;
+    background: #6d28d9;
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-brand-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobile-brand-logo {
+    width: 34px;
+    height: 32px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12));
+  }
+
+  .mobile-brand-title {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #2b1055, #7c3aed);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.3px;
+  }
+
+  .mobile-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .mobile-sound-btn {
+    width: 36px;
+    height: 36px;
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease;
+  }
+
+  .mobile-sound-btn:active {
+    transform: scale(0.9);
+  }
+
+  .mobile-user-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid #8b5cf6;
+    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+  }
+
+  /* 2. Mobile Backdrop Overlay */
+  .mobile-sidebar-backdrop {
+    display: block !important;
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .mobile-sidebar-backdrop.active {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+
+  /* 3. Left Sidebar as Slide-out Drawer */
+  .sidebar-panel {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 280px !important;
+    max-width: 85vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    z-index: 999 !important;
+    background: rgba(255, 255, 255, 0.98) !important;
+    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.22) !important;
+    transform: translateX(-105%) !important;
+    transition: transform 0.34s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 0 24px 24px 0 !important;
+  }
+
+  .sidebar-panel.mobile-open {
+    transform: translateX(0) !important;
+  }
+
+  .mobile-sidebar-close {
+    display: flex !important;
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #f1f5f9;
+    border: 1.5px solid #cbd5e1;
+    color: #475569;
+    font-size: 1.4rem;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-sidebar-close:active {
+    transform: scale(0.9);
+    background: #e2e8f0;
+  }
+
+  /* 4. Single-column Fluid Layout */
+  .lms-screen-container,
+  .dashboard-viewport {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: calc(100vh - 58px) !important;
+    padding: 14px 16px 30px 16px !important;
+    gap: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  .main-dashboard-panel {
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  /* Right Stats Panel on Home View: flow neatly below main content */
+  .lms-screen-container:not(.subview-active) .right-stats-panel,
+  .dashboard-viewport:not(.subview-active) .right-stats-panel {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 8px !important;
+    gap: 14px !important;
+  }
+
+  .top-nav-header-row {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Tri-widgets: 2 columns on tablet */
+  .bottom-tri-row {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  /* Home Banner on Tablet */
+  .banner-section {
+    padding: 16px 130px 16px 130px !important;
+    min-height: 125px !important;
+  }
+
+  .treehouse-anchor {
+    transform: scale(0.7) !important;
+    top: -24px !important;
+    right: 4px !important;
+  }
+
+  .waving-fox-anchor {
+    width: 110px !important;
+    height: 125px !important;
+  }
+
+  /* Subview Cards on Tablet */
+  .view-dashboard-card {
+    padding: 20px 22px !important;
+    border-radius: 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  .view-dashboard-body {
+    grid-template-columns: 140px 1fr !important;
+    gap: 18px !important;
+  }
+
+  .view-wood-header .wood-sign-img {
+    max-width: 85% !important;
+    height: auto !important;
+    max-height: 60px !important;
+  }
+
+  .quiz-modes-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 14px !important;
+  }
+
+  /* Subjects Grid on Tablet: 3 columns */
+  .subjects-grid-row {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 4: MOBILE PHONES (max-width: 768px)
+   Optimized for iPhones, Pixel, Galaxy devices
+   ========================================================================== */
+@media (max-width: 768px) {
+  .lms-screen-container,
+  .dashboard-viewport {
+    padding: 10px 10px 24px 10px !important;
+    gap: 12px !important;
+  }
+
+  /* Mobile Top Header compact */
+  .mobile-top-header {
+    height: 52px !important;
+    padding: 0 12px !important;
+  }
+
+  .mobile-brand-title {
+    font-size: 1rem !important;
+  }
+
+  .mobile-brand-logo {
+    width: 30px !important;
+    height: 28px !important;
+  }
+
+  /* 1. Mobile Home Welcome Banner */
+  .banner-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 16px 14px !important;
+    min-height: auto !important;
+    gap: 12px !important;
+    text-align: center !important;
+  }
+
+  .waving-fox-anchor {
+    position: static !important;
+    width: 95px !important;
+    height: 105px !important;
+    margin: 0 auto !important;
+  }
+
+  .treehouse-anchor {
+    position: absolute !important;
+    top: -12px !important;
+    right: 8px !important;
+    transform: scale(0.6) !important;
+    transform-origin: top right !important;
+  }
+
+  .banner-right-content {
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .banner-heading {
+    font-size: 1.35rem !important;
+    line-height: 1.2 !important;
+  }
+
+  .banner-subheading {
+    font-size: 0.88rem !important;
+    margin-top: 4px !important;
+  }
+
+  .banner-streak-badge {
+    justify-content: center !important;
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+    margin-top: 10px !important;
+  }
+
+  .stat-unit {
+    padding: 4px 8px !important;
+  }
+
+  .stat-unit img,
+  .stat-unit-icon {
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .stat-num {
+    font-size: 0.98rem !important;
+  }
+
+  .stat-txt {
+    font-size: 0.65rem !important;
+  }
+
+  /* 2. Today Learning Plan Parchment Scroll on Mobile */
+  .scroll-banner-wrapper {
+    height: 250px !important;
+    margin: 4px 0 12px 0 !important;
+  }
+
+  .scroll-inner-content {
+    width: calc(100% - 36px) !important;
+    height: calc(100% - 10px) !important;
+    padding: 12px 6px 4px 6px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .scroll-title-badge h2 {
+    font-size: 1.05rem !important;
+  }
+
+  .target-dart-icon {
+    width: 28px !important;
+    height: 28px !important;
+  }
+
+  .custom-progress-bar-wrap {
+    width: 110px !important;
+  }
+
+  .meter-label {
+    font-size: 0.78rem !important;
+  }
+
+  .islands-stepping-row {
+    min-width: 500px !important;
+    gap: 4px !important;
+  }
+
+  .stepping-island {
+    width: 115px !important;
+    height: 115px !important;
+  }
+
+  /* 3. Subjects Grid: 2 columns on Mobile */
+  .subjects-grid-row {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .subject-card-box {
+    min-height: 105px !important;
+    padding: 10px 6px !important;
+    border-radius: 18px !important;
+  }
+
+  .subject-card-icon img {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  .subject-card-title {
+    font-size: 0.9rem !important;
+  }
+
+  .subjects-header-row h2 {
+    font-size: 1.15rem !important;
+  }
+
+  /* 4. Bottom Tri-widgets: stacked single column */
+  .bottom-tri-row {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+
+  .tri-widget-card {
+    min-height: auto !important;
+    padding: 12px 14px !important;
+  }
+
+  /* 5. Subviews Common Cards & Flow Screens */
+  .view-dashboard-card {
+    padding: 16px 12px !important;
+    border-radius: 20px !important;
+    margin-bottom: 12px !important;
+  }
+
+  .view-wood-header {
+    margin-bottom: 16px !important;
+  }
+
+  .view-wood-header .wood-sign-img {
+    max-width: 90% !important;
+    height: auto !important;
+    max-height: 50px !important;
+  }
+
+  .wood-header-tagline {
+    font-size: 0.84rem !important;
+    margin-top: 4px !important;
+    padding: 0 8px !important;
+  }
+
+  .view-dashboard-body {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+  }
+
+  .view-mascot-col {
+    text-align: center !important;
+    margin-bottom: 4px !important;
+  }
+
+  .mascot-img-pencil,
+  .mascot-img-laptop,
+  .view-mascot-col img {
+    max-width: 115px !important;
+    height: auto !important;
+  }
+
+  .quiz-modes-grid {
+    grid-template-columns: 1fr !important;
+    width: 100% !important;
+    gap: 10px !important;
+  }
+
+  .quiz-mode-card {
+    padding: 10px 12px !important;
+    border-radius: 16px !important;
+  }
+
+  .quiz-mode-title {
+    font-size: 0.98rem !important;
+  }
+
+  .quiz-mode-desc {
+    font-size: 0.78rem !important;
+  }
+
+  /* 6. Breadcrumbs bar */
+  .flow-breadcrumbs-bar {
+    padding: 5px 10px !important;
+    font-size: 0.78rem !important;
+    gap: 6px !important;
+    margin-bottom: 10px !important;
+    flex-wrap: wrap !important;
+  }
+
+  /* 7. Questions, Options, & Forms */
+  .question-card-box {
+    padding: 14px 12px !important;
+    border-radius: 18px !important;
+  }
+
+  .question-title-text {
+    font-size: 1.05rem !important;
+  }
+
+  .options-grid-container {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .option-btn-pill {
+    padding: 10px 14px !important;
+    font-size: 0.95rem !important;
+    min-height: 48px !important;
+  }
+
+  /* 8. Leaderboard & Summary Tables */
+  .leaderboard-table-container,
+  .leaderboard-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    width: 100% !important;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 8px 6px !important;
+    font-size: 0.82rem !important;
+  }
+
+  .leaderboard-podium-wrap {
+    transform: scale(0.85) !important;
+    transform-origin: center top !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+  /* 9. Live Classes Meeting Screen on Mobile */
+  .live-classroom-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 12px !important;
+  }
+
+  .live-video-stage {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 200px !important;
+  }
+
+  .live-player-controls-wrap {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+    padding: 8px !important;
+  }
+
+  .live-ctrl-btn {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* 10. AI Study Buddy Chat Screen on Mobile */
+  .ai-buddy-chat-container {
+    height: calc(100vh - 280px) !important;
+    min-height: 320px !important;
+  }
+
+  .ai-bubble {
+    max-width: 90% !important;
+    padding: 10px 12px !important;
+    font-size: 0.88rem !important;
+  }
+
+  .ai-suggestions-bar {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 6px !important;
+  }
+
+  .ai-suggestion-chip {
+    white-space: nowrap !important;
+    font-size: 0.8rem !important;
+    padding: 5px 12px !important;
+  }
+
+  .ai-chat-input-bar {
+    gap: 6px !important;
+    padding: 6px 10px !important;
+  }
+
+  .ai-chat-input {
+    font-size: 0.9rem !important;
+  }
+
+  /* 11. Modal Dialogs on Mobile */
+  .custom-modal-dialog,
+  .modal-content-box {
+    width: 92vw !important;
+    max-width: 92vw !important;
+    max-height: 85vh !important;
+    padding: 18px 14px !important;
+    border-radius: 20px !important;
+  }
+}
+
+/* ==========================================================================
+   BREAKPOINT 5: ULTRA-COMPACT PHONES (max-width: 380px)
+   iPhone SE, Galaxy Fold outer screen, small Android devices
+   ========================================================================== */
+@media (max-width: 380px) {
+  .mobile-brand-title {
+    font-size: 0.9rem !important;
+  }
+
+  .banner-heading {
+    font-size: 1.18rem !important;
+  }
+
+  .subjects-grid-row {
+    grid-template-columns: 1fr !important;
+  }
+
+  .subject-card-box {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    padding: 8px 14px !important;
+    gap: 12px !important;
+    min-height: 60px !important;
+  }
+
+  .subject-card-icon img {
+    width: 36px !important;
+    height: 36px !important;
+  }
+
+  .subject-card-title {
+    text-align: left !important;
+  }
+
+  .scroll-banner-wrapper {
+    height: 220px !important;
+  }
+
+  .islands-stepping-row {
+    min-width: 440px !important;
+  }
+
+  .stepping-island {
+    width: 95px !important;
+    height: 95px !important;
+  }
+}

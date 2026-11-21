@@ -9,12 +9,35 @@
 </head>
 <body>
 
+  <!-- Mobile Header Bar (Visible on screens <= 992px) -->
+  <header class="mobile-top-header" id="mobileTopHeader">
+    <button class="mobile-menu-toggle" id="mobileMenuBtn" aria-label="Open Navigation Menu">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+    <div class="mobile-brand-wrap">
+      <img src="assets/icons/logo.png" alt="Learning Universe" class="mobile-brand-logo">
+      <span class="mobile-brand-title">Learning Universe</span>
+    </div>
+    <div class="mobile-header-actions">
+      <button class="mobile-sound-btn" id="mobileSoundBtn" title="Toggle Sound">🔊</button>
+      <img src="assets/characters/aarav_avatar_clean.png" alt="Aarav K." class="mobile-user-avatar">
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="mobile-sidebar-backdrop" id="mobileSidebarBackdrop"></div>
+
   <div class="lms-screen-container dashboard-viewport">
     
     <!-- ====================================================================
          1. LEFT SIDEBAR NAVIGATION
          ==================================================================== -->
-    <aside class="sidebar-panel">
+    <aside class="sidebar-panel" id="mainSidebarPanel">
+      <!-- Mobile Close Button (Visible on mobile drawer only) -->
+      <button class="mobile-sidebar-close" id="mobileSidebarClose" aria-label="Close Menu">&times;</button>
+      
       <!-- Logo -->
       <div class="brand-header">
         <img src="assets/icons/logo.png" alt="Learning Universe" class="brand-logo">
